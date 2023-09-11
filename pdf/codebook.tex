@@ -1,0 +1,162 @@
+%!TEX program = xelatex
+\documentclass[a4paper,10pt,twocolumn,oneside]{article}
+\setlength{\columnsep}{10pt}                                                                    %兩欄模式的間距
+\setlength{\columnseprule}{0pt}                                                                %兩欄模式間格線粗細
+
+\usepackage{amsthm}								%定義，例題
+\usepackage{amssymb}
+%\usepackage[margin=2cm]{geometry}
+\usepackage{fontspec}								%設定字體
+\usepackage{color}
+\usepackage[x11names]{xcolor}
+\usepackage{listings}								%顯示code用的
+%\usepackage[Glenn]{fncychap}						%排版，頁面模板
+\usepackage{fancyhdr}								%設定頁首頁尾
+\usepackage{graphicx}								%Graphic
+\usepackage{enumerate}
+\usepackage{changepage}
+\usepackage[compact]{titlesec}    %compact mode for reducing margin
+\usepackage{amsmath}
+\usepackage[CheckSingle, CJKmath]{xeCJK}
+\usepackage{hyperref}
+\hypersetup{
+  linktoc=all,
+  hidelinks
+}
+% \usepackage{CJKulem}
+
+%\usepackage[T1]{fontenc}
+\usepackage{courier}
+\topmargin=-1pt
+\headsep=5pt
+\textheight=780pt
+\footskip=0pt
+\voffset=-40pt
+\textwidth=545pt
+\marginparsep=0pt
+\marginparwidth=0pt
+\marginparpush=0pt
+\oddsidemargin=0pt
+\evensidemargin=0pt
+\hoffset=-42pt
+
+%\renewcommand\listfigurename{圖目錄}
+%\renewcommand\listtablename{表目錄} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setmainfont[Path=./fonts/Quicksand/]{Quicksand-Medium}
+\setmonofont[Path=./fonts/RobotoMono/]{RobotoMono-Medium}
+\setCJKmainfont[Path=./fonts/open-huninn-font/]{jf-openhuninn-1.1}           %中文字型
+\XeTeXlinebreaklocale "zh"						%中文自動換行
+\XeTeXlinebreakskip = 0pt plus 0pt				%設定段落之間的距離
+\setcounter{secnumdepth}{3}						%目錄顯示第三層
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
+\@empty\z@\@empty
+\makeatother
+\lstset{											% Code顯示
+language=C++,										% the language of the code
+basicstyle=\footnotesize\ttfamily, 						% the size of the fonts that are used for the code
+%numbers=left,										% where to put the line-numbers
+numberstyle=\footnotesize,						% the size of the fonts that are used for the line-numbers
+stepnumber=1,										% the step between two line-numbers. If it's 1, each line  will be numbered
+numbersep=5pt,										% how far the line-numbers are from the code
+backgroundcolor=\color{white},					% choose the background color. You must add \usepackage{color}
+showspaces=false,									% show spaces adding particular underscores
+showstringspaces=false,							% underline spaces within strings
+showtabs=false,									% show tabs within strings adding particular underscores
+frame=false,											% adds a frame around the code
+tabsize=2,											% sets default tabsize to 2 spaces
+captionpos=b,										% sets the caption-position to bottom
+breaklines=true,									% sets automatic line breaking
+breakatwhitespace=false,							% sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)},							% if you want to add a comment within your code
+morekeywords={*},									% if you want to add more keywords to the set
+keywordstyle=\bfseries\color{Blue1},
+commentstyle=\itshape\color{Red4},
+stringstyle=\itshape\color{Green4},
+literate={\ \ }{{\ }}1
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\footnotesize{\fontsize{8}{9.5}\selectfont}
+\titlespacing*{\section} {0pt}{2ex plus 1ex minus .2ex}{0.8ex plus .2ex}  % minimize margin
+\titlespacing*{\subsection} {0pt}{1.75ex plus 1ex minus .2ex}{0ex plus .2ex} % minimize margin
+
+\begin{document}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[L]{National Central University - __builtin_orz()}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\contentsname}{Contents} 
+
+\scriptsize
+\vspace{-2em}
+\tableofcontents
+\vspace{-1em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\includecode}[2]{
+  \subsection{#1}
+  \vspace{-0.8em}
+  \lstinputlisting{#2}
+  \vspace{-1.2em}
+}
+
+\newcommand{\includetex}[2]{
+  \subsection{#1}
+  \input{#2}
+  \vspace{-1.2em}
+}
+
+\newcommand{\sectiontitle}[1]{
+  \section{#1}
+  \vspace{-0.5em}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectiontitle{Basic}
+\includecode{default}{../code/Basic/default.cpp}
+
+
+\sectiontitle{Matching \& Flow}
+
+\sectiontitle{Graph}
+\includecode{2-SAT}{../code/Graph/TwoSAT.cpp}
+
+\sectiontitle{Data Structure}
+\includecode{pbds tree}{../code/DataStructure/BST.cpp}
+\includecode{Centroid Decomposition}{../code/DataStructure/CentroidDecomposition.cpp}
+
+\sectiontitle{Math}
+\includecode{CRT}{../code/Math/CRT.cpp}
+\includecode{Factorize}{../code/Math/Factorize.cpp}
+\includecode{NTT}{../code/Math/NTT.cpp}
+\includecode{Lucas}{../code/Math/Lucas.cpp}
+\includecode{FloorSum}{../code/Math/FloorSum.cpp}
+
+\sectiontitle{Geometry}
+\includecode{Convex Hull}{../code/Geometry/ConvexHull.cpp}
+\includecode{Dynamic Convex Hull}{../code/Geometry/DynamicConvexHull.cpp}
+\includecode{Half Plane Intersection}{../code/Geometry/HalfPlaneIntersection.cpp}
+\includecode{Minimal Enclosing Circle}{../code/Geometry/MinimalEnclosingCircle.cpp}
+\includecode{Minkowski}{../code/Geometry/Minkowski.cpp}
+
+\sectiontitle{Stringology}
+\includecode{Z-algorithm}{../code/String/Zalgorithm.cpp}
+\includecode{Manacher}{../code/String/Manacher.cpp}
+\includecode{SuffixArray}{../code/String/SuffixArray.cpp}
+\includecode{PalindromicTree}{../code/String/PalindromicTree.cpp}
+
+\sectiontitle{Misc}
+
+\end{document}
