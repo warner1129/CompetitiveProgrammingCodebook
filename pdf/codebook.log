@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  11 SEP 2023 22:45
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  11 SEP 2023 23:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -557,7 +557,7 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )
 \symCJKmath=\mathgroup255
 
-No file codebook.aux.
+(./codebook.aux)
 \openout1 = `codebook.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
@@ -571,7 +571,7 @@ LaTeX Font Info:    ... okay on input line 90.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 9
 0.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 90.
@@ -652,24 +652,32 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 ine 90.
 \c@lstlisting=\count320
 Package hyperref Info: Link coloring OFF on input line 90.
+
+(./codebook.out) (./codebook.out)
 \@outlinefile=\write3
 \openout3 = `codebook.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 
 LaTeX Font Warning: Font shape `TU/Quicksand-Medium(0)/b/n' undefined
 (Font)              using `TU/Quicksand-Medium(0)/m/n' instead on input line 10
 0.
 
-No file codebook.toc.
+(./codebook.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write4
 \openout4 = `codebook.toc'.
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 128.
+
 
 Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 (xeCJK)                
@@ -684,7 +692,7 @@ LaTeX Font Warning: Font shape `TU/RobotoMono-Medium(0)/b/n' undefined
 
 
 LaTeX Font Warning: Font shape `TU/RobotoMono-Medium(0)/m/it' undefined
-(Font)              using `TU/RobotoMono-Medium(0)/m/n' instead on input line 7
+(Font)              using `TU/RobotoMono-Medium(0)/m/n' instead on input line 4
 .
 
 ) (../code/Graph/TwoSAT.cpp) (../code/DataStructure/BST.cpp)
@@ -692,37 +700,26 @@ LaTeX Font Warning: Font shape `TU/RobotoMono-Medium(0)/m/it' undefined
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.47   
-             for (auto [v, d] : anc[p])
+l.33   
+             build(0);
 ? 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
-
-(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
-
-
-(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 ! Missing { inserted.
 <to be read again> 
                    _
-l.47   
-             for (auto [v, d] : anc[p])
+l.33   
+             build(0);
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.47   
-             for (auto [v, d] : anc[p])
+l.33   
+             build(0);
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.47   
-             for (auto [v, d] : anc[p])
+l.33   
+             build(0);
 ? 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -744,26 +741,26 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.3   
-            vector<pair<i64, i64>> r;
+l.7   
+                    while (x % i == 0) x /= i, c++;
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.3   
-            vector<pair<i64, i64>> r;
+l.7   
+                    while (x % i == 0) x /= i, c++;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.3   
-            vector<pair<i64, i64>> r;
+l.7   
+                    while (x % i == 0) x /= i, c++;
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.3   
-            vector<pair<i64, i64>> r;
+l.7   
+                    while (x % i == 0) x /= i, c++;
 ? 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -778,30 +775,32 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[2]) (../code/Math/FloorSum.cpp) (../code/Geometry/ConvexHull.cpp
+[2]) (../code/Math/FloorSum.cpp) (../code/Geometry/ConvexHull.cpp)
+(../code/Geometry/DynamicConvexHull.cpp)
+(../code/Geometry/HalfPlaneIntersection.cpp
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.72   
-         return stk;
+l.35   
+             seg.push_back(P[i]);
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.72   
-         return stk;
+l.35   
+             seg.push_back(P[i]);
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.72   
-         return stk;
+l.35   
+             seg.push_back(P[i]);
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.72   
-         return stk;
+l.35   
+             seg.push_back(P[i]);
 ? 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -816,33 +815,32 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[3]) (../code/Geometry/DynamicConvexHull.cpp)
-(../code/Geometry/HalfPlaneIntersection.cpp)
-(../code/Geometry/MinimalEnclosingCircle.cpp) (../code/Geometry/Minkowski.cpp)
-(../code/String/Zalgorithm.cpp
+[3]) (../code/Geometry/MinimalEnclosingCircle.cpp)
+(../code/Geometry/Minkowski.cpp) (../code/String/Zalgorithm.cpp)
+(../code/String/Manacher.cpp) (../code/String/SuffixArray.cpp
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.9   
-            if (i + z[i] > r) l = i, r = i + z[i];
+l.51   
+             fup(0, n) rnk[sa[i]] = i;
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.9   
-            if (i + z[i] > r) l = i, r = i + z[i];
+l.51   
+             fup(0, n) rnk[sa[i]] = i;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.9   
-            if (i + z[i] > r) l = i, r = i + z[i];
+l.51   
+             fup(0, n) rnk[sa[i]] = i;
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.9   
-            if (i + z[i] > r) l = i, r = i + z[i];
+l.51   
+             fup(0, n) rnk[sa[i]] = i;
 ? 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -857,8 +855,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[4]) (../code/String/Manacher.cpp) (../code/String/SuffixArray.cpp)
-(../code/String/PalindromicTree.cpp)
+[4]) (../code/String/PalindromicTree.cpp)
 ! Missing $ inserted.
 <inserted text> 
                 $
@@ -896,24 +893,20 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[5] (./codebook.aux)
+[5
+
+] (./codebook.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `codebook.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `codebook.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  13FB3C18726B95BA1018CD4F721D7E58;2766.
+Package rerunfilecheck Info: File `codebook.out' has not changed.
+(rerunfilecheck)             Checksum: 13FB3C18726B95BA1018CD4F721D7E58;2766.
  ) 
 Here is how much of TeX's memory you used:
- 16803 strings out of 476683
- 335919 string characters out of 5804047
- 3594018 words of memory out of 5000000
- 36780 multiletter control sequences out of 15000+600000
+ 16783 strings out of 476683
+ 335742 string characters out of 5804047
+ 3406018 words of memory out of 5000000
+ 36752 multiletter control sequences out of 15000+600000
  515064 words of font info for 63 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,15n,85p,386b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s
