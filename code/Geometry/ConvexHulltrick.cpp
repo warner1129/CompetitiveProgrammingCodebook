@@ -2,8 +2,7 @@ template<class T>
 struct Convex {
     int n; 
     vector<T> A, V, L, U;
-    Convex(const vector<T> &_A) : A(_A), n(_A.size()) {
-        assert(n >= 3);
+    Convex(const vector<T> &_A) : A(_A), n(_A.size()) { // n >= 3
         auto it = max_element(all(A));
         L.assign(A.begin(), it + 1);
         U.assign(it, A.end()), U.push_back(A[0]);
@@ -39,7 +38,7 @@ struct Convex {
         while (r - l > 1) {
             (sig(cro(a, b, A[(l + r) / 2 % n])) == s ? l : r) = (l + r) / 2;
         }
-        return Interset(a, b, A[l % n], A[r % n]);
+        return Inter(a, b, A[l % n], A[r % n]);
     };
     vector<T> LineIntersect(T a, T b) { // long double
         int l = tangent(a - b), r = tangent(b - a);

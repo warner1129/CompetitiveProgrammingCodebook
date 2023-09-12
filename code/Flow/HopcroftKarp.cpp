@@ -1,43 +1,34 @@
 struct HopcroftKarp {
-	vector<vector<int>> G;
-	vector<int> l, r;
-	int n, m;
-	HopcroftKarp(int n, int m) : n(n), m(m), l(n, -1), r(m, -1), G(n) {}
-	void add_edge(int u, int v) {
-		G[u].emplace_back(v);
-	}
-	vector<int> dep;
-	bool bfs() {
-		dep.assign(n, 0);
-		queue<int> que;
-		for (int i = 0; i < n; i++)
-			if (l[i] == -1) que.emplace(i), dep[i] = 1;
-		int q = INF;
-		while (!que.empty()) {
-			int u = que.front(); que.pop();
-			if (dep[u] > q) break;
-			for (int v : G[u]) {
-				if (r[v] == -1) q = dep[u];
-				else if (r[v] != u and !dep[r[v]])
-					que.emplace(r[v]), dep[r[v]] = dep[u]+1;
-			}
-		}
-		return q != INF;
-	}
-	bool dfs(int u) {
-		for (int v : G[u])
-			if (r[v] == -1 or (dep[r[v]] == dep[u]+1 and dfs(r[v])))
-				return l[u] = v, r[v] = u, dep[u] = 0, true;
-		dep[u] = 0;
-		return false;
-	}
-	int max_match() {
-		int ans = 0;
-		while (bfs()) {
-			for (int i = 0; i < n; i++)
-				if (dep[i] == 1) ans += dfs(i);
-		}
-		return ans;
-	}
+    std::vector<int> g, l, r;
+    int ans;
+    HopcroftKarp(int n, int m, const std::vector<pair<int, int>> &e) 
+        : g(e.size()), l(n, -1), r(m, -1), ans(0) {
+        vector<int> deg(n + 1);
+        for (auto [x, y] : e) deg[x]++;
+        partial_sum(all(deg), deg.begin());
+        for (auto [x, y] : e) g[--deg[x]] = y;
+        vector<int> que(n);
+        for (;;) {
+            vector<int> a(n, -1), p(n, -1);
+            int t = 0;
+            for (int i = 0; i < n; i++) if (l[i] == -1)
+                que[t++] = a[i] = p[i] = i;
+            bool match = false;
+            for (int i = 0; i < t; i++) {
+                int x = que[i];
+                if (~l[a[x]]) continue;
+                for (int j = deg[x]; j < deg[x + 1]; j++) {
+                    int y = g[j];
+                    if (r[y] == -1) {
+                        while (~y) r[y] = x, swap(l[x], y), x = p[x];
+                        match = true, ans++;
+                        break;
+                    }
+                    if (p[r[y]] == -1)
+                    	que[t++] = y = r[y], p[y] = x, a[y] = a[x];
+                }
+            }
+            if (!match) break;
+        }
+    }
 };
-

@@ -33,4 +33,4 @@ struct Mes {
 		}
 		return C;
 	}
-} mes;
+};
