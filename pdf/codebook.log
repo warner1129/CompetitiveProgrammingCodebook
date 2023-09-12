@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  11 SEP 2023 23:54
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  12 SEP 2023 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -695,31 +695,31 @@ LaTeX Font Warning: Font shape `TU/RobotoMono-Medium(0)/m/it' undefined
 (Font)              using `TU/RobotoMono-Medium(0)/m/n' instead on input line 4
 .
 
-) (../code/Graph/TwoSAT.cpp) (../code/DataStructure/BST.cpp)
+) (../code/Graph/TwoSAT.cpp) (../code/DataStructure/Blackmagic.cpp)
 (../code/DataStructure/CentroidDecomposition.cpp
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.33   
-             build(0);
+l.30   
+                 }
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.33   
-             build(0);
+l.30   
+                 }
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.33   
-             build(0);
+l.30   
+                 }
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.33   
-             build(0);
+l.30   
+                 }
 ? 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -741,26 +741,26 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.7   
-                    while (x % i == 0) x /= i, c++;
+l.8   
+                    r.emplace_back(i, c);
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.7   
-                    while (x % i == 0) x /= i, c++;
+l.8   
+                    r.emplace_back(i, c);
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.7   
-                    while (x % i == 0) x /= i, c++;
+l.8   
+                    r.emplace_back(i, c);
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.7   
-                    while (x % i == 0) x /= i, c++;
+l.8   
+                    r.emplace_back(i, c);
 ? 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -777,30 +777,31 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [2]) (../code/Math/FloorSum.cpp) (../code/Geometry/ConvexHull.cpp)
 (../code/Geometry/DynamicConvexHull.cpp)
-(../code/Geometry/HalfPlaneIntersection.cpp
+(../code/Geometry/HalfPlaneIntersection.cpp)
+(../code/Geometry/MinimalEnclosingCircle.cpp
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.35   
-             seg.push_back(P[i]);
+l.5   
+            return abs(p - c.ff) <= c.ss + eps;
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.35   
-             seg.push_back(P[i]);
+l.5   
+            return abs(p - c.ff) <= c.ss + eps;
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.35   
-             seg.push_back(P[i]);
+l.5   
+            return abs(p - c.ff) <= c.ss + eps;
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.35   
-             seg.push_back(P[i]);
+l.5   
+            return abs(p - c.ff) <= c.ss + eps;
 ? 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -815,32 +816,31 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[3]) (../code/Geometry/MinimalEnclosingCircle.cpp)
-(../code/Geometry/Minkowski.cpp) (../code/String/Zalgorithm.cpp)
+[3]) (../code/Geometry/Minkowski.cpp) (../code/String/Zalgorithm.cpp)
 (../code/String/Manacher.cpp) (../code/String/SuffixArray.cpp
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.51   
-             fup(0, n) rnk[sa[i]] = i;
+l.63   
+         }
 ? 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.51   
-             fup(0, n) rnk[sa[i]] = i;
+l.63   
+         }
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.51   
-             fup(0, n) rnk[sa[i]] = i;
+l.63   
+         }
 ? 
 ! Missing } inserted.
 <inserted text> 
                 }
-l.51   
-             fup(0, n) rnk[sa[i]] = i;
+l.63   
+         }
 ? 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -900,13 +900,13 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `codebook.out' has not changed.
-(rerunfilecheck)             Checksum: 13FB3C18726B95BA1018CD4F721D7E58;2766.
+(rerunfilecheck)             Checksum: 5C88DE839777BE57CA67A5C97E34EDBD;2768.
  ) 
 Here is how much of TeX's memory you used:
- 16783 strings out of 476683
- 335742 string characters out of 5804047
- 3406018 words of memory out of 5000000
- 36752 multiletter control sequences out of 15000+600000
+ 16813 strings out of 476683
+ 336183 string characters out of 5804047
+ 3415018 words of memory out of 5000000
+ 36782 multiletter control sequences out of 15000+600000
  515064 words of font info for 63 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,15n,85p,386b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s

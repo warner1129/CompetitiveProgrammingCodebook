@@ -1,4 +1,4 @@
-i64 Lucas(i64 N, i64 M, i64 D) {
+i64 Lucas(i64 N, i64 M, i64 D) { // C(N, M) mod D
     auto Factor = [&](i64 x) -> vector<pair<i64, i64>> {
         vector<pair<i64, i64>> r;
         for (i64 i = 2; x > 1; i++)

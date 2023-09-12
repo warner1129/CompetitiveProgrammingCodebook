@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {3}Graph}{1}{section.3}%
 \contentsline {subsection}{\numberline {3.1}2-SAT}{1}{subsection.3.1}%
 \contentsline {section}{\numberline {4}Data Structure}{1}{section.4}%
-\contentsline {subsection}{\numberline {4.1}pbds tree}{1}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}Blackmagic}{1}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Centroid Decomposition}{1}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Math}{2}{section.5}%
 \contentsline {subsection}{\numberline {5.1}CRT}{2}{subsection.5.1}%
@@ -16,7 +16,7 @@
 \contentsline {subsection}{\numberline {6.1}Convex Hull}{3}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Dynamic Convex Hull}{3}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Half Plane Intersection}{3}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Minimal Enclosing Circle}{4}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.4}Minimal Enclosing Circle}{3}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}Minkowski}{4}{subsection.6.5}%
 \contentsline {section}{\numberline {7}Stringology}{4}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Z-algorithm}{4}{subsection.7.1}%
