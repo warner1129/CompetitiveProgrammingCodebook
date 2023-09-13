@@ -12,9 +12,9 @@ pair<int, int> Phase(int n) {
             if (del[i] || v[i]) continue;
             if (c == -1 || g[i] > g[c]) c = i;
         }
-            if (c == -1) break;
-            v[c] = 1, s = t, t = c;
-            for (int i = 0; i < n; ++i) {
+        if (c == -1) break;
+        v[c] = 1, s = t, t = c;
+        for (int i = 0; i < n; ++i) {
             if (del[i] || v[i]) continue;
             g[i] += w[c][i];
         }
