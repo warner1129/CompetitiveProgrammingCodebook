@@ -17,3 +17,5 @@ template<class T> void org(T l, T r) { while (l != r) cerr << ' ' << *l++; cerr 
 #define rall(v) (v).rbegin(), (v).rend()
 template<class T> bool chmin(T &a, T b) { return b < a and (a = b, true); }
 template<class T> bool chmax(T &a, T b) { return a < b and (a = b, true); }
+template<class ...T> int add(T ...x) { int t{}; return (((t += x) %= mod), ...), t; }
+template<class ...T> int mul(T ...x) { i64 t{1}; return (((t *= x) %= mod), ...), t; } 

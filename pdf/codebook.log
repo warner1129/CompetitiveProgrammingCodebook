@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  13 SEP 2023 15:40
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  14 SEP 2023 13:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -684,19 +684,19 @@ Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 (xeCJK)                Try to use `\setCJKmonofont[<...>]{<...>}' to define
 (xeCJK)                it.
 
-(../code/Basic/default.cpp
+(../code/Basic/vimrc
 
 LaTeX Font Warning: Font shape `TU/RobotoMono-Medium(0)/b/n' undefined
-(Font)              using `TU/RobotoMono-Medium(0)/m/n' instead on input line 1
+(Font)              using `TU/RobotoMono-Medium(0)/m/n' instead on input line 2
 .
 
 
 LaTeX Font Warning: Font shape `TU/RobotoMono-Medium(0)/m/it' undefined
-(Font)              using `TU/RobotoMono-Medium(0)/m/n' instead on input line 4
+(Font)              using `TU/RobotoMono-Medium(0)/m/n' instead on input line 8
 .
 
-) (../code/Basic/vimrc) (../code/Basic/judge.sh) (../code/Flow/Dinic.cpp)
-(../code/Flow/zkwDinic.cpp
+) (../code/Basic/default.cpp) (../code/Basic/judge.sh)
+(../code/Basic/Random.cpp) (../code/Flow/Dinic.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
@@ -704,20 +704,29 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1
 
-]) (../code/Flow/HopcroftKarp.cpp) (../code/Flow/KM.cpp) (../code/Flow/SW.cpp
+]) (../code/Flow/zkwDinic.cpp) (../code/Flow/HopcroftKarp.cpp)
+(../code/Flow/KM.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[2]) (../code/Flow/GeneralMatching.cpp) (../code/Graph/TwoSAT.cpp)
-(../code/Graph/ManhattanMST.cpp) (../code/DataStructure/LazySegtree.cpp
+[2]) (../code/Flow/SW.cpp) (../code/Flow/GeneralMatching.cpp)
+(../code/Graph/TwoSAT.cpp) (../code/Graph/ManhattanMST.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[3]) (../code/DataStructure/LiChaoSegtree.cpp)
+[3]) (../code/Graph/TreeHash.cpp) (../code/Graph/MaximumIndependentSet.cpp)
+(../code/Graph/MinMeanWeightCycle.cpp) (../code/DataStructure/LazySegtree.cpp)
+(../code/DataStructure/Treap.cpp
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 3.60004pt, for example:
+(fancyhdr)                \setlength{\footskip}{3.60004pt}.
+
+[4]) (../code/DataStructure/LiChaoSegtree.cpp)
 (../code/DataStructure/PersistentSegmentTree.cpp)
 (../code/DataStructure/Blackmagic.cpp)
 (../code/DataStructure/CentroidDecomposition.cpp
@@ -726,78 +735,109 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[4]) (../code/Math/theorem.tex
+[5]) (../code/Math/theorem.tex
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 13.
 
-) (../code/Math/Exgcd.cpp) (../code/Math/CRT.cpp) (../code/Math/Factorize.cpp
+) (../code/Math/Exgcd.cpp) (../code/Math/CRT.cpp)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[5]) (../code/Math/NTT.cpp) (../code/Math/FWT.tex) (../code/Math/FWT.cpp
+[6] (../code/Math/Factorize.cpp) (../code/Math/NTT.cpp) (../code/Math/FWT.tex)
+(../code/Math/FWT.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[6]) (../code/Math/Lucas.cpp) (../code/Math/BerlekampMassey.cpp)
+[7]) (../code/Math/Lucas.cpp) (../code/Math/BerlekampMassey.cpp)
 (../code/Math/GaussElimination.cpp) (../code/Math/LinearEquation.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[7]) (../code/Math/LinearRec.cpp) (../code/Math/SubsetConv.cpp)
-(../code/Math/FloorSum.cpp) (../code/Geometry/2Dpoint.cpp)
-(../code/Geometry/ConvexHull.cpp) (../code/Geometry/ConvexHull.cpp
+[8]) (../code/Math/LinearRec.cpp) (../code/Math/SubsetConv.cpp)
+(../code/Math/SqrtMod.cpp) (../code/Math/FloorSum.cpp)
+(../code/Geometry/2Dpoint.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[8]) (../code/Geometry/DynamicConvexHull.cpp)
+[9]) (../code/Geometry/ConvexHull.cpp) (../code/Geometry/ConvexHull.cpp)
+(../code/Geometry/DynamicConvexHull.cpp)
 (../code/Geometry/HalfPlaneIntersection.cpp)
-(../code/Geometry/MinimalEnclosingCircle.cpp) (../code/Geometry/Minkowski.cpp)
-(../code/String/Zalgorithm.cpp) (../code/String/Manacher.cpp
+(../code/Geometry/MinimalEnclosingCircle.cpp) (../code/Geometry/Minkowski.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[9]) (../code/String/SuffixArray.cpp) (../code/String/PalindromicTree.cpp)
-(../code/String/SmallestRotation.cpp) (../code/Misc/HilbertCurve.cpp)
-(../code/Misc/DLX.cpp
+[10]) (../code/String/Zalgorithm.cpp) (../code/String/Manacher.cpp)
+(../code/String/SuffixArray.cpp) (../code/String/PalindromicTree.cpp)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[10]) (../code/Misc/NextPerm.cpp)
+[11] (../code/String/SmallestRotation.cpp) (../code/Misc/HilbertCurve.cpp)
+(../code/Misc/DLX.cpp) (../code/Misc/NextPerm.cpp) (../code/Misc/fastio.cpp)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[11
+[12]
+File: grid.jpg Graphic file (type bmp)
+<grid.jpg>
+
+Overfull \hbox (269.46515pt too wide) in paragraph at lines 199--200
+[][] 
+ []
+
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 3.60004pt, for example:
+(fancyhdr)                \setlength{\footskip}{3.60004pt}.
+
+[13
+
+
+]
+File: Spherical-coordinates.png Graphic file (type bmp)
+<Spherical-coordinates.png>
+
+Overfull \hbox (174.30925pt too wide) in paragraph at lines 202--203
+[][] 
+ []
+
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 3.60004pt, for example:
+(fancyhdr)                \setlength{\footskip}{3.60004pt}.
+
+[14
+
 
 ] (./codebook.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `codebook.out' has not changed.
-(rerunfilecheck)             Checksum: 1E7718CEC547D08DC7633917C146B42C;5688.
+(rerunfilecheck)             Checksum: A66574ED087E238B2913EA6A0D42AB05;6660.
  ) 
 Here is how much of TeX's memory you used:
- 17321 strings out of 476683
- 345339 string characters out of 5804047
- 3362018 words of memory out of 5000000
- 37211 multiletter control sequences out of 15000+600000
+ 17477 strings out of 476683
+ 347710 string characters out of 5804047
+ 3352018 words of memory out of 5000000
+ 37341 multiletter control sequences out of 15000+600000
  514648 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,12n,85p,386b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,12n,85p,386b,1737s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on codebook.pdf (11 pages).
+Output written on codebook.pdf (14 pages).
