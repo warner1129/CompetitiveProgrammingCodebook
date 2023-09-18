@@ -1,8 +1,8 @@
-set ts=4 sw=4 nu rnu et cin hls mouse=a
-color default
+set ts=4 sw=4 nu rnu et hls mouse=a
+filetype indent on
 sy on
+inoremap jk <Esc> 
 inoremap {<CR> {<CR>}<C-o>O
-inoremap jk <Esc>
 nnoremap J 5j
 nnoremap K 5k
-nnoremap <F1> :w<bar>!g++ -std=c++20 -DLOCAL -Wfatal-errors -Wshadow -O2 -g -fsanitize=address,undefined -o run "%" && echo "done." && time ./run<CR>
+nnoremap <F1> :w<bar>!g++ '%' -o run -std=c++20 -DLOCAL -Wfatal-errors -fsanitize=address,undefined -g -O2 && echo done. && time ./run<CR>
