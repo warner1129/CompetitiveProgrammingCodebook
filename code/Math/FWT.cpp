@@ -1,47 +1,25 @@
-void xorfwt(int v[], int l, int r) {
+void FWT(vector<int> &f, int l, int r, auto &op) {
     if (r - l == 1) return;
     int m = l + r >> 1;
-    xorfwt(v, l, m), xorfwt(v, m, r);
-    for (int i = l, j = m; i < m; ++i, ++j) {
-        int x = v[i] + v[j];
-        v[j] = v[i] - v[j], v[i] = x;
-    }
+    FWT(f, l, m, op), FWT(f, m, r, op);
+    for (int i = l, j = m; i < m; i++, j++)
+        op(f[i], f[j]);
 }
 
-void xorifwt(int v[], int l, int r) {
+void iFWT(vector<int> &f, int l, int r, auto &op) {
     if (r - l == 1) return;
     int m = l + r >> 1;
-    for (int i = l, j = m; i < m; ++i, ++j) {
-        int x = (v[i] + v[j]) / 2;
-        v[j] = (v[i] - v[j]) / 2, v[i] = x;
-    }
-    xorifwt(v, l, m), xorifwt(v, m, r);
+    for (int i = l, j = m; i < m; i++, j++)
+        op(f[i], f[j]);
+    iFWT(f, l, m, op), iFWT(f, m, r, op);
 }
 
-void andfwt(int v[], int l, int r) {
-    if (r - l == 1) return;
-    int m = l + r >> 1;
-    andfwt(v, l, m), andfwt(v, m, r);
-    for (int i = l, j = m; i < m; ++i, ++j) v[i] += v[j];
-}
-
-void andifwt(int v[], int l, int r) {
-    if (r - l == 1) return;
-    int m = l + r >> 1;
-    andifwt(v, l, m), andifwt(v, m, r);
-    for (int i = l, j = m; i < m; ++i, ++j) v[i] -= v[j];
-}
-
-void orfwt(int v[], int l, int r) {
-    if (r - l == 1) return;
-    int m = l + r >> 1;
-    orfwt(v, l, m), orfwt(v, m, r);
-    for (int i = l, j = m; i < m; ++i, ++j) v[j] += v[i];
-}
-
-void orifwt(int v[], int l, int r) {
-    if (r - l == 1) return;
-    int m = l + r >> 1;
-    orifwt(v, l, m), orifwt(v, m, r);
-    for (int i = l, j = m; i < m; ++i, ++j) v[j] -= v[i];
+vector<int> BitConv(int n, vector<int> f, vector<int> g, const auto &op, const auto &iop) {
+    const int N = 1 << n;
+    FWT(f, 0, N, op);
+    FWT(g, 0, N, op);
+    for (int i = 0; i < N; i++)
+        f[i] = mul(f[i], g[i]);
+    iFWT(f, 0, N, iop);
+    return f;
 }
