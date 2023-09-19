@@ -1,7 +1,7 @@
 struct HopcroftKarp {
-    std::vector<int> g, l, r;
+    vector<int> g, l, r;
     int ans;
-    HopcroftKarp(int n, int m, const std::vector<pair<int, int>> &e) 
+    HopcroftKarp(int n, int m, const vector<pair<int, int>> &e) 
         : g(e.size()), l(n, -1), r(m, -1), ans(0) {
         vector<int> deg(n + 1);
         for (auto [x, y] : e) deg[x]++;
