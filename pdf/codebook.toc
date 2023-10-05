@@ -36,13 +36,13 @@
 \contentsline {subsection}{\numberline {6.8}Lucas}{8}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}Berlekamp Massey}{8}{subsection.6.9}%
 \contentsline {subsection}{\numberline {6.10}Gauss Elimination}{8}{subsection.6.10}%
-\contentsline {subsection}{\numberline {6.11}Linear Equation}{9}{subsection.6.11}%
+\contentsline {subsection}{\numberline {6.11}Linear Equation}{8}{subsection.6.11}%
 \contentsline {subsection}{\numberline {6.12}LinearRec}{9}{subsection.6.12}%
 \contentsline {subsection}{\numberline {6.13}SubsetConv}{9}{subsection.6.13}%
 \contentsline {subsection}{\numberline {6.14}SqrtMod}{9}{subsection.6.14}%
 \contentsline {subsection}{\numberline {6.15}FloorSum}{9}{subsection.6.15}%
-\contentsline {section}{\numberline {7}Geometry}{10}{section.7}%
-\contentsline {subsection}{\numberline {7.1}2D Point}{10}{subsection.7.1}%
+\contentsline {section}{\numberline {7}Geometry}{9}{section.7}%
+\contentsline {subsection}{\numberline {7.1}2D Point}{9}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Convex Hull}{10}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Convex Hull trick}{10}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Dynamic Convex Hull}{10}{subsection.7.4}%
@@ -53,10 +53,11 @@
 \contentsline {subsection}{\numberline {8.1}Z-algorithm}{11}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Manacher}{11}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}SuffixArray}{11}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}PalindromicTree}{11}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}SmallestRotation}{12}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.4}SimpleSuffixArray}{11}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}PalindromicTree}{12}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}SmallestRotation}{12}{subsection.8.6}%
 \contentsline {section}{\numberline {9}Misc}{12}{section.9}%
 \contentsline {subsection}{\numberline {9.1}HilbertCurve}{12}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}DLX}{12}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}NextPerm}{12}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}FastIO}{12}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.3}NextPerm}{13}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}FastIO}{13}{subsection.9.4}%
