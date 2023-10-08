@@ -26,3 +26,16 @@ pair<i64, i64> Split(i64 x) {
     i64 r = x - 1 - l;
     return {l, r};
 };
+{
+    auto [ls, l] = DP(lo);
+    auto [rs, r] = DP(hi);
+    if (r < K) {
+        cout << "Impossible\n";
+        return;
+    }
+    if (l == K) cout << ls << '\n';
+    else if (r == K) cout << rs << '\n';
+    else {
+        cout << (ls * (r - K) + rs * (K - l)) / (r - l) << '\n';
+    }
+}
