@@ -1,4 +1,4 @@
-set<int> MI(const vector<vector<int>> &adj) {
+set<int> MI(const vector<vector<int>> &adj) { // n <= 40, (*500)
     set<int> I, V;
     for (int i = 0; i < adj.size(); i++)
         V.insert(i);
