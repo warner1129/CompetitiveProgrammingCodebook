@@ -1,4 +1,5 @@
-struct HK { // l, r <= 1e5
+// l, r <= 1e5
+struct HK {
     vector<int> g, l, r;
     int ans;
     HK(int n, int m, const vector<pair<int, int>> &e) 

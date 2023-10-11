@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  11 OCT 2023 23:04
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  11 OCT 2023 23:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -508,20 +508,28 @@ language=dflt;mapping=tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 
-Package fontspec Info: Font family 'RobotoMono-Medium(0)' created for font
-(fontspec)             'RobotoMono-Medium' with options
+Package fontspec Info: Could not resolve font "Monaco/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "Monaco/B" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Could not resolve font "Monaco/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: Font family 'Monaco(0)' created for font 'Monaco' with
+(fontspec)             options
 (fontspec)             [WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=Word
-Space,Path=./fonts/RobotoMono/].
+Space].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[./fonts/RobotoMono/RobotoMono-Medium]/OT:script=lat
-n;language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->"[./fonts/RobotoMono/RobotoMono-Medium]/OT:script=lat
-n;language=dflt;+smcp;"
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Monaco/AAT"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             and font adjustment code:
 (fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
 (fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
@@ -560,98 +568,96 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 (./codebook.aux)
 \openout1 = `codebook.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 9
-0.
+1.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 90.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 90.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 90.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 90.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 90.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 90.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 90.
-LaTeX Font Info:    Redeclaring math accent \check on input line 90.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 90.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 90.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 90.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 90.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 90.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 91.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 91.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 91.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 91.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 91.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 91.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 91.
+LaTeX Font Info:    Redeclaring math accent \check on input line 91.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 91.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 91.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 91.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 91.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 90.
+(Font)              `operators' in the math version `normal' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/Quicksand-Medium(0)/m/n on input lin
-e 90.
+e 91.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 90.
+(Font)              `operators' in the math version `bold' on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/Quicksand-Medium(0)/m/n on input li
-ne 90.
+ne 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/Quicksand-Medium(0)/m/n --> TU/Quicksand-Medium(0)/m
-/n on input line 90.
+/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/Quicksand-Medium(0)/m/it on input l
-ine 90.
+ine 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/Quicksand-Medium(0)/b/n on input li
-ne 90.
+ne 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 90.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/RobotoMono-Medium(0)/m/n on input l
-ine 90.
+(Font)                  OT1/cmtt/m/n --> TU/Monaco(0)/m/n on input line 91.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/Quicksand-Medium(0)/m/n --> TU/Quicksand-Medium(0)/b
-/n on input line 90.
+/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/Quicksand-Medium(0)/b/it on input 
-line 90.
+line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 90.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 91.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/RobotoMono-Medium(0)/b/n on input l
-ine 90.
+(Font)                  OT1/cmtt/m/n --> TU/Monaco(0)/b/n on input line 91.
 \c@lstlisting=\count320
-Package hyperref Info: Link coloring OFF on input line 90.
+Package hyperref Info: Link coloring OFF on input line 91.
 
 (./codebook.out) (./codebook.out)
 \@outlinefile=\write3
@@ -661,7 +667,7 @@ Package hyperref Info: Link coloring OFF on input line 90.
 
 LaTeX Font Warning: Font shape `TU/Quicksand-Medium(0)/b/n' undefined
 (Font)              using `TU/Quicksand-Medium(0)/m/n' instead on input line 10
-0.
+1.
 
 (./codebook.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
@@ -676,7 +682,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `codebook.toc'.
 
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 128.
+nput line 129.
 
 
 Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
@@ -686,17 +692,16 @@ Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 
 (../code/Basic/vimrc
 
-LaTeX Font Warning: Font shape `TU/RobotoMono-Medium(0)/m/it' undefined
-(Font)              using `TU/RobotoMono-Medium(0)/m/n' instead on input line 8
-.
+LaTeX Font Warning: Font shape `TU/Monaco(0)/m/it' undefined
+(Font)              using `TU/Monaco(0)/m/n' instead on input line 8.
 
 ) (../code/Basic/default.cpp
 
-LaTeX Font Warning: Font shape `TU/RobotoMono-Medium(0)/b/n' undefined
-(Font)              using `TU/RobotoMono-Medium(0)/m/n' instead on input line 1
-.
+LaTeX Font Warning: Font shape `TU/Monaco(0)/b/n' undefined
+(Font)              using `TU/Monaco(0)/m/n' instead on input line 1.
 
-) (../code/Basic/judge.sh) (../code/Basic/Random.cpp) (../code/Flow/Dinic.cpp
+) (../code/Basic/judge.sh) (../code/Basic/Random.cpp)
+(../code/Basic/IncStack.txt) (../code/Flow/Dinic.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
@@ -759,38 +764,38 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[7]) (../code/Math/Factorize.cpp) (../code/Math/NTT.cpp) (../code/Math/FWT.tex)
-(../code/Math/FWT.cpp
+[7]) (../code/Math/Factorize.cpp) (../code/Math/NTTPrimes.tex)
+(../code/Math/NTT.cpp) (../code/Math/FWT.tex) (../code/Math/FWT.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
 [8]) (../code/Math/Lucas.cpp) (../code/Math/BerlekampMassey.cpp)
-(../code/Math/GaussElimination.cpp) (../code/Math/LinearEquation.cpp)
-(../code/Math/LinearRec.cpp
+(../code/Math/GaussElimination.cpp) (../code/Math/LinearEquation.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[9]) (../code/Math/SubsetConv.cpp) (../code/Math/SqrtMod.cpp)
-(../code/Math/FloorSum.cpp) (../code/Geometry/2Dpoint.cpp)
-(../code/Geometry/ConvexHull.cpp
+[9]) (../code/Math/LinearRec.cpp) (../code/Math/SubsetConv.cpp)
+(../code/Math/SqrtMod.cpp) (../code/Math/FloorSum.cpp)
+(../code/Geometry/2Dpoint.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[10]) (../code/Geometry/ConvexHull.cpp) (../code/Geometry/DynamicConvexHull.cpp
-) (../code/Geometry/HalfPlaneIntersection.cpp)
-(../code/Geometry/MinimalEnclosingCircle.cpp) (../code/Geometry/Minkowski.cpp)
+[10]) (../code/Geometry/ConvexHull.cpp) (../code/Geometry/ConvexHull.cpp)
+(../code/Geometry/DynamicConvexHull.cpp)
+(../code/Geometry/HalfPlaneIntersection.cpp)
+(../code/Geometry/MinimalEnclosingCircle.cpp) (../code/Geometry/Minkowski.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[11] (../code/Geometry/TriangleCenter.cpp) (../code/String/Zalgorithm.cpp)
+[11]) (../code/Geometry/TriangleCenter.cpp) (../code/String/Zalgorithm.cpp)
 (../code/String/Manacher.cpp) (../code/String/SuffixArray.cpp)
 (../code/String/SuffixArray.cpp
 
@@ -816,7 +821,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 File: grid.jpg Graphic file (type bmp)
 <grid.jpg>
 
-Overfull \hbox (269.46515pt too wide) in paragraph at lines 204--205
+Overfull \hbox (269.46515pt too wide) in paragraph at lines 207--208
 [][] 
  []
 
@@ -832,7 +837,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 File: Spherical-coordinates.png Graphic file (type bmp)
 <Spherical-coordinates.png>
 
-Overfull \hbox (174.30925pt too wide) in paragraph at lines 207--208
+Overfull \hbox (174.30925pt too wide) in paragraph at lines 210--211
 [][] 
  []
 
@@ -849,15 +854,15 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `codebook.out' has not changed.
-(rerunfilecheck)             Checksum: EEBD552423302F666845A535B99020A3;7382.
+(rerunfilecheck)             Checksum: B56BBAE288DEBA140A6BA2D9ED55B8AF;7676.
  ) 
 Here is how much of TeX's memory you used:
- 17623 strings out of 476683
- 349670 string characters out of 5804047
- 3366018 words of memory out of 5000000
- 37469 multiletter control sequences out of 15000+600000
+ 17638 strings out of 476683
+ 349500 string characters out of 5804047
+ 3320018 words of memory out of 5000000
+ 37473 multiletter control sequences out of 15000+600000
  514648 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,12n,85p,384b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,12n,77p,384b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on codebook.pdf (16 pages).
