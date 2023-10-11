@@ -1,128 +1,134 @@
 \begin{itemize}
 
-    \item Pick's theorem
+  \item Pick's theorem
 
-    $A=i+\frac{b}{2}-1$
+  $A=i+\frac{b}{2}-1$
 
-    \item Laplacian matrix
+  \item Laplacian matrix
 
-    $L = D - A$
+  $L = D - A$
 
-    \item Extended Catalan number
+  \item Extended Catalan number
 
-    $\frac{1}{(k-1)n+1} {kn\choose n}$
+  $\frac{1}{(k-1)n+1} {kn\choose n}$
 
-    \item Derangement
-    $D_n=(n-1)(D_{n-1}+D_{n-2})$
+  \item Derangement
+  $D_n=(n-1)(D_{n-1}+D_{n-2})$
 
-    \item Möbius
+  \item Möbius
 
-    $\sum\limits_{i|n} \mu(i)=[n=1]$
-    $\sum\limits_{i|n} \phi(i)=n$
+  $\sum\limits_{i|n} \mu(i)=[n=1]$
+  $\sum\limits_{i|n} \phi(i)=n$
 
-    \item Inversion formula
+  \item Inversion formula
 
-    $f(n)=\sum\limits_{i=0}^n{n \choose i}g(i)$
-    $g(n)=\sum\limits_{i=0}^n(-1)^{n-i}{n \choose i}f(i)$
+  $f(n)=\sum\limits_{i=0}^n{n \choose i}g(i)$
+  $g(n)=\sum\limits_{i=0}^n(-1)^{n-i}{n \choose i}f(i)$
 
-    $f(n)=\sum\limits_{d|n}g(d)$
-    $g(n)=\sum\limits_{d|n}\mu(\frac{n}{d})f(d)$
+  $f(n)=\sum\limits_{d|n}g(d)$
+  $g(n)=\sum\limits_{d|n}\mu(\frac{n}{d})f(d)$
 
-    \item Sum of powers
+  \item Sum of powers
 
-    $\sum_{k=1}^{n} k^m=\frac{1}{m+1}\sum_{k=0}^{m}{{m+1}\choose{k}}~B^+_k~n^{m+1-k}$
+  $\sum_{k=1}^{n} k^m=\frac{1}{m+1}\sum_{k=0}^{m}{{m+1}\choose{k}}~B^+_k~n^{m+1-k}$
 
-    $\sum_{j=0}^{m}{m+1\choose j}B^-_j=0$
+  $\sum_{j=0}^{m}{m+1\choose j}B^-_j=0$
 
-    note :
-    $B^+_1=-B^-_1$
-    $B^+_i=B^-_i$
+  note :
+  $B^+_1=-B^-_1$
+  $B^+_i=B^-_i$
 
-    \item Cipolla's algorithm
+  \item Cipolla's algorithm
 
-    $\left(\dfrac{u}{p}\right)=u^{\frac{p-1}{2}}$
+  $\left(\dfrac{u}{p}\right)=u^{\frac{p-1}{2}}$
 
-    \begin{enumerate}
-        \item $\left(\dfrac{a^2-n}{p}\right)=-1$
-        \item $x=(a+\sqrt{a^2-n})^{\frac{p+1}{2}}$
-    \end{enumerate}
+  \begin{enumerate}
+      \item $\left(\dfrac{a^2-n}{p}\right)=-1$
+      \item $x=(a+\sqrt{a^2-n})^{\frac{p+1}{2}}$
+  \end{enumerate}
 
-    \item High order residue
+  \item Cayley's formula \\
+  number of trees on n labeled vertices: $n^{n-2}$ \\
+  Let $T_{n,k}$ be the number of labelled forests on n vertices with k connected components, such that vertices 1, 2, ..., k all belong to different connected components. Then $T_{n,k} = k n^{n-k-1}.$
 
-    $[d^{\frac{p-1}{(n,p-1)}}\equiv 1]$
+  \item High order residue
 
-    \item Packing and Covering
+  $[d^{\frac{p-1}{(n,p-1)}}\equiv 1]$
 
-    $|Maximum Independent Set| + |Minimum Vertex Cover| = |V|$
+  \item Packing and Covering
 
-    \item Kőnig's theorem
+  $|\mbox{Maximum Independent Set}| + |\mbox{Minimum Vertex Cover}| = |V|$
 
-    $|maximum matching| = |minimum vertex cover|$
+  \item Kőnig's theorem
 
-    \item Dilworth's theorem
+  $|\mbox{maximum matching}| = |\mbox{minimum vertex cover}|$
 
-    $width = |largest antichain| = |smallest chain decomposition|$
+  \item Dilworth's theorem
 
-    \item Mirsky's theorem
+  $\mbox{width} = |\mbox{largest antichain}| = |\mbox{smallest chain decomposition}|$
 
-    $height = |longest chain| = |smallest antichain decomposition| = |minimum anticlique partition|$
+  \item Mirsky's theorem
 
-    \item Triangle center
-    
-    \begin{itemize}
-    \item $G : (1,)$
-    \item $O : (a^2(b^2+c^2-a^2),)=(sin2A,)$
-    \item $I : (a,)=(sinA)$
-    \item $E : (-a, b, c)=(-sinA, sinB, sinC)$
-    \item $H : (\frac{1}{b^2+c^2-a^2},)=(tanA,)$
-    \end{itemize}
+  $\mbox{height} = |\mbox{longest chain}| = |\mbox{smallest antichain decomposition}| = |\mbox{minimum anticlique partition}|$
 
-    \item Lucas’ Theorem :\\
-      For $n, m \in \mathbb{Z}^{*}$ and prime $P$,
-      $C(m,n) \mod P$
-      %= C(\frac{m}{M},n/M) * C(m\%M,n\%M) mod P
-        $= \Pi ( C(m_i,n_i) )$
-      where $m_i$ is the $i$-th digit of $m$ in base $P$.
-    \item Stirling approximation : \\
-      $n!\approx\sqrt{ 2 \pi n}(\frac{n}{e})^{n}e^\frac{1}{12n}$
-    \item Stirling Numbers(permutation $|P|=n$ with $k$ cycles): \\
-      $S(n,k) = \text{coefficient of }x^k \text{ in } \Pi_{i=0}^{n-1} (x+i)$
-    \item Stirling Numbers(Partition $n$ elements into $k$ non-empty set): \\
-      $S(n,k) = \frac{1}{k!} \sum\limits_{j=0}^k (-1)^{k-j} {k \choose j} j^n$
-    \item Pick’s Theorem : $A = i + b/2 - 1$\\
-      $A$: Area、 $i$: grid number in the inner、 $b$: grid number on the side
-    \item Catalan number : $C_n = {2n \choose n}/(n+1)$\\
-      $C^{n+m}_{n}-C^{n+m}_{n+1} = (m+n)! \frac{n-m+1}{n+1}\quad for \quad  n \ge m$\\
-      $C_n = \frac{1}{n+1}{2n \choose n} = \frac{(2n)!}{(n+1)!n!}$\\
-      $C_0 = 1 \quad  and \quad C_{n+1}= 2(\frac{2n+1}{n+2})C_n$\\
-      $C_0 = 1 \quad  and \quad C_{n+1} = \sum_{i=0}^{n} C_iC_{n-i} \quad for \quad  n \ge 0$
-    \item Euler Characteristic: \\
-      planar graph: $V-E+F-C=1$ \\
-      convex polyhedron: $V-E+F=2$ \\
-      $V,E,F,C$: number of vertices, edges, faces(regions), and components
-    \item Kirchhoff's theorem : \\
-      $A_{ii} = deg(i), A_{ij} = (i,j) \in E\ ? -1 : 0$,
-      Deleting any one row, one column, and cal the det(A)
-    \item Polya' theorem ($c$ is number of color，$m$ is the number of cycle size): \\
-      $(\sum_{i=1}^{m}{c^{gcd(i,m)}})/m$
-    \item Burnside lemma: \\
-      $|X/G| = \frac{1}{|G|}\sum\limits_{g\in G} |X^g|$
-    \item 錯排公式 :  ($n$個人中，每個人皆不再原來位置的組合數): \\
-      $dp[0]=1;dp[1]=0;$\\
-      $dp[i]=(i-1)*(dp[i-1]+dp[i-2])$;
-    \item Bell數 (有$n$個人,把他們拆組的方法總數) : \\
-      $B_0= 1$\\
-      $B_n= \sum_{k=0}^{n} s(n,k)\quad (second-stirling)\\
-      B_{n+1}= \sum_{k=0}^{n}{n \choose k} B_k$
-    \item Wilson's theorem :\\
-      $(p-1)! \equiv -1 (mod \ p)$
-    \item Fermat's little theorem :\\
-      $a^p \equiv a (mod \ p)$
-    \item Euler's totient function:\\
-      $ A ^ {B ^ C} mod \ p = pow(A,pow(B,C,p-1)) mod \ p$
-    \item 歐拉函數降冪公式:\\
-      $A^B \mod C=A^{B \mod \phi(c) + \phi(c)}\mod C$
-    \item 6的倍數: \\
-     $(a-1)^3 + (a+1)^3 + (-a)^3 + (-a)^3 = 6a$
+  \item Triangle center
+  
+  \begin{itemize}
+  \item $G : (1,)$
+  \item $O : (a^2(b^2+c^2-a^2),)=(sin2A,)$
+  \item $I : (a,)=(sinA)$
+  \item $E : (-a, b, c)=(-sinA, sinB, sinC)$
+  \item $H : (\frac{1}{b^2+c^2-a^2},)=(tanA,)$
+  \end{itemize}
+
+  \item Lucas’ Theorem :\\
+    For $n, m \in \mathbb{Z}^{*}$ and prime $P$,
+    $C(m,n) \mod P$
+    %= C(\frac{m}{M},n/M) * C(m\%M,n\%M) mod P
+      $= \Pi ( C(m_i,n_i) )$
+    where $m_i$ is the $i$-th digit of $m$ in base $P$.
+  \item Stirling approximation : \\
+    $n!\approx\sqrt{ 2 \pi n}(\frac{n}{e})^{n}e^\frac{1}{12n}$
+  \item Stirling Numbers(permutation $|P|=n$ with $k$ cycles): \\
+    $S(n,k) = \mbox{coefficient of }x^k \mbox{ in } \Pi_{i=0}^{n-1} (x+i)$
+  \item Stirling Numbers(Partition $n$ elements into $k$ non-empty set): \\
+    $S(n,k) = \frac{1}{k!} \sum\limits_{j=0}^k (-1)^{k-j} {k \choose j} j^n$
+  \item Pick’s Theorem : $A = i + b/2 - 1$\\
+    $A$: Area、 $i$: grid number in the inner、 $b$: grid number on the side
+  \item Catalan number : $C_n = {2n \choose n}/(n+1)$\\
+    $C^{n+m}_{n}-C^{n+m}_{n+1} = (m+n)! \frac{n-m+1}{n+1}\quad for \quad  n \ge m$\\
+    $C_n = \frac{1}{n+1}{2n \choose n} = \frac{(2n)!}{(n+1)!n!}$\\
+    $C_0 = 1 \quad  and \quad C_{n+1}= 2(\frac{2n+1}{n+2})C_n$\\
+    $C_0 = 1 \quad  and \quad C_{n+1} = \sum_{i=0}^{n} C_iC_{n-i} \quad for \quad  n \ge 0$
+  \item Euler Characteristic: \\
+    planar graph: $V-E+F-C=1$ \\
+    convex polyhedron: $V-E+F=2$ \\
+    $V,E,F,C$: number of vertices, edges, faces(regions), and components
+  \item Kirchhoff's theorem : \\
+    $A_{ii} = deg(i), A_{ij} = (i,j) \in E\ ? -1 : 0$,
+    Deleting any one row, one column, and cal the det(A)
+  \item Polya' theorem ($c$ is number of color，$m$ is the number of cycle size): \\
+    $(\sum_{i=1}^{m}{c^{gcd(i,m)}})/m$
+  \item Burnside lemma: \\
+    $|X/G| = \frac{1}{|G|}\sum\limits_{g\in G} |X^g|$
+  \item 錯排公式 :  ($n$個人中，每個人皆不再原來位置的組合數): \\
+    $dp[0]=1;dp[1]=0;$\\
+    $dp[i]=(i-1)*(dp[i-1]+dp[i-2])$;
+  \item Bell數 (有$n$個人,把他們拆組的方法總數) : \\
+    $B_0= 1$\\
+    $B_n= \sum_{k=0}^{n} s(n,k)\quad (second-stirling)\\
+    B_{n+1}= \sum_{k=0}^{n}{n \choose k} B_k$
+  \item Wilson's theorem :\\
+    $(p-1)! \equiv -1 (mod \ p)$
+  \item Fermat's little theorem :\\
+    $a^p \equiv a (mod \ p)$
+  \item Euler's totient function:\\
+    $ A ^ {B ^ C} mod \ p = pow(A,pow(B,C,p-1)) mod \ p$
+  \item 歐拉函數降冪公式:\\
+    $A^B \mod C=A^{B \mod \phi(c) + \phi(c)}\mod C$
+  \item 環相鄰塗異色:\\
+      $(k-1)(-1)^n+(k-1)^n$
+  \item 6的倍數: \\
+   $(a-1)^3 + (a+1)^3 + (-a)^3 + (-a)^3 = 6a$
 
 \end{itemize}

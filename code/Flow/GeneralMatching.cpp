@@ -1,4 +1,4 @@
-struct GeneralMatching {
+struct GeneralMatching { // n <= 500
     const int BLOCK = 10;
     int n;
     vector<vector<int> > g;
