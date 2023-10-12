@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  12 OCT 2023 14:08
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  12 OCT 2023 20:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -795,16 +795,17 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[11]) (../code/Geometry/TriangleCenter.cpp) (../code/String/Zalgorithm.cpp)
-(../code/String/Manacher.cpp) (../code/String/SuffixArray.cpp)
+[11]) (../code/Geometry/TriangleCenter.cpp) (../code/String/KMP.cpp)
+(../code/String/Zalgorithm.cpp) (../code/String/Manacher.cpp)
 (../code/String/SuffixArray.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[12]) (../code/String/PalindromicTree.cpp) (../code/String/SmallestRotation.cpp
-) (../code/Misc/HilbertCurve.cpp) (../code/Misc/DLX.cpp
+[12]) (../code/String/SuffixArray.cpp) (../code/String/PalindromicTree.cpp)
+(../code/String/SmallestRotation.cpp) (../code/Misc/HilbertCurve.cpp)
+(../code/Misc/DLX.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
@@ -821,7 +822,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 File: grid.jpg Graphic file (type bmp)
 <grid.jpg>
 
-Overfull \hbox (269.46515pt too wide) in paragraph at lines 208--209
+Overfull \hbox (269.46515pt too wide) in paragraph at lines 209--210
 [][] 
  []
 
@@ -837,7 +838,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 File: Spherical-coordinates.png Graphic file (type bmp)
 <Spherical-coordinates.png>
 
-Overfull \hbox (174.30925pt too wide) in paragraph at lines 211--212
+Overfull \hbox (174.30925pt too wide) in paragraph at lines 212--213
 [][] 
  []
 
@@ -854,13 +855,13 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `codebook.out' has not changed.
-(rerunfilecheck)             Checksum: 6E4CAFE7920D11ADBC05334AAFF6C7F4;7802.
+(rerunfilecheck)             Checksum: 323DF4164BAFA6736A0020A93FD9401B;7875.
  ) 
 Here is how much of TeX's memory you used:
- 17652 strings out of 476683
- 349723 string characters out of 5804047
- 3321018 words of memory out of 5000000
- 37483 multiletter control sequences out of 15000+600000
+ 17659 strings out of 476683
+ 349856 string characters out of 5804047
+ 3326018 words of memory out of 5000000
+ 37487 multiletter control sequences out of 15000+600000
  514648 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,12n,77p,384b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s
