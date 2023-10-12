@@ -66,4 +66,5 @@
 \contentsline {subsection}{\numberline {9.2}DLX}{13}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}NextPerm}{14}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}FastIO}{14}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}trick}{14}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.5}Python FastIO}{14}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}trick}{14}{subsection.9.6}%
