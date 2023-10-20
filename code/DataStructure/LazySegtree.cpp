@@ -25,11 +25,11 @@ struct Seg {
         rs->upd(f);
         f = T{};
     }
-    S prod(int x, int y) {
+    S query(int x, int y) {
         if (y <= l or r <= x) return S{};
         if (x <= l and r <= y) return d;
         push();
-        return ls->prod(x, y) + rs->prod(x, y);
+        return ls->query(x, y) + rs->query(x, y);
     }
     void apply(int x, int y, const T &g) {
         if (y <= l or r <= x) return;
