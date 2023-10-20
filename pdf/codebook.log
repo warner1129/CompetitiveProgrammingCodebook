@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  12 OCT 2023 20:53
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  20 OCT 2023 11:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -786,39 +786,46 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[10]) (../code/Geometry/ConvexHull.cpp) (../code/Geometry/ConvexHull.cpp)
+[10]) (../code/Geometry/ConvexHull.cpp) (../code/Geometry/ConvexHulltrick.cpp)
 (../code/Geometry/DynamicConvexHull.cpp)
 (../code/Geometry/HalfPlaneIntersection.cpp)
-(../code/Geometry/MinimalEnclosingCircle.cpp) (../code/Geometry/Minkowski.cpp
+(../code/Geometry/MinimalEnclosingCircle.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[11]) (../code/Geometry/TriangleCenter.cpp) (../code/String/KMP.cpp)
-(../code/String/Zalgorithm.cpp) (../code/String/Manacher.cpp)
-(../code/String/SuffixArray.cpp
+[11]) (../code/Geometry/Minkowski.cpp) (../code/Geometry/TriangleCenter.cpp)
+(../code/String/KMP.cpp) (../code/String/Zalgorithm.cpp)
+(../code/String/Manacher.cpp) (../code/String/SuffixArray.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
 [12]) (../code/String/SuffixArray.cpp) (../code/String/PalindromicTree.cpp)
-(../code/String/SmallestRotation.cpp) (../code/Misc/HilbertCurve.cpp)
-(../code/Misc/DLX.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[13]) (../code/Misc/NextPerm.cpp) (../code/Misc/fastio.cpp)
-(../code/Misc/PythonFastIO.py) (../code/Misc/trick.cpp)
+[13] (../code/String/SmallestRotation.cpp) (../code/Misc/HilbertCurve.cpp)
+(../code/Misc/DLX.cpp) (../code/Misc/NextPerm.cpp) (../code/Misc/fastio.cpp)
+(../code/Misc/PythonFastIO.py) (../code/Misc/trick.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[14]
+[14])
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 3.60004pt, for example:
+(fancyhdr)                \setlength{\footskip}{3.60004pt}.
+
+[15
+
+]
 File: grid.jpg Graphic file (type bmp)
 <grid.jpg>
 
@@ -831,7 +838,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[15
+[16
 
 
 ]
@@ -847,7 +854,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[16
+[17
 
 
 ] (./codebook.aux)
@@ -858,12 +865,12 @@ Package rerunfilecheck Info: File `codebook.out' has not changed.
 (rerunfilecheck)             Checksum: 323DF4164BAFA6736A0020A93FD9401B;7875.
  ) 
 Here is how much of TeX's memory you used:
- 17659 strings out of 476683
- 349856 string characters out of 5804047
- 3326018 words of memory out of 5000000
- 37487 multiletter control sequences out of 15000+600000
+ 17668 strings out of 476683
+ 350045 string characters out of 5804047
+ 3313018 words of memory out of 5000000
+ 37495 multiletter control sequences out of 15000+600000
  514648 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,12n,77p,384b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on codebook.pdf (16 pages).
+Output written on codebook.pdf (17 pages).

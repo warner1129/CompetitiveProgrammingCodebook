@@ -52,7 +52,7 @@
 \contentsline {subsection}{\numberline {7.4}Dynamic Convex Hull}{11}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Half Plane Intersection}{11}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Minimal Enclosing Circle}{11}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Minkowski}{11}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.7}Minkowski}{12}{subsection.7.7}%
 \contentsline {subsection}{\numberline {7.8}TriangleCenter}{12}{subsection.7.8}%
 \contentsline {section}{\numberline {8}Stringology}{12}{section.8}%
 \contentsline {subsection}{\numberline {8.1}KMP}{12}{subsection.8.1}%
@@ -61,9 +61,9 @@
 \contentsline {subsection}{\numberline {8.4}SuffixArray}{12}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}SimpleSuffixArray}{13}{subsection.8.5}%
 \contentsline {subsection}{\numberline {8.6}PalindromicTree}{13}{subsection.8.6}%
-\contentsline {subsection}{\numberline {8.7}SmallestRotation}{13}{subsection.8.7}%
-\contentsline {section}{\numberline {9}Misc}{13}{section.9}%
-\contentsline {subsection}{\numberline {9.1}HilbertCurve}{13}{subsection.9.1}%
+\contentsline {subsection}{\numberline {8.7}SmallestRotation}{14}{subsection.8.7}%
+\contentsline {section}{\numberline {9}Misc}{14}{section.9}%
+\contentsline {subsection}{\numberline {9.1}HilbertCurve}{14}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}DLX}{14}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}NextPerm}{14}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}FastIO}{14}{subsection.9.4}%
