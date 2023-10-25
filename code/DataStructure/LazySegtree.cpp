@@ -42,4 +42,29 @@ struct Seg {
         rs->apply(x, y, g);
         pull();
     }
+    void set(int p, const S &g) {
+        if (p + 1 <= l or r <= p) return;
+        if (r - l == 1) {
+            d = g;
+            return;
+        }
+        push();
+        ls->set(p, g);
+        rs->set(p, g);
+        pull();
+    }
+    int findFirst(int x, int y, auto pred) {
+        if (y <= l or r <= x or !pred(d)) return -1;
+        if (r - l == 1) return l;
+        push();
+        int res = ls->findFirst(x, y, pred);
+        return res == -1 ? rs->findFirst(x, y, pred) : res;
+    }
+    int findLast(int x, int y, auto pred) {
+        if (y <= l or r <= x or !pred(d)) return -1;
+        if (r - l == 1) return l;
+        push();
+        int res = rs->findLast(x, y, pred);
+        return res == -1 ? ls->findLast(x, y, pred) : res;
+    }
 };
