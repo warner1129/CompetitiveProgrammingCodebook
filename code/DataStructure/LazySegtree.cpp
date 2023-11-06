@@ -4,9 +4,8 @@ struct Seg {
     int l, r;
     S d{};
     T f{};
-    Seg(int _l, int _r, const vector<Info> &v) : l{_l}, r{_r} {
+    Seg(int _l, int _r) : l{_l}, r{_r} {
         if (r - l == 1) {
-            d = v[l];
             return;
         }
         int mid = l + r >> 1;
