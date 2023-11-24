@@ -8,9 +8,9 @@ struct Seg {
         if (r - l == 1) {
             return;
         }
-        int mid = l + r >> 1;
-        ls = new Seg(l, mid, v);
-        rs = new Seg(mid, r, v);
+        int mid = (l + r) / 2;
+        ls = new Seg(l, mid);
+        rs = new Seg(mid, r);
         pull();
     }
     void upd(const T &g) {
