@@ -4,8 +4,8 @@
 \contentsline {subsection}{\numberline {1.3}judge}{1}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Random}{1}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Increase stack size}{1}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Matching and Flow}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Dinic}{1}{subsection.2.1}%
+\contentsline {section}{\numberline {2}Matching and Flow}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Dinic}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}zkwDinic}{2}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}HopcroftKarp}{2}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}KM}{2}{subsection.2.4}%
@@ -13,23 +13,25 @@
 \contentsline {subsection}{\numberline {2.6}GeneralMatching}{3}{subsection.2.6}%
 \contentsline {section}{\numberline {3}Graph}{3}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Strongly Connected Component}{3}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}2-SAT}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}2-SAT}{4}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Manhattan MST}{4}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}TreeHash}{4}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Maximum IndependentSet}{4}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Min Mean Weight Cycle}{4}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Block Cut Tree}{4}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.7}Block Cut Tree}{5}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}Heavy Light Decomposition}{5}{subsection.3.8}%
 \contentsline {subsection}{\numberline {3.9}Dominator Tree}{5}{subsection.3.9}%
 \contentsline {section}{\numberline {4}Data Structure}{6}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Lazy Segtree}{6}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Special Segtree}{6}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Treap}{6}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}LiChao Segtree}{7}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Persistent SegmentTree}{7}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Blackmagic}{7}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Centroid Decomposition}{7}{subsection.4.7}%
-\contentsline {subsection}{\numberline {4.8}2D BIT}{8}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.2}Sparse Table}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Binary Index Tree}{6}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Special Segtree}{6}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Treap}{7}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}LiChao Segtree}{7}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Persistent SegmentTree}{7}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Blackmagic}{8}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Centroid Decomposition}{8}{subsection.4.9}%
+\contentsline {subsection}{\numberline {4.10}2D BIT}{8}{subsection.4.10}%
 \contentsline {section}{\numberline {5}Dynamic Programming}{8}{section.5}%
 \contentsline {subsection}{\numberline {5.1}CDQ}{8}{subsection.5.1}%
 \contentsline {section}{\numberline {6}Math}{8}{section.6}%
@@ -37,42 +39,42 @@
 \contentsline {subsection}{\numberline {6.2}Exgcd}{9}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}CRT}{9}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Factorize}{9}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}NTT Prime List}{9}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}NTT}{9}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.5}NTT Prime List}{10}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}NTT}{10}{subsection.6.6}%
 \contentsline {subsection}{\numberline {6.7}FWT}{10}{subsection.6.7}%
 \contentsline {subsection}{\numberline {6.8}FWT}{10}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}Lucas}{10}{subsection.6.9}%
-\contentsline {subsection}{\numberline {6.10}Berlekamp Massey}{10}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.10}Berlekamp Massey}{11}{subsection.6.10}%
 \contentsline {subsection}{\numberline {6.11}Gauss Elimination}{11}{subsection.6.11}%
 \contentsline {subsection}{\numberline {6.12}Linear Equation}{11}{subsection.6.12}%
 \contentsline {subsection}{\numberline {6.13}LinearRec}{11}{subsection.6.13}%
 \contentsline {subsection}{\numberline {6.14}SubsetConv}{11}{subsection.6.14}%
-\contentsline {subsection}{\numberline {6.15}SqrtMod}{11}{subsection.6.15}%
+\contentsline {subsection}{\numberline {6.15}SqrtMod}{12}{subsection.6.15}%
 \contentsline {subsection}{\numberline {6.16}FloorSum}{12}{subsection.6.16}%
 \contentsline {section}{\numberline {7}Geometry}{12}{section.7}%
 \contentsline {subsection}{\numberline {7.1}2D Point}{12}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Convex Hull}{12}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Convex Hull trick}{12}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Dynamic Convex Hull}{12}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.4}Dynamic Convex Hull}{13}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Half Plane Intersection}{13}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Minimal Enclosing Circle}{13}{subsection.7.6}%
 \contentsline {subsection}{\numberline {7.7}Minkowski}{13}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}TriangleCenter}{13}{subsection.7.8}%
-\contentsline {section}{\numberline {8}Stringology}{13}{section.8}%
-\contentsline {subsection}{\numberline {8.1}KMP}{13}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Z-algorithm}{13}{subsection.8.2}%
+\contentsline {subsection}{\numberline {7.8}TriangleCenter}{14}{subsection.7.8}%
+\contentsline {section}{\numberline {8}Stringology}{14}{section.8}%
+\contentsline {subsection}{\numberline {8.1}KMP}{14}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Z-algorithm}{14}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Manacher}{14}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}SuffixArray}{14}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}SimpleSuffixArray}{14}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}PalindromicTree}{14}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.6}PalindromicTree}{15}{subsection.8.6}%
 \contentsline {subsection}{\numberline {8.7}SmallestRotation}{15}{subsection.8.7}%
 \contentsline {subsection}{\numberline {8.8}Aho-Corasick}{15}{subsection.8.8}%
 \contentsline {section}{\numberline {9}Misc}{15}{section.9}%
 \contentsline {subsection}{\numberline {9.1}de Bruijn sequence}{15}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}HilbertCurve}{15}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}DLX}{15}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.2}HilbertCurve}{16}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}DLX}{16}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}NextPerm}{16}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}FastIO}{16}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}Python FastIO}{16}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}Trick}{16}{subsection.9.7}%
-\contentsline {subsection}{\numberline {9.8}PyTrick}{16}{subsection.9.8}%
+\contentsline {subsection}{\numberline {9.8}PyTrick}{17}{subsection.9.8}%

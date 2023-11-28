@@ -5,4 +5,4 @@ inoremap jk <Esc>
 inoremap {<CR> {<CR>}<C-o>O
 nnoremap J 5j
 nnoremap K 5k
-nnoremap <F1> :w<bar>!g++ '%' -o run -std=c++20 -DLOCAL -Wfatal-errors -fsanitize=address,undefined -g -O2 && echo done. && time ./run<CR>
+nnoremap <F1> :w<bar>!g++ '%' -o run -std=c++20 -DLOCAL -Wfatal-errors -fsanitize=address,undefined -g && echo done. && time ./run<CR>
