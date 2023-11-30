@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {3.4}TreeHash}{4}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Maximum IndependentSet}{4}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Min Mean Weight Cycle}{4}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Block Cut Tree}{5}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.7}Block Cut Tree}{4}{subsection.3.7}%
 \contentsline {subsection}{\numberline {3.8}Heavy Light Decomposition}{5}{subsection.3.8}%
 \contentsline {subsection}{\numberline {3.9}Dominator Tree}{5}{subsection.3.9}%
 \contentsline {section}{\numberline {4}Data Structure}{6}{section.4}%
@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {4.5}Treap}{7}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}LiChao Segtree}{7}{subsection.4.6}%
 \contentsline {subsection}{\numberline {4.7}Persistent SegmentTree}{7}{subsection.4.7}%
-\contentsline {subsection}{\numberline {4.8}Blackmagic}{8}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.8}Blackmagic}{7}{subsection.4.8}%
 \contentsline {subsection}{\numberline {4.9}Centroid Decomposition}{8}{subsection.4.9}%
 \contentsline {subsection}{\numberline {4.10}2D BIT}{8}{subsection.4.10}%
 \contentsline {section}{\numberline {5}Dynamic Programming}{8}{section.5}%
@@ -38,28 +38,28 @@
 \contentsline {subsection}{\numberline {6.1}Theorem}{8}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Linear Sieve}{9}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Exgcd}{9}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}CRT}{10}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Factorize}{10}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.4}CRT}{9}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Factorize}{9}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}NTT Prime List}{10}{subsection.6.6}%
 \contentsline {subsection}{\numberline {6.7}NTT}{10}{subsection.6.7}%
 \contentsline {subsection}{\numberline {6.8}FWT}{10}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}FWT}{10}{subsection.6.9}%
-\contentsline {subsection}{\numberline {6.10}Lucas}{11}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.10}Lucas}{10}{subsection.6.10}%
 \contentsline {subsection}{\numberline {6.11}Berlekamp Massey}{11}{subsection.6.11}%
 \contentsline {subsection}{\numberline {6.12}Gauss Elimination}{11}{subsection.6.12}%
 \contentsline {subsection}{\numberline {6.13}Linear Equation}{11}{subsection.6.13}%
-\contentsline {subsection}{\numberline {6.14}LinearRec}{12}{subsection.6.14}%
+\contentsline {subsection}{\numberline {6.14}LinearRec}{11}{subsection.6.14}%
 \contentsline {subsection}{\numberline {6.15}SubsetConv}{12}{subsection.6.15}%
 \contentsline {subsection}{\numberline {6.16}SqrtMod}{12}{subsection.6.16}%
 \contentsline {subsection}{\numberline {6.17}FloorSum}{12}{subsection.6.17}%
 \contentsline {section}{\numberline {7}Geometry}{12}{section.7}%
 \contentsline {subsection}{\numberline {7.1}2D Point}{12}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Convex Hull}{13}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.2}Convex Hull}{12}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Convex Hull trick}{13}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Dynamic Convex Hull}{13}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Half Plane Intersection}{13}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Minimal Enclosing Circle}{13}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Minkowski}{14}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.7}Minkowski}{13}{subsection.7.7}%
 \contentsline {subsection}{\numberline {7.8}TriangleCenter}{14}{subsection.7.8}%
 \contentsline {section}{\numberline {8}Stringology}{14}{section.8}%
 \contentsline {subsection}{\numberline {8.1}KMP}{14}{subsection.8.1}%
@@ -70,12 +70,12 @@
 \contentsline {subsection}{\numberline {8.6}PalindromicTree}{15}{subsection.8.6}%
 \contentsline {subsection}{\numberline {8.7}SmallestRotation}{15}{subsection.8.7}%
 \contentsline {subsection}{\numberline {8.8}Aho-Corasick}{15}{subsection.8.8}%
-\contentsline {section}{\numberline {9}Misc}{16}{section.9}%
-\contentsline {subsection}{\numberline {9.1}de Bruijn sequence}{16}{subsection.9.1}%
+\contentsline {section}{\numberline {9}Misc}{15}{section.9}%
+\contentsline {subsection}{\numberline {9.1}de Bruijn sequence}{15}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}HilbertCurve}{16}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}DLX}{16}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}NextPerm}{16}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}FastIO}{16}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}Python FastIO}{17}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}Trick}{17}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.6}Python FastIO}{16}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Trick}{16}{subsection.9.7}%
 \contentsline {subsection}{\numberline {9.8}PyTrick}{17}{subsection.9.8}%
