@@ -6,7 +6,7 @@
 using namespace __gnu_pbds;
 template<class T>
 using BST = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-gnu_pbds::priority_queue<node, decltype(cmp), pairing_heap_tag> pq(cmp);
+__gnu_pbds::priority_queue<node, decltype(cmp), pairing_heap_tag> pq(cmp);
 gp_hash_table<int, gnu_pbds::priority_queue<node>::point_iterator> pqPos;
 bst.insert((x << 20) + i);
 bst.erase(bst.lower_bound(x << 20));

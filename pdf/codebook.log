@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  28 NOV 2023 20:55
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  30 NOV 2023 12:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -774,79 +774,78 @@ Underfull \hbox (badness 2478) in paragraph at lines 72--73
 ]j \OT1/cmr/m/n/7 =
  []
 
-) (../code/Math/Exgcd.cpp) (../code/Math/CRT.cpp) (../code/Math/Factorize.cpp
+) (../code/Math/LinearSieve.cpp) (../code/Math/Exgcd.cpp) (../code/Math/CRT.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[9]) (../code/Math/NTTPrimes.tex) (../code/Math/NTT.cpp) (../code/Math/FWT.tex)
-(../code/Math/FWT.cpp) (../code/Math/Lucas.cpp
+[9]) (../code/Math/Factorize.cpp) (../code/Math/NTTPrimes.tex)
+(../code/Math/NTT.cpp) (../code/Math/FWT.tex) (../code/Math/FWT.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[10]) (../code/Math/BerlekampMassey.cpp) (../code/Math/GaussElimination.cpp)
-(../code/Math/LinearEquation.cpp) (../code/Math/LinearRec.cpp)
-(../code/Math/SubsetConv.cpp
+[10]) (../code/Math/Lucas.cpp) (../code/Math/BerlekampMassey.cpp)
+(../code/Math/GaussElimination.cpp) (../code/Math/LinearEquation.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[11]) (../code/Math/SqrtMod.cpp) (../code/Math/FloorSum.cpp)
-(../code/Geometry/2Dpoint.cpp) (../code/Geometry/ConvexHull.cpp)
-(../code/Geometry/ConvexHulltrick.cpp
+[11]) (../code/Math/LinearRec.cpp) (../code/Math/SubsetConv.cpp)
+(../code/Math/SqrtMod.cpp) (../code/Math/FloorSum.cpp)
+(../code/Geometry/2Dpoint.cpp)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[12]) (../code/Geometry/DynamicConvexHull.cpp)
+[12] (../code/Geometry/ConvexHull.cpp) (../code/Geometry/ConvexHulltrick.cpp)
+(../code/Geometry/DynamicConvexHull.cpp)
 (../code/Geometry/HalfPlaneIntersection.cpp)
-(../code/Geometry/MinimalEnclosingCircle.cpp) (../code/Geometry/Minkowski.cpp)
+(../code/Geometry/MinimalEnclosingCircle.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[13] (../code/Geometry/TriangleCenter.cpp) (../code/String/KMP.cpp)
-(../code/String/Zalgorithm.cpp) (../code/String/Manacher.cpp)
-(../code/String/SuffixArray.cpp) (../code/String/SimpleSuffixArray.cpp
+[13]) (../code/Geometry/Minkowski.cpp) (../code/Geometry/TriangleCenter.cpp)
+(../code/String/KMP.cpp) (../code/String/Zalgorithm.cpp)
+(../code/String/Manacher.cpp) (../code/String/SuffixArray.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[14]) (../code/String/PalindromicTree.cpp) (../code/String/SmallestRotation.cpp
-) (../code/String/Aho-Corasick.cpp) (../code/Misc/deBruijn.cpp
+[14]) (../code/String/SimpleSuffixArray.cpp)
+(../code/String/PalindromicTree.cpp) (../code/String/SmallestRotation.cpp)
+(../code/String/Aho-Corasick.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[15]) (../code/Misc/HilbertCurve.cpp) (../code/Misc/DLX.cpp)
-(../code/Misc/NextPerm.cpp) (../code/Misc/Fastio.cpp)
-(../code/Misc/PythonFastIO.py) (../code/Misc/Trick.cpp
+[15]) (../code/Misc/deBruijn.cpp) (../code/Misc/HilbertCurve.cpp)
+(../code/Misc/DLX.cpp) (../code/Misc/NextPerm.cpp) (../code/Misc/Fastio.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[16]) (../code/Misc/PyTrick.py)
+[16]) (../code/Misc/PythonFastIO.py) (../code/Misc/Trick.cpp)
+(../code/Misc/PyTrick.py)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[17
-
-]
+[17]
 File: grid.jpg Graphic file (type bmp)
 <grid.jpg>
 
-Overfull \hbox (269.46515pt too wide) in paragraph at lines 218--219
+Overfull \hbox (269.46515pt too wide) in paragraph at lines 219--220
 [][] 
  []
 
@@ -862,7 +861,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 File: Spherical-coordinates.png Graphic file (type bmp)
 <Spherical-coordinates.png>
 
-Overfull \hbox (174.30925pt too wide) in paragraph at lines 221--222
+Overfull \hbox (174.30925pt too wide) in paragraph at lines 222--223
 [][] 
  []
 
@@ -879,13 +878,13 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `codebook.out' has not changed.
-(rerunfilecheck)             Checksum: 79DCC5D63E494CA1F0A4DFBCB14D4818;9073.
+(rerunfilecheck)             Checksum: 42505E0ABEE31EFD9EFA08AF350D6A8C;9195.
  ) 
 Here is how much of TeX's memory you used:
- 17816 strings out of 476683
- 352569 string characters out of 5804047
- 3325018 words of memory out of 5000000
- 37615 multiletter control sequences out of 15000+600000
+ 17837 strings out of 476683
+ 352846 string characters out of 5804047
+ 3329018 words of memory out of 5000000
+ 37633 multiletter control sequences out of 15000+600000
  514648 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,12n,77p,384b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s
