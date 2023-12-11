@@ -1,44 +1,46 @@
-struct TwoSAT {
-    vector<vector<int>> G;
+struct TwoSat {
     int n;
-    TwoSAT(int _n) : n(_n), G(_n * 2) {}
-    int ne(int x) { return x < n ? x + n : x - n; }
-    void add_edge(int u, int v) { // u or v
-        G[ne(u)].push_back(v);
-        G[ne(v)].push_back(u);
+    vector<vector<int>> e;
+    vector<bool> ans;
+    TwoSat(int n) : n(n), e(2 * n), ans(n) {}
+    void addClause(int u, bool f, int v, bool g) { // (u = f) or (v = g)
+        e[2 * u + !f].push_back(2 * v + g);
+        e[2 * v + !g].push_back(2 * u + f);
     }
-    vector<int> solve() {
-        vector<int> ans(n * 2, -1), id(n * 2), stk, \
-            low(n * 2), dfn(n * 2), vis(n * 2);
-        int _t = 0, scc_cnt = 0;
-        function<void(int)> dfs = [&](int u) {
-            dfn[u] = low[u] = _t++;
+    void addImply(int u, bool f, int v, bool g) { // (u = f) -> (v = g)
+        e[2 * u + f].push_back(2 * v + g);
+        e[2 * v + !g].push_back(2 * u + !f);
+    }
+    bool satisfiable() {
+        vector<int> id(2 * n, -1), dfn(2 * n, -1), low(2 * n, -1);
+        vector<int> stk;
+        int now = 0, cnt = 0;
+        function<void(int)> tarjan = [&](int u) {
             stk.push_back(u);
-            vis[u] = 1;
-            for (int v : G[u]) {
-                if (!vis[v])
-                    dfs(v), chmin(low[u], low[v]);
-                else if (vis[v] == 1)
-                    chmin(low[u], dfn[v]);
+            dfn[u] = low[u] = now++;
+            for (auto v : e[u]) {
+                if (dfn[v] == -1) {
+                    tarjan(v);
+                    low[u] = min(low[u], low[v]);
+                } else if (id[v] == -1) {
+                    low[u] = min(low[u], dfn[v]);
+                }
             }
             if (dfn[u] == low[u]) {
-                for (int x = -1; x != u; ) {
-                    x = stk.back(); stk.pop_back();
-                    vis[x] = 2, id[x] = scc_cnt;
-                    if (ans[x] == -1) {
-                        ans[x] = 1;
-                        ans[ne(x)] = 0;
-                    }
-                }
-                scc_cnt++;
+                int v;
+                do {
+                    v = stk.back();
+                    stk.pop_back();
+                    id[v] = cnt;
+                } while (v != u);
+                ++cnt;
             }
         };
-        for (int i = 0; i < n + n; i++)
-            if (!vis[i]) dfs(i);
-        for (int i = 0; i < n; i++)
-            if (id[i] == id[ne(i)])
-                return {};
-        ans.resize(n);
-        return ans;
+        for (int i = 0; i < 2 * n; ++i) if (dfn[i] == -1) tarjan(i);
+        for (int i = 0; i < n; ++i) {
+            if (id[2 * i] == id[2 * i + 1]) return false;
+            ans[i] = id[2 * i] > id[2 * i + 1];
+        }
+        return true;
     }
 };
