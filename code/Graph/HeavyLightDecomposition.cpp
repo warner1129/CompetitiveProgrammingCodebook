@@ -2,14 +2,14 @@ struct HLD {
     int n;
     vector<int> siz, top, dep, pa, in, out, seq;
     vector<vector<int>> G;
-    HLD(int _n) : n(_n), G(_n) {}
+    HLD(int n) : n(n), G(n), siz(n), top(n), 
+        dep(n), pa(n), in(n), out(n), seq(n) {}
     int cur{};
     void addEdge(int u, int v) {
         G[u].push_back(v);
         G[v].push_back(u);
     }
     void work(int root = 0) {
-        siz = top = dep = pa = in = out = seq = vector<int>(n);
         cur = 0;
         top[root] = root;
         dep[root] = 0;
@@ -67,7 +67,7 @@ struct HLD {
         if (!isAnc(x, r)) return pa[x];
         auto it = upper_bound(all(G[x]), r, [&](int a, int b) -> bool {
             return in[a] < in[b];
-        });
+        }) - 1;
         return *it;
     }
     int rootSiz(int r, int x) {
