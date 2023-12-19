@@ -3,7 +3,7 @@ struct Dinic {
     struct Edge { int v; Cap w; int rev; };
     vector<vector<Edge>> G;
     int n, S, T;
-    Dinic(int _n, int _S, int _T) : n(_n), S(_S), T(_T), G(_n) {}
+    Dinic(int n, int S, int T) : n(n), S(S), T(T), G(n) {}
     void add_edge(int u, int v, Cap w) {
         G[u].push_back({v, w, (int)G[v].size()});
         G[v].push_back({u, 0, (int)G[u].size() - 1});
@@ -41,7 +41,7 @@ struct Dinic {
     Cap maxflow() {
         Cap ret = 0;
         while (bfs()) {
-            ret += dfs(S, INF);
+            ret += dfs(S, inf<Cap>);
         }
         return ret;
     }
