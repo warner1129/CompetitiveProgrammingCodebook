@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {1.5}Increase stack size}{1}{subsection.1.5}%
 \contentsline {section}{\numberline {2}Matching and Flow}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Dinic}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}zkwDinic}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}MCMF}{2}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}HopcroftKarp}{2}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}KM}{2}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}SW}{3}{subsection.2.5}%
@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {4.5}Treap}{7}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}LiChao Segtree}{7}{subsection.4.6}%
 \contentsline {subsection}{\numberline {4.7}Persistent SegmentTree}{7}{subsection.4.7}%
-\contentsline {subsection}{\numberline {4.8}Blackmagic}{7}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.8}Blackmagic}{8}{subsection.4.8}%
 \contentsline {subsection}{\numberline {4.9}Centroid Decomposition}{8}{subsection.4.9}%
 \contentsline {subsection}{\numberline {4.10}2D BIT}{8}{subsection.4.10}%
 \contentsline {section}{\numberline {5}Dynamic Programming}{8}{section.5}%
@@ -39,12 +39,12 @@
 \contentsline {subsection}{\numberline {6.2}Linear Sieve}{9}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Exgcd}{9}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}CRT}{9}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Factorize}{9}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.5}Factorize}{10}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}NTT Prime List}{10}{subsection.6.6}%
 \contentsline {subsection}{\numberline {6.7}NTT}{10}{subsection.6.7}%
 \contentsline {subsection}{\numberline {6.8}FWT}{10}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}FWT}{10}{subsection.6.9}%
-\contentsline {subsection}{\numberline {6.10}Lucas}{10}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.10}Lucas}{11}{subsection.6.10}%
 \contentsline {subsection}{\numberline {6.11}Berlekamp Massey}{11}{subsection.6.11}%
 \contentsline {subsection}{\numberline {6.12}Gauss Elimination}{11}{subsection.6.12}%
 \contentsline {subsection}{\numberline {6.13}Linear Equation}{11}{subsection.6.13}%
@@ -59,7 +59,7 @@
 \contentsline {subsection}{\numberline {7.4}Dynamic Convex Hull}{13}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Half Plane Intersection}{13}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Minimal Enclosing Circle}{13}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Minkowski}{13}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.7}Minkowski}{14}{subsection.7.7}%
 \contentsline {subsection}{\numberline {7.8}TriangleCenter}{14}{subsection.7.8}%
 \contentsline {section}{\numberline {8}Stringology}{14}{section.8}%
 \contentsline {subsection}{\numberline {8.1}KMP}{14}{subsection.8.1}%
@@ -70,12 +70,12 @@
 \contentsline {subsection}{\numberline {8.6}PalindromicTree}{15}{subsection.8.6}%
 \contentsline {subsection}{\numberline {8.7}SmallestRotation}{15}{subsection.8.7}%
 \contentsline {subsection}{\numberline {8.8}Aho-Corasick}{15}{subsection.8.8}%
-\contentsline {section}{\numberline {9}Misc}{15}{section.9}%
-\contentsline {subsection}{\numberline {9.1}de Bruijn sequence}{15}{subsection.9.1}%
+\contentsline {section}{\numberline {9}Misc}{16}{section.9}%
+\contentsline {subsection}{\numberline {9.1}de Bruijn sequence}{16}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}HilbertCurve}{16}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}DLX}{16}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}NextPerm}{16}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}FastIO}{16}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}Python FastIO}{16}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}Trick}{16}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.7}Trick}{17}{subsection.9.7}%
 \contentsline {subsection}{\numberline {9.8}PyTrick}{17}{subsection.9.8}%

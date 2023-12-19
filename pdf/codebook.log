@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  30 NOV 2023 18:52
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  19 DEC 2023 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -709,7 +709,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1
 
-]) (../code/Flow/zkwDinic.cpp) (../code/Flow/HopcroftKarp.cpp)
+]) (../code/Flow/MCMF.cpp) (../code/Flow/HopcroftKarp.cpp)
 (../code/Flow/KM.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
@@ -782,14 +782,15 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
 [9]) (../code/Math/NTTPrimes.tex) (../code/Math/NTT.cpp) (../code/Math/FWT.tex)
-(../code/Math/FWT.cpp) (../code/Math/Lucas.cpp
+(../code/Math/FWT.cpp)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[10]) (../code/Math/BerlekampMassey.cpp) (../code/Math/GaussElimination.cpp)
-(../code/Math/LinearEquation.cpp) (../code/Math/LinearRec.cpp
+[10] (../code/Math/Lucas.cpp) (../code/Math/BerlekampMassey.cpp)
+(../code/Math/GaussElimination.cpp) (../code/Math/LinearEquation.cpp)
+(../code/Math/LinearRec.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
@@ -797,23 +798,24 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [11]) (../code/Math/SubsetConv.cpp) (../code/Math/SqrtMod.cpp)
 (../code/Math/FloorSum.cpp) (../code/Geometry/2Dpoint.cpp)
-(../code/Geometry/ConvexHull.cpp) (../code/Geometry/ConvexHulltrick.cpp
+(../code/Geometry/ConvexHull.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[12]) (../code/Geometry/DynamicConvexHull.cpp)
+[12]) (../code/Geometry/ConvexHulltrick.cpp)
+(../code/Geometry/DynamicConvexHull.cpp)
 (../code/Geometry/HalfPlaneIntersection.cpp)
-(../code/Geometry/MinimalEnclosingCircle.cpp) (../code/Geometry/Minkowski.cpp
+(../code/Geometry/MinimalEnclosingCircle.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[13]) (../code/Geometry/TriangleCenter.cpp) (../code/String/KMP.cpp)
-(../code/String/Zalgorithm.cpp) (../code/String/Manacher.cpp)
-(../code/String/SuffixArray.cpp
+[13]) (../code/Geometry/Minkowski.cpp) (../code/Geometry/TriangleCenter.cpp)
+(../code/String/KMP.cpp) (../code/String/Zalgorithm.cpp)
+(../code/String/Manacher.cpp) (../code/String/SuffixArray.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
@@ -821,21 +823,25 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [14]) (../code/String/SimpleSuffixArray.cpp)
 (../code/String/PalindromicTree.cpp) (../code/String/SmallestRotation.cpp)
-(../code/String/Aho-Corasick.cpp) (../code/Misc/deBruijn.cpp
+(../code/String/Aho-Corasick.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[15]) (../code/Misc/HilbertCurve.cpp) (../code/Misc/DLX.cpp)
-(../code/Misc/NextPerm.cpp) (../code/Misc/Fastio.cpp)
+[15]) (../code/Misc/deBruijn.cpp) (../code/Misc/HilbertCurve.cpp)
+(../code/Misc/DLX.cpp) (../code/Misc/NextPerm.cpp) (../code/Misc/Fastio.cpp)
 (../code/Misc/PythonFastIO.py) (../code/Misc/Trick.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[16]) (../code/Misc/PyTrick.py)
+[16]
+Underfull \vbox (badness 1895) has occurred while \output is active []
+
+)
+(../code/Misc/PyTrick.py)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
@@ -878,15 +884,15 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `codebook.out' has not changed.
-(rerunfilecheck)             Checksum: 42505E0ABEE31EFD9EFA08AF350D6A8C;9195.
+(rerunfilecheck)             Checksum: 073537212EB7EB9EE7D45A17D7022065;9175.
  ) 
 Here is how much of TeX's memory you used:
- 17831 strings out of 476683
- 352788 string characters out of 5804047
- 3344018 words of memory out of 5000000
- 37627 multiletter control sequences out of 15000+600000
+ 17839 strings out of 476683
+ 352864 string characters out of 5804047
+ 3347018 words of memory out of 5000000
+ 37635 multiletter control sequences out of 15000+600000
  514648 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,12n,77p,384b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,12n,77p,384b,1741s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on codebook.pdf (19 pages).
