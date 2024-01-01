@@ -11,3 +11,14 @@ for (x,y,z,w) in permutations([a, b, c, d]):
 					continue
 				ans.add(val)
 print(len(ans))
+#
+from decimal import *
+from fractions import *
+s = input()
+n = int(input())
+f = Fraction(s)
+g = Fraction(s).limit_denominator(n)
+h = f * 2 - g
+if h.numerator <= n and h.denominator <= n and h < g:
+	g = h
+print(g.numerator, g.denominator)

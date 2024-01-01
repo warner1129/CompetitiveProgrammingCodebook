@@ -39,12 +39,12 @@
 \contentsline {subsection}{\numberline {6.2}Linear Sieve}{9}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Exgcd}{9}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}CRT}{9}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Factorize}{10}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.5}Factorize}{9}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}NTT Prime List}{10}{subsection.6.6}%
 \contentsline {subsection}{\numberline {6.7}NTT}{10}{subsection.6.7}%
 \contentsline {subsection}{\numberline {6.8}FWT}{10}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}FWT}{10}{subsection.6.9}%
-\contentsline {subsection}{\numberline {6.10}Lucas}{11}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.10}Lucas}{10}{subsection.6.10}%
 \contentsline {subsection}{\numberline {6.11}Berlekamp Massey}{11}{subsection.6.11}%
 \contentsline {subsection}{\numberline {6.12}Gauss Elimination}{11}{subsection.6.12}%
 \contentsline {subsection}{\numberline {6.13}Linear Equation}{11}{subsection.6.13}%

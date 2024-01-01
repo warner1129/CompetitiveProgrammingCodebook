@@ -14,6 +14,16 @@ Pt rot(Pt u, double a) {
     Pt v{sin(a), cos(a)};
     return {u ^ v, u * v};
 } 
+bool inedge(Pt a, Pt b, Pt c) {
+    return ((a - b) ^ (c - b)) == 0 and (a - b) * (c - b) <= 0;
+}
+bool banana(Pt a, Pt b, Pt c, Pt d) {
+    if (inedge(a, c, b) or inedge(a, d, b) or \
+        inedge(c, a, d) or inedge(c, b, d))
+        return true;
+    return sig(cro(a, b, c)) * sig(cro(a, b, d)) < 0 and \
+           sig(cro(c, d, a)) * sig(cro(c, d, b)) < 0;
+}
 Pt Inter(Pt a, Pt b, Pt c, Pt d) {
     double s = cro(c, d, a), t = -cro(c, d, b);
     return (a * t + b * s) / (s + t);
