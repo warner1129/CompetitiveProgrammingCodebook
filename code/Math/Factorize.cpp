@@ -43,4 +43,7 @@ struct Factorize {
             if (d == n) ++p;
         }
     }
+    i64 PrimeFactor(i64 n) {
+        return IsPrime(n) ? n : PrimeFactor(PollardRho(n));
+    }
 };
