@@ -9,6 +9,5 @@ vector<Pt> Minkowski(vector<Pt> P, vector<Pt> Q) { // P, Q need sort
         if (v >= 0) i++;
         if (v <= 0) j++;
     }
-    rotate(R.begin(), min_element(all(R)), R.end());
     return R;
 }
