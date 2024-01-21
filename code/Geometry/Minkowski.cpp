@@ -1,18 +1,14 @@
-vector<Pt> Minkowski(vector<Pt> P, vector<Pt> Q) {
-    auto reorder = [&](auto &R) -> void {
-        auto cmp = [&](Pt a, Pt b) -> bool {
-            return Pt(a.ss, a.ff) < Pt(b.ss, b.ff);
-        };
-        rotate(R.begin(), min_element(all(R), cmp), R.end());
-        R.push_back(R[0]), R.push_back(R[1]);
-    };
+vector<Pt> Minkowski(vector<Pt> P, vector<Pt> Q) { // P, Q need sort
     const int n = P.size(), m = Q.size();
-    reorder(P), reorder(Q);
+    P.push_back(P[0]), P.push_back(P[1]);
+    Q.push_back(Q[0]), Q.push_back(Q[1]);
     vector<Pt> R;
-    for (int i = 0, j = 0, s; i < n or j < m; ) {
+    for (int i = 0, j = 0; i < n or j < m; ) {
         R.push_back(P[i] + Q[j]);
-        s = sig((P[i + 1] - P[i]) ^ (Q[j + 1] - Q[j]));
-        i += (s >= 0), j += (s <= 0);
+        auto v = (P[i + 1] - P[i]) ^ (Q[j + 1] - Q[j]);
+        if (v >= 0) i++;
+        if (v <= 0) j++;
     }
+    rotate(R.begin(), min_element(all(R)), R.end());
     return R;
 }
