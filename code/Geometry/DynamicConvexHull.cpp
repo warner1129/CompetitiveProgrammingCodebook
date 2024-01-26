@@ -14,10 +14,10 @@ struct DynamicHull {
             it = --H.erase(++it);
         }
     }
-    bool inside(T p) {
+    int inside(T p) { // 0: out, 1: on, 2: in
         auto it = H.lower_bound(p);
-        if (it == H.end()) return false;
+        if (it == H.end()) return 0;
         if (it == H.begin()) return p == *it;
-        return cross(*prev(it), p, *it) <= 0;
+        return 1 - sig(cross(*prev(it), p, *it));
     }
 };
