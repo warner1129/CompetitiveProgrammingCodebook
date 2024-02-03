@@ -1,35 +1,40 @@
+template<class S>
 struct Seg {
     Seg *ls{}, *rs{};
     int l, r;
-    i64 sum{};
+    S d{};
     Seg(Seg* p) { (*this) = *p; }
-    Seg(int _l, int _r, const vector<int> &v) : l{_l}, r{_r} {
+    Seg(int l, int r) : l(l), r(r) {
         if (r - l == 1) {
-            sum = v[l];
+            d = {};
             return;
         }
-        int mid = l + r >> 1;
-        ls = new Seg(l, mid, v);
-        rs = new Seg(mid, r, v);
+        int mid = (l + r) / 2;
+        ls = new Seg(l, mid);
+        rs = new Seg(mid, r);
         pull();
     }
     void pull() {
-        sum = ls->sum + rs->sum;
+        d = ls->d + rs->d;
     }
-    Seg* modify(int p, int v) {
-        Seg* ret = new Seg(this);
+    Seg* set(int p, const S &x) {
+        Seg* n = new Seg(this);
         if (r - l == 1) {
-            ret->sum = v;
-            return ret;
+            n->d = x;
+            return n;
         }
-        if (p < (l + r >> 1)) ret->ls = ret->ls->modify(p, v);
-        else ret->rs = ret->rs->modify(p, v);
-        ret->pull();
-        return ret;
+        int mid = (l + r) / 2;
+        if (p < mid) {
+            n->ls = ls->set(p, x);
+        } else {
+            n->rs = rs->set(p, x);
+        }
+        n->pull();
+        return n;
     }
-    i64 query(int x, int y) {
-        if (y <= l or r <= x) return 0;
-        if (x <= l and r <= y) return sum;
+    S query(int x, int y) {
+        if (y <= l or r <= x) return {};
+        if (x <= l and r <= y) return d;
         return ls->query(x, y) + rs->query(x, y);
     }
 };
