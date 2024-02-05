@@ -14,7 +14,7 @@ struct SAM {
         lst = 0;
     }
     int add(int c) {
-        if (n[lst].ch[c] != 0 and n[n[lst].ch[c]].len == n[lst].len + 1) { // General
+        if (n[n[lst].ch[c]].len == n[lst].len + 1) { // General
             return lst = n[lst].ch[c];
         }
         int cur = newNode();
