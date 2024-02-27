@@ -1,4 +1,6 @@
 // C(N, M) mod D
+// 0 <= M <= N <= 10^18
+// 1 <= D <= 10^6
 i64 Lucas(i64 N, i64 M, i64 D) { 
     auto Factor = [&](i64 x) -> vector<pair<i64, i64>> {
         vector<pair<i64, i64>> r;

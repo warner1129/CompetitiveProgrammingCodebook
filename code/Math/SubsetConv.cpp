@@ -1,34 +1,21 @@
-vector<int> SubsetConv(int n, const vector<int> &f, const vector<int> &g) {
-  const int m = 1 << n;
-  vector<vector<int>> a(n + 1, vector<int>(m)), b(n + 1, vector<int>(m));
-  for (int i = 0; i < m; ++i) {
-    a[__builtin_popcount(i)][i] = f[i];
-    b[__builtin_popcount(i)][i] = g[i];
-  }
-  for (int i = 0; i <= n; ++i) {
-    for (int j = 0; j < n; ++j) {
-      for (int s = 0; s < m; ++s) {
-        if (s >> j & 1) {
-          a[i][s] += a[i][s ^ (1 << j)];
-          b[i][s] += b[i][s ^ (1 << j)];
-        }
-      }
+vector<i64> SubsetConv(vector<i64> f, vector<i64> g) {
+    const int n = f.size();
+    const int U = __lg(n) + 1;
+    vector F(U, vector<i64>(n));
+    auto G = F, H = F;
+    for (int i = 0; i < n; i++) {
+        F[popcount<u64>(i)][i] = f[i];
+        G[popcount<u64>(i)][i] = g[i];
     }
-  }
-  vector<vector<int>> c(n + 1, vector<int>(m));
-  for (int s = 0; s < m; ++s) {
-    for (int i = 0; i <= n; ++i) {
-      for (int j = 0; j <= i; ++j) c[i][s] += a[j][s] * b[i - j][s];
+    for (int i = 0; i < U; i++) {
+        FWT(F[i], ORop);
+        FWT(G[i], ORop);
     }
-  }
-  for (int i = 0; i <= n; ++i) {
-    for (int j = 0; j < n; ++j) {
-      for (int s = 0; s < m; ++s) {
-        if (s >> j & 1) c[i][s] -= c[i][s ^ (1 << j)];
-      }
-    }
-  }
-  vector<int> res(m);
-  for (int i = 0; i < m; ++i) res[i] = c[__builtin_popcount(i)][i];
-  return res;
+    for (int i = 0; i < U; i++)
+        for (int j = 0; j <= i; j++)
+            for (int k = 0; k < n; k++)
+                H[i][k] = (H[i][k] + F[i - j][k] * G[j][k]) % mod;
+    for (int i = 0; i < U; i++) FWT(H[i], ORinv);
+    for (int i = 0; i < n; i++) f[i] = H[popcount<u64>(i)][i];
+    return f;
 }

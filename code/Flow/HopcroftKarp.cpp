@@ -1,37 +1,35 @@
-// l, r <= 1e5
+// Complexity: O(n ^ 1.5)
+// edge (u \in A) -> (v \in B) : G[u].push_back(v);
 struct HK {
-    vector<int> g, l, r;
+    vector<int> l, r, a, p;
     int ans;
-    HK(int n, int m, const vector<pair<int, int>> &e) 
-        : g(e.size()), l(n, -1), r(m, -1), ans{} {
-        vector<int> deg(n + 1);
-        for (auto [x, y] : e) deg[x]++;
-        partial_sum(all(deg), deg.begin());
-        for (auto [x, y] : e) g[--deg[x]] = y;
-        vector<int> que(n);
-        for (;;) {
-            vector<int> a(n, -1), p(n, -1);
-            int t = 0;
-            for (int i = 0; i < n; i++) if (l[i] == -1)
-                que[t++] = a[i] = p[i] = i;
-            bool match = false;
-            for (int i = 0; i < t; i++) {
-                int x = que[i];
-                if (~l[a[x]]) continue;
-                for (int j = deg[x]; j < deg[x + 1]; j++) {
-                    int y = g[j];
+    HK(int n, int m, auto &G) : l(n, -1), r(m, -1), ans{} {
+        for (bool match = true; match; ) {
+            match = false;
+            queue<int> q;
+            a.assign(n, -1), p.assign(n, -1);
+            for (int i = 0; i < n; i++)
+                if (l[i] == -1) q.push(a[i] = p[i] = i);
+            while (!q.empty()) {
+                int z, x = q.front(); q.pop();
+                if (l[a[x]] != -1) continue;
+                for (int y : G[x]) {
                     if (r[y] == -1) {
-                        while (~y) r[y] = x, swap(l[x], y), x = p[x];
-                        match = true, ans++;
+                        for (z = y; z != -1; ) {
+                            r[z] = x;
+                            swap(l[x], z);
+                            x = p[x];
+                        }
+                        match = true;
+                        ans++;
                         break;
-                    }
-                    if (p[r[y]] == -1) {
-                        que[t++] = y = r[y];
-                        p[y] = x, a[y] = a[x];
+                    } else if (p[r[y]] == -1) {
+                        q.push(z = r[y]);
+                        p[z] = x;
+                        a[z] = a[x];
                     }
                 }
             }
-            if (!match) break;
         }
     }
 };

@@ -22,3 +22,19 @@ h = f * 2 - g
 if h.numerator <= n and h.denominator <= n and h < g:
 	g = h
 print(g.numerator, g.denominator)
+
+from fractions import Fraction
+x = Fraction(1, 2), y = Fraction(1)
+print(x.as_integer_ratio()) # print 1/2
+print(x.is_integer())
+print(x.__round__())
+print(float(x))
+
+r = Fraction(input())
+N = int(input())
+r2 = r - 1 / Fraction(N) ** 2
+ans = r.limit_denominator(N)
+ans2 = r2.limit_denominator(N)
+if ans2 < ans and 0 <= ans2 <= 1 and abs(ans - r) >= abs(ans2 - r):
+    ans = ans2
+print(ans.numerator,ans.denominator)
