@@ -8,7 +8,7 @@ struct Comb {
             ifac[i] = ifac[i - 1] * inv[i] % mod;
         }
     }
-    int operator()(int n) {
+    i64 operator()(int n) {
         return n < 0 ? ifac[-n] : fac[n];
     }
     i64 operator()(int n, int m) {
