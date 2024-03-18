@@ -1,4 +1,4 @@
-template<class T>
+template <class T>
 T BSGS(T x, T y, T M) {
   // x^? \equiv y (mod M)
   T t = 1, c = 0, g = 1;

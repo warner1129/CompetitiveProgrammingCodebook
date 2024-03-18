@@ -1,4 +1,4 @@
-template<class T>
+template <class T>
 struct Convex {
     int n; 
     vector<T> A, V, L, U;

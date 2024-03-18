@@ -1,4 +1,4 @@
-template<class T>
+template <class T>
 struct BIT2D {
     vector<vector<T>> val;
     vector<vector<int>> Y;

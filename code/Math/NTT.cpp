@@ -4,7 +4,7 @@ constexpr i64 cpow(i64 a, i64 b, i64 m) {
         if (b & 1) ret = ret * a % m;
     return ret;
 };
-template<i64 M, i64 G>
+template <i64 M, i64 G>
 struct NTT {
     static constexpr i64 iG = cpow(G, M - 2, M);
     void operator()(vector<i64> &v, bool inv) {
@@ -30,7 +30,7 @@ struct NTT {
         }
     }
 };
-template<i64 M, i64 G>
+template <i64 M, i64 G>
 vector<i64> convolution(vector<i64> f, vector<i64> g) {
     NTT<M, G> ntt;
     int sum = f.size() + g.size() - 1;

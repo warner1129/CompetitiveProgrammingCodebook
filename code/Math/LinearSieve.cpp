@@ -1,4 +1,4 @@
-template<size_t N>
+template <size_t N>
 struct Sieve {
     array<bool, N + 1> isp{};
     array<int, N + 1> mu{}, phi{};

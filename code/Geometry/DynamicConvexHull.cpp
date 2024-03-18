@@ -1,4 +1,4 @@
-template<class T, class Comp = less<T>>
+template <class T, class Comp = less<T>>
 struct DynamicHull {
     set<T, Comp> H;
     DynamicHull() {}

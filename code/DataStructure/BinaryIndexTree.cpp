@@ -1,4 +1,4 @@
-template<class T>
+template <class T>
 struct BIT {
     int n;
     vector<T> a;

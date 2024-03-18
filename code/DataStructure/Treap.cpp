@@ -1,5 +1,5 @@
 mt19937 rng(random_device{}());
-template<class S, class T>
+template <class S, class T>
 struct Treap {
     struct Node {
         Node *ls{}, *rs{};
