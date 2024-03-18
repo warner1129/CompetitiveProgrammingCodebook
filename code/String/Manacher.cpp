@@ -1,6 +1,9 @@
-vector<int> manacher(const string &s) {
+vector<int> manacher(string_view s) {
     string p = "@#";
-    for (char c : s) p += c + '#';
+    for (char c : s) {
+        p += c;
+        p += '#';
+    }
     p += '$';
     vector<int> dp(p.size());
     int mid = 0, r = 1;
