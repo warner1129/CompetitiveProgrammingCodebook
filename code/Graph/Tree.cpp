@@ -1,15 +1,19 @@
 struct Tree {
     int n, lgN;
-    vector<vector<int>> G, st;
+    vector<vector<int>> G;
+    vector<vector<int>> st;
     vector<int> in, out, dep, pa, seq;
     Tree(int n) : n(n), G(n), in(n), out(n), dep(n), pa(n, -1) {}
     int cmp(int a, int b) {
         return dep[a] < dep[b] ? a : b;
     }
     void dfs(int u) {
+        if (pa[u] != -1) {
+            G[u].erase(find(all(G[u]), pa[u]));
+        }
         in[u] = seq.size();
         seq.push_back(u);
-        for (int v : G[u]) if (v != pa[u]) {
+        for (int v : G[u]) {
             dep[v] = dep[u] + 1;
             pa[v] = u;
             dfs(v);
@@ -38,6 +42,23 @@ struct Tree {
     }
     int dist(int x, int y) {
         return dep[x] + dep[y] - 2 * dep[lca(x, y)];
+    }
+    int rootPar(int r, int x) {
+        if (r == x) return -1;
+        if (!inside(x, r)) return pa[x];
+        return *--upper_bound(all(G[x]), r,
+            [&](int a, int b) -> bool {
+                return in[a] < in[b];
+            });
+    }
+    int size(int x) { return out[x] - in[x]; }
+    int rootSiz(int r, int x) {
+        if (r == x) return n;
+        if (!inside(x, r)) return size(x);
+        return n - size(rootPar(r, x));
+    }
+    int rootLca(int a, int b, int c) {
+        return lca(a, b) ^ lca(b, c) ^ lca(c, a);
     }
     vector<int> virTree(vector<int> ver) {
         sort(all(ver), [&](int a, int b) {
