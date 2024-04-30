@@ -9,7 +9,7 @@ struct Tree {
     }
     void dfs(int u) {
         if (pa[u] != -1) {
-            G[u].erase(find(all(G[u]), pa[u]));
+            G[u].erase(remove(all(G[u]), pa[u]), G[u].end());
         }
         in[u] = seq.size();
         seq.push_back(u);

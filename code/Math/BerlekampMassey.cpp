@@ -1,4 +1,4 @@
-template <int P>
+template<int P>
 vector<int> BerlekampMassey(vector<int> x) {
   vector<int> cur, ls;
   int lf = 0, ld = 0;

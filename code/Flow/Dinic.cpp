@@ -1,4 +1,4 @@
-template <class Cap>
+template<class Cap>
 struct Flow {
     struct Edge { int v; Cap w; int rev; };
     vector<vector<Edge>> G;

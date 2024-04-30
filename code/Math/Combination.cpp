@@ -1,4 +1,4 @@
-template <size_t N>
+template<size_t N>
 struct Comb {
     array<i64, N + 1> fac, ifac, inv;
     Comb() : fac{1, 1}, ifac{1, 1}, inv{0, 1} {

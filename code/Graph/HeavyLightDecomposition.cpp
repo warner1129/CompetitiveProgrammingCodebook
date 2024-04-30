@@ -1,16 +1,10 @@
 struct HLD {
     int n;
-    vector<int> siz, top, dep, pa, in, out, seq;
+    vector<int> siz, dep, pa, in, out, seq, top, tail;
     vector<vector<int>> G;
-    HLD(int n) : n(n), G(n), siz(n), top(n), 
-        dep(n), pa(n), in(n), out(n), seq(n) {}
-    int cur{};
-    void addEdge(int u, int v) {
-        G[u].push_back(v);
-        G[v].push_back(u);
-    }
-    void work(int root = 0) {
-        cur = 0;
+    HLD(int n) : n(n), G(n), siz(n), dep(n), pa(n), 
+        in(n), out(n), top(n), tail(n) {}
+    void build(int root = 0) {
         top[root] = root;
         dep[root] = 0;
         pa[root] = -1;
@@ -19,7 +13,7 @@ struct HLD {
     }
     void dfs1(int u) {
         if (pa[u] != -1) {
-            G[u].erase(find(all(G[u]), pa[u]));
+            G[u].erase(remove(all(G[u]), pa[u]), G[u].end());
         }
         siz[u] = 1;
         for (auto &v : G[u]) {
@@ -33,13 +27,17 @@ struct HLD {
         }
     }
     void dfs2(int u) {
-        in[u] = cur++;
-        seq[in[u]] = u;
+        in[u] = seq.size();
+        seq.push_back(u);
+        tail[u] = u;
         for (int v : G[u]) {
             top[v] = (v == G[u][0] ? top[u] : v);
             dfs2(v);
+            if (v == G[u][0]) {
+                tail[u] = tail[v];
+            }
         }
-        out[u] = cur;
+        out[u] = seq.size();
     }
     int lca(int x, int y) {
         while (top[x] != top[y]) {

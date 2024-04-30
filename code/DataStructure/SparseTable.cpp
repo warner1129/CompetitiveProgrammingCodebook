@@ -1,4 +1,4 @@
-template <class T, auto F>
+template<class T, auto F>
 struct SparseTable {
     int n, lgN;
     vector<vector<T>> st;

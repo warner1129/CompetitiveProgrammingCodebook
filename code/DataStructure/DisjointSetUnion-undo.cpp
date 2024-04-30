@@ -1,4 +1,4 @@
-template <class T>
+template<class T>
 struct DSU {
     vector<T> tag;
     vector<int> f, siz, stk;

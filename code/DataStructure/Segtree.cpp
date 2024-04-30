@@ -1,4 +1,4 @@
-template <class S>
+template<class S>
 struct Seg {
     Seg<S> *ls{}, *rs{};
     int l, r;
