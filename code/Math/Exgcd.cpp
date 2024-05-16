@@ -1,5 +1,10 @@
-pair<i64, i64> exgcd(i64 a, i64 b) { // ax + by = 1
-    if (b == 0) return {1, 0};
-    auto [x, y] = exgcd(b, a % b);
-    return {y, x - a / b * y};
-};
+// ax + by = gcd(a, b)
+i64 exgcd(i64 a, i64 b, i64 &x, i64 &y) {
+    if (b == 0) {
+        x = 1, y = 0;
+        return a;
+    }
+    int g = exgcd(b, a % b, y, x);
+    y -= a / b * x;
+    return g;
+}
