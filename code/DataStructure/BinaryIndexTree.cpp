@@ -8,7 +8,7 @@ struct BIT {
         for (int i = p + 1; i <= n; i += lowbit(i))
             a[i - 1] = a[i - 1] + x;
     }
-    T qry(int p) {
+    T qry(int p) { // [0, p]
         T r{};
         for (int i = p + 1; i > 0; i -= lowbit(i))
             r = r + a[i - 1];
@@ -17,12 +17,13 @@ struct BIT {
     T qry(int l, int r) { // [l, r)
         return qry(r - 1) - qry(l - 1);
     }
-    int kth(T k) {
+    int select(const T &k) {
         int x = 0;
-        for (int i = 1 << __lg(n); i; i >>= 1) {
-            if (x + i <= n and k >= a[x + i - 1]) {
+        T cur{};
+        for (int i = 1 << __lg(n); i; i /= 2) {
+            if (x + i <= n && cur + a[x + i - 1] <= k) {
                 x += i;
-                k = k - a[x - 1];
+                cur = cur + a[x - 1];
             }
         }
         return x;

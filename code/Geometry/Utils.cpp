@@ -1,0 +1,42 @@
+struct Line {
+    Pt a, b;
+};
+
+Pt rotate(Pt u) { // pi / 2
+    return {-u.ss, u.ff};
+}
+
+Pt rotate(Pt u, double a) {
+    Pt v{sin(a), cos(a)};
+    return {u ^ v, u * v};
+} 
+
+Pt norm(Pt x) {
+    return x / abs(x);
+}
+
+Pt proj(Pt p, Line l) {
+    Pt dir = norm(l.b - l.a);
+    return l.a + dir * (dir * (p - l.a));
+}
+
+int PtSide(Pt p, Line L) {
+    return sgn(cro(L.a, L.b, p));
+}
+
+bool PtOnSeg(Pt p, Line L) {
+    return sgn(cro(L.a, L.b, p)) == 0 and sgn((p - L.a) * (p - L.b)) <= 0;
+}
+
+bool isInter(Line l, Line m) {
+    if (PtOnSeg(m.a, l) or PtOnSeg(m.b, l) or \
+        PtOnSeg(l.a, m) or PtOnSeg(l.b, m))
+        return true;
+    return PtSide(m.a, l) * PtSide(m.b, l) < 0 and \
+           PtSide(l.a, m) * PtSide(l.b, m) < 0;
+}
+
+Pt lineInter(Line l, Line m) {
+    double s = cro(l.a, l.b, m.a), t = cro(l.a, l.b, m.b);
+    return l.a + (l.b - l.a) * (s / (s - t));
+}
