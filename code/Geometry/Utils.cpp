@@ -36,7 +36,7 @@ bool isInter(Line l, Line m) {
            PtSide(l.a, m) * PtSide(l.b, m) < 0;
 }
 
-Pt lineInter(Line l, Line m) {
-    double s = cro(l.a, l.b, m.a), t = cro(l.a, l.b, m.b);
+Pt LineInter(Line l, Line m) {
+    double s = cro(m.a, m.b, l.a), t = cro(m.a, m.b, l.b);
     return l.a + (l.b - l.a) * (s / (s - t));
 }

@@ -1,8 +1,7 @@
-template<class T>
 struct Convex {
     int n; 
-    vector<T> A, V, L, U;
-    Convex(const vector<T> &_A) : A(_A), n(_A.size()) { // n >= 3
+    vector<Pt> A, V, L, U;
+    Convex(const vector<Pt> &_A) : A(_A), n(_A.size()) { // n >= 3
         auto it = max_element(all(A));
         L.assign(A.begin(), it + 1);
         U.assign(it, A.end()), U.push_back(A[0]);
@@ -10,24 +9,24 @@ struct Convex {
             V.push_back(A[(i + 1) % n] - A[i]);
         }
     }
-    int inside(T p, const vector<T> &h, auto f) { // 0: out, 1: on, 2: in
+    int inside(Pt p, const vector<Pt> &h, auto f) {
         auto it = lower_bound(all(h), p, f);
         if (it == h.end()) return 0;
         if (it == h.begin()) return p == *it;
-        return 1 - sig(cro(*prev(it), p, *it));
+        return 1 - sgn(cro(*prev(it), p, *it));
     }
-    int inside(T p) {
+    int inside(Pt p) { // 0: out, 1: on, 2: in
         return min(inside(p, L, less{}), inside(p, U, greater{}));
     }
-    static bool cmp(T a, T b) { return sig(a ^ b) > 0; }
-    int tangent(T v, bool close = true) {
-        assert(v != T{});
+    static bool cmp(Pt a, Pt b) { return sgn(a ^ b) > 0; }
+    int tangent(Pt v, bool close = true) { // A[i] is a far/closer tangent point
+        assert(v != Pt{});
         auto l = V.begin(), r = V.begin() + L.size() - 1;
-        if (v < T{}) l = r, r = V.end();
+        if (v < Pt{}) l = r, r = V.end();
         if (close) return (lower_bound(l, r, v, cmp) - V.begin()) % n;
         return (upper_bound(l, r, v, cmp) - V.begin()) % n;
     } 
-    array<int, 2> tangent2(T p) {
+    array<int, 2> tangent2(Pt p) { // p closer tangent point
         array<int, 2> t{-1, -1};
         if (inside(p) == 2) return t;
         if (auto it = lower_bound(all(L), p); it != L.end() and p == *it) {
@@ -42,18 +41,17 @@ struct Convex {
         for (int i = 0; i != t[1]; i = tangent((p - A[t[1] = i]), 1));
         return t;
     }
-    int Find(int l, int r, T a, T b) {
+    int find(int l, int r, Line L) {
         if (r < l) r += n;
-        int s = sig(cro(a, b, A[l % n]));
-        while (r - l > 1) {
-            (sig(cro(a, b, A[(l + r) / 2 % n])) == s ? l : r) = (l + r) / 2;
-        }
-        return l % n;
+        int s = PtSide(A[l % n], L);
+        return *ranges::partition_point(views::iota(l, r),
+            [&](int m) {
+                return PtSide(A[m % n], L) == s;
+            }) - 1;
     };
-    vector<int> LineIntersect(T a, T b) { // A_x A_x+1 interset with ab 
-        assert(a != b);
-        int l = tangent(a - b), r = tangent(b - a);
-        if (sig(cro(a, b, A[l])) * sig(cro(a, b, A[r])) >= 0) return {};
-        return {Find(l, r, a, b), Find(r, l, a, b)};
+    vector<int> intersect(Line L) { // Line A_x A_x+1 interset with L
+        int l = tangent(L.a - L.b), r = tangent(L.b - L.a);
+        if (PtSide(A[l], L) * PtSide(A[r], L) >= 0) return {};
+        return {find(l, r, L) % n, find(r, l, L) % n};
     }
 };
