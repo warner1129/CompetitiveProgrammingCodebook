@@ -1,13 +1,20 @@
-vector<Pt> Minkowski(vector<Pt> P, vector<Pt> Q) { // P, Q need sort
+// sorted convex polygon
+vector<Pt> Minkowski(vector<Pt> P, vector<Pt> Q) {
+    auto cmp = [&](Pt a, Pt b) {
+        return Pt{a.ss, a.ff} < Pt{b.ss, b.ff};
+    };
+    auto reorder = [&](auto &R) {
+        rotate(R.begin(), min_element(all(R), cmp), R.end());
+        R.push_back(R[0]), R.push_back(R[1]);
+    };
     const int n = P.size(), m = Q.size();
-    P.push_back(P[0]), P.push_back(P[1]);
-    Q.push_back(Q[0]), Q.push_back(Q[1]);
+    reorder(P), reorder(Q);
     vector<Pt> R;
-    for (int i = 0, j = 0; i < n or j < m; ) {
+    for (int i = 0, j = 0, s; i < n or j < m; ) {
         R.push_back(P[i] + Q[j]);
-        auto v = (P[i + 1] - P[i]) ^ (Q[j + 1] - Q[j]);
-        if (v >= 0) i++;
-        if (v <= 0) j++;
+        s = sgn((P[i + 1] - P[i]) ^ (Q[j + 1] - Q[j]));
+        if (s >= 0) i++;
+        if (s <= 0) j++;
     }
     return R;
 }

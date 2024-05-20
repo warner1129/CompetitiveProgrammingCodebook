@@ -15,18 +15,21 @@ struct Convex {
         if (it == h.begin()) return p == *it;
         return 1 - sgn(cro(*prev(it), p, *it));
     }
-    int inside(Pt p) { // 0: out, 1: on, 2: in
+    // 0: out, 1: on, 2: in
+    int inside(Pt p) { 
         return min(inside(p, L, less{}), inside(p, U, greater{}));
     }
     static bool cmp(Pt a, Pt b) { return sgn(a ^ b) > 0; }
-    int tangent(Pt v, bool close = true) { // A[i] is a far/closer tangent point
+    // A[i] is a far/closer tangent point
+    int tangent(Pt v, bool close = true) {
         assert(v != Pt{});
         auto l = V.begin(), r = V.begin() + L.size() - 1;
         if (v < Pt{}) l = r, r = V.end();
         if (close) return (lower_bound(l, r, v, cmp) - V.begin()) % n;
         return (upper_bound(l, r, v, cmp) - V.begin()) % n;
     } 
-    array<int, 2> tangent2(Pt p) { // p closer tangent point
+    // closer tangent point
+    array<int, 2> tangent2(Pt p) {
         array<int, 2> t{-1, -1};
         if (inside(p) == 2) return t;
         if (auto it = lower_bound(all(L), p); it != L.end() and p == *it) {
@@ -49,7 +52,8 @@ struct Convex {
                 return PtSide(A[m % n], L) == s;
             }) - 1;
     };
-    vector<int> intersect(Line L) { // Line A_x A_x+1 interset with L
+    // Line A_x A_x+1 interset with L
+    vector<int> intersect(Line L) {
         int l = tangent(L.a - L.b), r = tangent(L.b - L.a);
         if (PtSide(A[l], L) * PtSide(A[r], L) >= 0) return {};
         return {find(l, r, L) % n, find(r, l, L) % n};
