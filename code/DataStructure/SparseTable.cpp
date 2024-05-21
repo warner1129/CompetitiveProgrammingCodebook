@@ -1,16 +1,17 @@
-template<class T, auto F>
+template<class T>
 struct SparseTable {
-    int n, lgN;
+    function<T(T, T)> F;
     vector<vector<T>> st;
-    SparseTable(const vector<T> &V) {
+    int n;
+    SparseTable(const vector<T> &V, const auto &f) {
+        F = f;
         n = V.size();
-        lgN = __lg(n);
+        int lgN = __lg(n);
         st.assign(lgN + 1, vector<T>(n));
         st[0] = V;
-        for (int i = 0; (2 << i) <= n; i++) 
-            for (int j = 0; j + (2 << i) <= n; j++) {
+        for (int i = 0; i < lgN; i++)
+            for (int j = 0; j + (2 << i) <= n; j++)
                 st[i + 1][j] = F(st[i][j], st[i][j + (1 << i)]);
-            }
     }
     T qry(int l, int r) { // [l, r)
         int h = __lg(r - l);
