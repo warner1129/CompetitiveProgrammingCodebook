@@ -4,11 +4,13 @@ vector<Pt> Hull(vector<Pt> P) {
     P.insert(P.end(), P.rbegin() + 1, P.rend());
     vector<Pt> stk;
     for (auto p : P) {
-        while (stk.size() >= 2 and \             // < if reserve co-line 
-                cro(*++stk.rbegin(), stk.back(), p) <= 0 and \
-                (*++stk.rbegin() < stk.back()) == (stk.back() < p)) {
-            stk.pop_back();
+        auto it = stk.rbegin();
+        while (stk.rend() - it >= 2 and \
+            cro(*next(it), *it, p) <= 0 and \
+            (*next(it) < *it) == (*it < p)) {
+            it++;
         }
+        stk.resize(stk.rend() - it);
         stk.push_back(p);
     }
     stk.pop_back();
