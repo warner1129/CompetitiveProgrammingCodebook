@@ -38,5 +38,5 @@ bool isInter(Line l, Line m) {
 
 Pt LineInter(Line l, Line m) {
     double s = cro(m.a, m.b, l.a), t = cro(m.a, m.b, l.b);
-    return l.a + (l.b - l.a) * (s / (s - t));
+    return (l.b * s - l.a * t) / (s - t);
 }

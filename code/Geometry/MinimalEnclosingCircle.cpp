@@ -7,7 +7,6 @@ Pt Center(Pt a, Pt b, Pt c) {
 Circle MEC(vector<Pt> P) {
     mt19937 rng(time(0));
     shuffle(all(P), rng);
-    
     Circle C;
     for (int i = 0; i < P.size(); i++) {
         if (C.inside(P[i])) continue;
@@ -22,6 +21,5 @@ Circle MEC(vector<Pt> P) {
             }
         }
     }
-    
     return C;
 }
