@@ -11,7 +11,7 @@ constexpr i64 power(i64 a, i64 b) {
 constexpr i64 P = 1e9 + 321;
 constexpr i64 iP = power(P, M - 2);
 vector<i64> pw{1}, ipw{1};
-void extand(size_t s) {
+void extend(size_t s) {
     while (pw.size() < s + 1) {
         pw.push_back(mul(pw.back(), P));
         ipw.push_back(mul(ipw.back(), iP));
