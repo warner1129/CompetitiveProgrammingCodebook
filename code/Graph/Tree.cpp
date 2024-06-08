@@ -8,9 +8,7 @@ struct Tree {
         return dep[a] < dep[b] ? a : b;
     }
     void dfs(int u) {
-        if (pa[u] != -1) {
-            G[u].erase(remove(all(G[u]), pa[u]), G[u].end());
-        }
+        erase(G[u], pa[u]);
         in[u] = seq.size();
         seq.push_back(u);
         for (int v : G[u]) {

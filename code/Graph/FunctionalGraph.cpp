@@ -1,3 +1,6 @@
+// bel[x]: x is belong bel[x]-th jellyfish
+// len[x]: cycle length of x-th jellyfish
+// ord[x]: order of x in cycle (x == root[x])
 struct FunctionalGraph {
     int n, _t = 0;
     vector<vector<int>> G;

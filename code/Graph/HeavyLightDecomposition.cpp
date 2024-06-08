@@ -12,9 +12,7 @@ struct HLD {
         dfs2(root);
     }
     void dfs1(int u) {
-        if (pa[u] != -1) {
-            G[u].erase(remove(all(G[u]), pa[u]), G[u].end());
-        }
+        erase(G[u], pa[u]);
         siz[u] = 1;
         for (auto &v : G[u]) {
             pa[v] = u;
