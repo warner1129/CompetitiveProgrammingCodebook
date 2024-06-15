@@ -22,7 +22,7 @@ struct Hash {
     Hash(string_view s) {
         int n = s.size();
         suf.assign(n + 1, 0);
-        extand(n);
+        extend(n);
         for (int i = n - 1; i >= 0; i--) {
             suf[i] = (mul(s[i], pw[i]) + suf[i + 1]) % M;
         }
