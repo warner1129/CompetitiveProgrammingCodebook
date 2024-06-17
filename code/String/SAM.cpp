@@ -1,44 +1,54 @@
 struct SAM {
-    struct Node {
-        int link{}, len{};
-        array<int, 26> ch{};
-    };
-    vector<Node> n;
+    vector<array<int, 26>> nxt;
+    vector<int> fail, len;
     int lst = 0;
-    SAM() : n(1) {}
     int newNode() {
-        n.emplace_back();
-        return n.size() - 1;
+        fail.push_back(0);
+        len.push_back(0);
+        nxt.push_back({});
+        return fail.size() - 1;
     }
+    SAM() : lst(newNode()) {}
     void reset() {
         lst = 0;
     }
     int add(int c) {
-        if (n[n[lst].ch[c]].len == n[lst].len + 1) { // General
-            return lst = n[lst].ch[c];
+        if (nxt[lst][c] and len[nxt[lst][c]] == len[lst] + 1) { // 廣義
+            return lst = nxt[lst][c];
         }
         int cur = newNode();
-        n[cur].len = n[lst].len + 1;
-        while (lst != 0 and n[lst].ch[c] == 0) {
-            n[lst].ch[c] = cur;
-            lst = n[lst].link;
+        len[cur] = len[lst] + 1;
+        while (lst and nxt[lst][c] == 0) {
+            nxt[lst][c] = cur;
+            lst = fail[lst];
         }
-        int p = n[lst].ch[c];
+        int p = nxt[lst][c];
         if (p == 0) {
-            n[cur].link = 0;
-            n[0].ch[c] = cur;
-        } else if (n[p].len == n[lst].len + 1) {
-            n[cur].link = p;
+            fail[cur] = 0;
+            nxt[0][c] = cur;
+        } else if (len[p] == len[lst] + 1) {
+            fail[cur] = p;
         } else {
             int t = newNode();
-            n[t] = n[p];
-            n[t].len = n[lst].len + 1;
-            while (n[lst].ch[c] == p) {
-                n[lst].ch[c] = t;
-                lst = n[lst].link;
+            nxt[t] = nxt[p];
+            fail[t] = fail[p];
+            len[t] = len[lst] + 1;
+            while (nxt[lst][c] == p) {
+                nxt[lst][c] = t;
+                lst = fail[lst];
             }
-            n[p].link = n[cur].link = t;
+            fail[p] = fail[cur] = t;
         }
         return lst = cur;
+    }
+    vector<int> order() { // 長度遞減
+        vector<int> cnt(len.size());
+        for (int i = 0; i < len.size(); i++)
+            cnt[len[i]]++;
+        partial_sum(rall(cnt), cnt.rbegin());
+        vector<int> ord(cnt[0]);
+        for (int i = len.size() - 1; i >= 0; i--)
+            ord[--cnt[len[i]]] = i;
+        return ord;
     }
 };
