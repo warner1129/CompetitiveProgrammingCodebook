@@ -1,52 +1,57 @@
-template<class Cap>
+template<class T>
 struct MCMF {
-    struct Edge { int v; Cap f, w; int rev; };
+    struct Edge { int v; T f, w; int rev; };
     vector<vector<Edge>> G;
-    int n, S, T;
-    MCMF(int n, int S, int T) : n(n), S(S), T(T), G(n) {}
-    void add_edge(int u, int v, Cap cap, Cap cost) {
-        G[u].push_back({v, cap, cost, (int)G[v].size()});
-        G[v].push_back({u, 0, -cost, (int)G[u].size() - 1});
+    const int n;
+    MCMF(int n) : n(n), G(n) {}
+    void addEdge(int u, int v, T f, T c) {
+        G[u].push_back({v, f, c, ssize(G[v])});
+        G[v].push_back({u, 0, -c, ssize(G[u]) - 1});
     }
-    vector<Cap> dis;
+    vector<T> dis;
     vector<bool> vis;
-    bool spfa() {
+    bool spfa(int s, int t) {
         queue<int> que;
-        dis.assign(n, inf<Cap>);
+        dis.assign(n, inf<T>);
         vis.assign(n, false);
-        que.push(S);
-        vis[S] = 1;
-        dis[S] = 0;
+        que.push(s);
+        vis[s] = 1;
+        dis[s] = 0;
         while (!que.empty()) {
             int u = que.front(); que.pop();
             vis[u] = 0;
             for (auto [v, f, w, _] : G[u])
                 if (f and chmin(dis[v], dis[u] + w))
-                    if (!vis[v]) que.push(v), vis[v] = 1;
+                    if (!vis[v]) {
+                        que.push(v);
+                        vis[v] = 1;
+                    }
         }
-        return dis[T] != inf<Cap>;
+        return dis[t] != inf<T>;
     }
-    Cap dfs(int u, Cap in) {
-        if (u == T) return in;
+    T dfs(int u, T in, int t) {
+        if (u == t) return in;
         vis[u] = 1;
-        Cap out = 0;
+        T out = 0;
         for (auto &[v, f, w, rev] : G[u])
             if (f and !vis[v] and dis[v] == dis[u] + w) {
-                Cap x = dfs(v, min(in, f));
-                in -= x, out += x;
-                f -= x, G[v][rev].f += x;
+                T x = dfs(v, min(in, f), t);
+                in -= x;
+                out += x;
+                f -= x;
+                G[v][rev].f += x;
                 if (!in) break;
             }
-        if (in) dis[u] = inf<Cap>; 
+        if (in) dis[u] = inf<T>; 
         vis[u] = 0;
         return out;
     }
-    pair<Cap, Cap> maxflow() {
-        Cap a = 0, b = 0;
-        while (spfa()) {
-            Cap x = dfs(S, inf<Cap>);
+    pair<T, T> maxFlow(int s, int t) {
+        T a = 0, b = 0;
+        while (spfa(s, t)) {
+            T x = dfs(s, inf<T>, t);
             a += x;
-            b += x * dis[T];
+            b += x * dis[t];
         }
         return {a, b};
     }
