@@ -1,5 +1,5 @@
 // sigma 0 ~ n-1: (a * i + b) / m
-i64 floor_sum(i64 n, i64 m, i64 a, i64 b) {
+i64 floorSum(i64 n, i64 m, i64 a, i64 b) {
     u64 ans = 0;
     if (a < 0) {
         u64 a2 = (a % m + m) % m;
