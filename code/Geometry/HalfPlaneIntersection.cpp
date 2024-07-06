@@ -1,3 +1,4 @@
+// 交集不能為空或無限
 vector<Pt> HPI(vector<Line> P) {
     const int n = P.size();
     sort(all(P), [&](Line L, Line R) -> bool {
