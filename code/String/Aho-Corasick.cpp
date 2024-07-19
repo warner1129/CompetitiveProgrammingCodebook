@@ -1,4 +1,4 @@
-const int sigma = 26;
+const int sigma = ;
 
 struct Node {
     Node *ch[sigma]{};
