@@ -1,53 +1,53 @@
+const int sigma = 26;
+
 struct Node {
-    Node *ch[2]{};
-    Node *fail{};
-    bool ed{};
-} pool[(i64)1E6]{};
-int top = 0;
-Node *newNode() {
-    auto p = &pool[top++];
-    p->ch[0] = p->ch[1] = {};
-    p->fail = {};
-    p->ed = {};
-    return p;
-}
+    Node *ch[sigma]{};
+    Node *fail{}, *next{};
+    bool end{};
+} pool[i64(1E6)]{};
+
 struct ACauto {
+    int top;
     Node *root;
     ACauto() {
         top = 0;
-        root = newNode();
+        root = new (pool + top++) Node();
     }
-    void add(string_view s) {
+    int add(string_view s) {
         auto p = root;
         for (char c : s) {
-            c -= '0';
+            c -= ;
             if (!p->ch[c]) {
-                p->ch[c] = newNode();
+                p->ch[c] = new (pool + top++) Node();
             }
             p = p->ch[c];
         }
-        p->ed = true;
+        p->end = true;
+        return p - pool;
     }
+    vector<Node*> ord;
     void build() {
         queue<Node*> que;
         root->fail = root;
         for (auto &p : root->ch) {
             if (p) {
-                que.push(p);
                 p->fail = root;
+                que.push(p);
             } else {
                 p = root;
             }
         }
         while (!que.empty()) {
-            auto u = que.front();
+            auto p = que.front();
             que.pop();
-            for (int i : {0, 1}) {
-                if (u->ch[i]) {
-                    u->ch[i]->fail = u->fail->ch[i];
-                    que.push(u->ch[i]);
+            ord.push_back(p);
+            p->next = (p->fail->end ? p->fail : p->fail->next);
+            for (int i = 0; i < sigma; i++) {
+                if (p->ch[i]) {
+                    p->ch[i]->fail = p->fail->ch[i];
+                    que.push(p->ch[i]);
                 } else {
-                    u->ch[i] = u->fail->ch[i];
+                    p->ch[i] = p->fail->ch[i];
                 }
             }
         }
