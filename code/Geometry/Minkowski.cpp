@@ -1,4 +1,4 @@
-// sorted convex polygon
+// P, Q, R(return) are counterclockwise order convex polygon
 vector<Pt> Minkowski(vector<Pt> P, vector<Pt> Q) {
     auto cmp = [&](Pt a, Pt b) {
         return Pt{a.ss, a.ff} < Pt{b.ss, b.ff};
