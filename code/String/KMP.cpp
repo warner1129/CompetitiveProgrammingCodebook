@@ -1,4 +1,4 @@
-vector<int> build_fail(string s) {
+vector<int> buildFail(string s) {
     const int len = s.size();
     vector<int> f(len, -1);
     for (int i = 1, p = -1; i < len; i++) {

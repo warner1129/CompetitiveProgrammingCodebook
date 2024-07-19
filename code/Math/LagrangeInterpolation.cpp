@@ -4,7 +4,6 @@ struct Lagrange {
     Lagrange(const vector<i64> &P) {
         deg = P.size() - 1;
         C.assign(deg + 1, 0);
-
         for (int i = 0; i <= deg; i++) {
             i64 q = comb(-i) * comb(i - deg) % mod;
             if ((deg - i) % 2 == 1) {
@@ -21,7 +20,6 @@ struct Lagrange {
             }
             return ans * C[x] % mod;
         }
-
         vector<i64> pre(deg + 1), suf(deg + 1);
         for (int i = 0; i <= deg; i++) {
             pre[i] = (x - i);
@@ -35,15 +33,12 @@ struct Lagrange {
                 suf[i] = suf[i] * suf[i + 1] % mod;
             }
         }
-
         i64 ans = 0;
         for (int i = 0; i <= deg; i++) {
             ans += (i == 0 ? 1 : pre[i - 1]) * (i == deg ? 1 : suf[i + 1]) % mod * C[i];
             ans %= mod;
         }
-
         if (ans < 0) ans += mod;
-
         return ans;
     }
 };
