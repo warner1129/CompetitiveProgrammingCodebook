@@ -1,12 +1,15 @@
-i64 KM(vector<vector<int>> W) {
+template<class T>
+T KM(vector<vector<T>> W) {
     const int n = W.size();
-    vector<int> fl(n, -1), fr(n, -1), hr(n), hl(n);
+    vector<int> fl(n, -1), fr(n, -1);
+    vector<T> hr(n), hl(n);
     for (int i = 0; i < n; i++) {
-        hl[i] = *max_element(W[i].begin(), W[i].end());
+        hl[i] = ranges::max(W[i]);
     }
     auto bfs = [&](int s) {
-        vector<int> slk(n, inf<int>), pre(n);
-        vector<bool> vl(n, false), vr(n, false);
+        vector<T> slk(n, inf<T>);
+        vector<int> pre(n);
+        vector<bool> vl(n), vr(n);
         queue<int> que;
         que.push(s);
         vr[s] = true;
@@ -16,35 +19,55 @@ i64 KM(vector<vector<int>> W) {
                 que.push(fl[x]);
                 return vr[fl[x]] = true;
             }
-            while (x != -1) swap(x, fr[fl[x] = pre[x]]);
+            while (x != -1) {
+                swap(x, fr[fl[x] = pre[x]]);
+            }
             return false;
         };
         while (true) {
             while (!que.empty()) {
-                int y = que.front(); que.pop();
-                for (int x = 0, d = 0; x < n; ++x) {
-                    if (!vl[x] and slk[x] >= (d = hl[x] + hr[y] - W[x][y])) {
-                        if (pre[x] = y, d) slk[x] = d;
-                        else if (!check(x)) return;
+                int y = que.front();
+                que.pop();
+                for (int x = 0; x < n; x++) {
+                    T d = hl[x] + hr[y] - W[x][y];
+                    if (!vl[x] and slk[x] >= d) {
+                        pre[x] = y;
+                        if (d) {
+                            slk[x] = d;
+                        } else if (!check(x)) {
+                            return;
+                        }
                     }
                 }
             }
-            int d = inf<int>;
-            for (int x = 0; x < n; ++x) {
-                if (!vl[x] and d > slk[x]) d = slk[x];
+            T d = inf<T>;
+            for (int x = 0; x < n; x++) {
+                if (!vl[x] and d > slk[x]) {
+                    d = slk[x];
+                }
             }
-            for (int x = 0; x < n; ++x) {
-                if (vl[x]) hl[x] += d;
-                else slk[x] -= d;
-                if (vr[x]) hr[x] -= d;
+            for (int x = 0; x < n; x++) {
+                if (vl[x]) {
+                    hl[x] += d;
+                } else {
+                    slk[x] -= d;
+                }
+                if (vr[x]) {
+                    hr[x] -= d;
+                }
             }
-            for (int x = 0; x < n; ++x) {
-                if (!vl[x] and !slk[x] and !check(x)) return;
-            }
+            for (int x = 0; x < n; x++)
+                if (!vl[x] and !slk[x] and !check(x)) {
+                    return;
+                }
         }
     };
-    for (int i = 0; i < n; i++) bfs(i);
-    i64 res = 0;
-    for (int i = 0; i < n; i++) res += W[i][fl[i]];
+    for (int i = 0; i < n; i++) {
+        bfs(i);
+    }
+    T res = 0;
+    for (int i = 0; i < n; i++) {
+        res += W[i][fl[i]];
+    }
     return res;
 }
