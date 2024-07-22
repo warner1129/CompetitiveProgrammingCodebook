@@ -1,73 +1,69 @@
+// max weight, for min negate the weights
 template<class T>
-T KM(vector<vector<T>> W) {
-    const int n = W.size();
-    vector<int> fl(n, -1), fr(n, -1);
-    vector<T> hr(n), hl(n);
-    for (int i = 0; i < n; i++) {
-        hl[i] = ranges::max(W[i]);
-    }
+T KM(const vector<vector<T>> &w) {
+    const int n = w.size();
+    vector<T> lx(n), ly(n);
+    vector<int> mx(n, -1), my(n, -1), pa(n);
+    auto augment = [&](int y) {
+        for (int x, z; y != -1; y = z) {
+            x = pa[y];
+            z = mx[x];
+            my[y] = x;
+            mx[x] = y;
+        }
+    };
     auto bfs = [&](int s) {
-        vector<T> slk(n, inf<T>);
-        vector<int> pre(n);
-        vector<bool> vl(n), vr(n);
-        queue<int> que;
-        que.push(s);
-        vr[s] = true;
-        auto check = [&](int x) -> bool {
-            vl[x] = true;
-            if (fl[x] != -1) {
-                que.push(fl[x]);
-                return vr[fl[x]] = true;
-            }
-            while (x != -1) {
-                swap(x, fr[fl[x] = pre[x]]);
-            }
-            return false;
-        };
+        vector<T> sy(n, inf<T>);
+        vector<bool> vx(n), vy(n);
+        queue<int> q;
+        q.push(s);
         while (true) {
-            while (!que.empty()) {
-                int y = que.front();
-                que.pop();
-                for (int x = 0; x < n; x++) {
-                    T d = hl[x] + hr[y] - W[x][y];
-                    if (!vl[x] and slk[x] >= d) {
-                        pre[x] = y;
-                        if (d) {
-                            slk[x] = d;
-                        } else if (!check(x)) {
+            while (q.size()) {
+                int x = q.front();
+                q.pop();
+                vx[x] = 1;
+                for (int y = 0; y < n; y++) {
+                    if (vy[y]) continue;
+                    T d = lx[x] + ly[y] - w[x][y];
+                    if (d == 0) {
+                        pa[y] = x;
+                        if (my[y] == -1) {
+                            augment(y);
                             return;
                         }
+                        vy[y] = 1;
+                        q.push(my[y]);
+                    } else if (chmin(sy[y], d)) {
+                        pa[y] = x;
                     }
                 }
             }
-            T d = inf<T>;
-            for (int x = 0; x < n; x++) {
-                if (!vl[x] and d > slk[x]) {
-                    d = slk[x];
-                }
+            T cut = inf<T>;
+            for (int y = 0; y < n; y++)
+                if (!vy[y])
+                    chmin(cut, sy[y]);
+            for (int j = 0; j < n; j++) {
+                if (vx[j]) lx[j] -= cut;
+                if (vy[j]) ly[j] += cut;
+                else sy[j] -= cut;
             }
-            for (int x = 0; x < n; x++) {
-                if (vl[x]) {
-                    hl[x] += d;
-                } else {
-                    slk[x] -= d;
-                }
-                if (vr[x]) {
-                    hr[x] -= d;
-                }
-            }
-            for (int x = 0; x < n; x++)
-                if (!vl[x] and !slk[x] and !check(x)) {
-                    return;
+            for (int y = 0; y < n; y++)
+                if (!vy[y] and sy[y] == 0) {
+                    if (my[y] == -1) {
+                        augment(y);
+                        return;
+                    }
+                    vy[y] = 1;
+                    q.push(my[y]);
                 }
         }
     };
-    for (int i = 0; i < n; i++) {
-        bfs(i);
-    }
-    T res = 0;
-    for (int i = 0; i < n; i++) {
-        res += W[i][fl[i]];
-    }
-    return res;
+    for (int x = 0; x < n; x++)
+        lx[x] = ranges::max(w[x]);
+    for (int x = 0; x < n; x++)
+        bfs(x);
+    T ans = 0;
+    for (int x = 0; x < n; x++)
+        ans += w[x][mx[x]];
+    return ans;
 }
