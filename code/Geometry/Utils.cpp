@@ -8,11 +8,11 @@ Pt rotate(Pt u, double a) {
     Pt v{sin(a), cos(a)};
     return {u ^ v, u * v};
 } 
-Pt norm(Pt x) {
+Pt unit(Pt x) {
     return x / abs(x);
 }
 Pt proj(Pt p, Line l) {
-    Pt dir = norm(l.b - l.a);
+    Pt dir = unit(l.b - l.a);
     return l.a + dir * (dir * (p - l.a));
 }
 int PtSide(Pt p, Line L) {

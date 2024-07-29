@@ -12,7 +12,7 @@ double SectorArea(Pt a, Pt b, double r) {
 }
 vector<Pt> CircleLineInter(Circle c, Line l) {
     Pt H = proj(c.o, l);
-    Pt dir = norm(l.b - l.a);
+    Pt dir = unit(l.b - l.a);
     double h = abs(H - c.o);
     if (sgn(h - c.r) > 0) return {};
     double d = sqrt(max((double)0., c.r * c.r - h * h));
