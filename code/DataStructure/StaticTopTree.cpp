@@ -65,18 +65,16 @@ struct StaticTopTree {
         else if (T[L[x]] == Rake) g[x] = Edge(f[L[x]]);
         else f[x] = Vertex(g[L[x]]);
     }
-    void modify(int x, const Vertex &v) {
+    void set(int x, const Vertex &v) {
         f[x] = v;
         for (x = P[x]; x != -1; x = P[x])
             update(x);
     }
-    Vertex get() {
-        return Vertex(g[stt_root]);
-    }
+    Vertex get() { return g[stt_root]; }
 };
 struct Edge;
 struct Vertex {
-    Vertex() {};
+    Vertex() {}
     Vertex(const Edge&);
 };
 struct Edge {
@@ -84,13 +82,13 @@ struct Edge {
     Edge(const Vertex&);
 };
 Vertex operator*(const Vertex &a, const Vertex &b) {
-    return Vertex{};
+    return {};
 }
 Edge operator+(const Vertex &a, const Vertex &b) {
-    return Edge{};
+    return {};
 }
 Edge operator+(const Edge &a, const Edge &b) {
-    return Edge{};
+    return {};
 }
 Vertex::Vertex(const Edge &x) {}
 Edge::Edge(const Vertex &x) {}
