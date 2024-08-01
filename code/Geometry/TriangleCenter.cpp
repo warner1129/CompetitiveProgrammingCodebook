@@ -9,15 +9,12 @@ Pt TriangleCircumCenter(Pt a, Pt b, Pt c) {
   double r1 = (sin(a2) * (ax - bx) + cos(a2) * (by - ay)) / (sin(a1) * cos(a2) - sin(a2) * cos(a1));
   return Pt(ax + r1 * cos(a1), ay + r1 * sin(a1));
 }
-
 Pt TriangleMassCenter(Pt a, Pt b, Pt c) {
   return (a + b + c) / 3.0;
 }
-
 Pt TriangleOrthoCenter(Pt a, Pt b, Pt c) { 
   return TriangleMassCenter(a, b, c) * 3.0 - TriangleCircumCenter(a, b, c) * 2.0;
 }
-
 Pt TriangleInnerCenter(Pt a, Pt b, Pt c) {
   Pt res;
   double la = abs(b - c);

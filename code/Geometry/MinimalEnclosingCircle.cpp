@@ -3,10 +3,10 @@ Pt Center(Pt a, Pt b, Pt c) {
     Pt y = (b + c) / 2;
     return LineInter({x, x + rotate(b - a)}, {y, y + rotate(c - b)});
 }
-Circle MEC(vector<Pt> P) {
+Cir MEC(vector<Pt> P) {
     mt19937 rng(time(0));
     shuffle(all(P), rng);
-    Circle C;
+    Cir C;
     for (int i = 0; i < P.size(); i++) {
         if (C.inside(P[i])) continue;
         C = {P[i], 0};
