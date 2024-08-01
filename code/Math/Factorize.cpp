@@ -20,27 +20,16 @@ bool isPrime(u64 n) {
     }
     return 1;
 }
-u64 fgcd(u64 a,u64 b) {
-	if (b==0) return a;
-	int shift=__builtin_ctzll(a|b);
-	b>>=__builtin_ctzll(b);
-	while (a) {
-		a>>=__builtin_ctzll(a);
-		if (a<b) swap(a, b);
-		a-=b;
-	}
-	return b<<shift;
-}
 u64 pollard(u64 n) {
 	u64 c = 1;
 	auto f = [&](u64 x) { return mul(x, x, n) + c; };
 	u64 x = 0, y = 0, p = 2, q, t = 0;
-	while (t++ % 128 or fgcd(p, n) == 1) {
+	while (t++ % 128 or gcd(p, n) == 1) {
 		if (x == y) c++, y = f(x = 2);
 		if (q = mul(p, x > y ? x - y : y - x, n)) p = q;
 		x = f(x); y = f(f(y));
 	}
-	return fgcd(p, n);
+	return gcd(p, n);
 }
 u64 primeFactor(u64 n) {
     return isPrime(n) ? n : primeFactor(pollard(n));
