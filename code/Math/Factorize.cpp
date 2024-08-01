@@ -1,6 +1,6 @@
 u64 mul(u64 a, u64 b, u64 M) {
-	i64 r = a * b - M * u64(1.L / M * a * b);
-	return r + M * ((r < 0) - (r >= (i64)M));
+    i64 r = a * b - M * u64(1.L / M * a * b);
+    return r + M * ((r < 0) - (r >= (i64)M));
 }
 u64 power(u64 a, u64 b, u64 M) {
     u64 r = 1;
@@ -21,15 +21,15 @@ bool isPrime(u64 n) {
     return 1;
 }
 u64 pollard(u64 n) {
-	u64 c = 1;
-	auto f = [&](u64 x) { return mul(x, x, n) + c; };
-	u64 x = 0, y = 0, p = 2, q, t = 0;
-	while (t++ % 128 or gcd(p, n) == 1) {
-		if (x == y) c++, y = f(x = 2);
-		if (q = mul(p, x > y ? x - y : y - x, n)) p = q;
-		x = f(x); y = f(f(y));
-	}
-	return gcd(p, n);
+    u64 c = 1;
+    auto f = [&](u64 x) { return mul(x, x, n) + c; };
+    u64 x = 0, y = 0, p = 2, q, t = 0;
+    while (t++ % 128 or gcd(p, n) == 1) {
+        if (x == y) c++, y = f(x = 2);
+        if (q = mul(p, x > y ? x - y : y - x, n)) p = q;
+        x = f(x); y = f(f(y));
+    }
+    return gcd(p, n);
 }
 u64 primeFactor(u64 n) {
     return isPrime(n) ? n : primeFactor(pollard(n));
