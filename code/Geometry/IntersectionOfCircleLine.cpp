@@ -1,4 +1,4 @@
-vector<Pt> CircleLineInter(Circle c, Line l) {
+vector<Pt> CircleLineInter(Cir c, Line l) {
     Pt H = proj(c.o, l);
     Pt dir = unit(l.b - l.a);
     double h = abs(H - c.o);

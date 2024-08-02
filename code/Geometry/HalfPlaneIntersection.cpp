@@ -3,8 +3,8 @@ vector<Pt> HPI(vector<Line> P) {
     const int n = P.size();
     sort(all(P), [&](Line L, Line R) -> bool {
         Pt u = L.b - L.a, v = R.b - R.a;
-        bool f = Pt{sgn(u.ff), sgn(u.ss)} < Pt{};
-        bool g = Pt{sgn(v.ff), sgn(v.ss)} < Pt{};
+        bool f = Pt{sgn(u.x), sgn(u.y)} < Pt{};
+        bool g = Pt{sgn(v.x), sgn(v.y)} < Pt{};
         if (f != g) return f < g;
         return (sgn(u ^ v) ? sgn(u ^ v) : PtSide(L.a, R)) > 0;
     });

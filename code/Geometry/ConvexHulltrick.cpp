@@ -13,7 +13,7 @@ struct Convex {
         auto it = lower_bound(all(h), p, f);
         if (it == h.end()) return 0;
         if (it == h.begin()) return p == *it;
-        return 1 - sgn(cro(*prev(it), p, *it));
+        return 1 - sgn(ori(*prev(it), p, *it));
     }
     // 0: out, 1: on, 2: in
     int inside(Pt p) { 

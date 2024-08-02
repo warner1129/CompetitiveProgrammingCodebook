@@ -1,4 +1,4 @@
-double CirclePoly(Circle C, const vector<Pt> &P) {
+double CirclePoly(Cir C, const vector<Pt> &P) {
     auto arg = [&](Pt p, Pt q) { return atan2(p ^ q, p * q); };
     double r2 = C.r * C.r / 2;
     auto tri = [&](Pt p, Pt q) {

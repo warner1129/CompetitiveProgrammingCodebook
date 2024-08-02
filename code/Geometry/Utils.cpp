@@ -2,7 +2,7 @@ struct Line {
     Pt a, b;
 };
 Pt rotate(Pt u) { // pi / 2
-    return {-u.ss, u.ff};
+    return {-u.y, u.x};
 }
 Pt rotate(Pt u, double a) {
     Pt v{sin(a), cos(a)};
