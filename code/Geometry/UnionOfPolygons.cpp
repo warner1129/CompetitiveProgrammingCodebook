@@ -1,4 +1,4 @@
- // Area[i] : area covered by at least i polygon
+// Area[i] : area covered by at least i polygon
 vector<double> PolyUnion(const vector<vector<Pt>> &P) {
     const int n = P.size();
     vector<double> Area(n + 1);
