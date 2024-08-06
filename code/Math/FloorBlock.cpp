@@ -4,5 +4,6 @@ vector<i64> floorBlock(i64 x) { // x >= 0
         r = x / (x / l) + 1;
         itv.push_back(l);
     }
+    itv.push_back(x + 1);
     return itv;
 }

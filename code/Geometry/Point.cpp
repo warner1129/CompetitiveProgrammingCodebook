@@ -1,6 +1,6 @@
 using numbers::pi;
 struct Pt {
-    double x, y;
+    double x{}, y{};
     Pt operator+(const Pt &o) const { return {x + o.x, y + o.y}; }
     Pt operator-(const Pt &o) const { return {x - o.x, y - o.y}; }
     Pt operator*(double k) const { return {x * k, y * k}; }
