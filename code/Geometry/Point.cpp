@@ -10,14 +10,15 @@ Pt operator/(Pt a, double k) { return {a.x / k, a.y / k}; }
 double operator*(Pt a, Pt b) { return a.x * b.x + a.y * b.y; }
 double operator^(Pt a, Pt b) { return a.x * b.y - a.y * b.x; }
 auto operator<=>(Pt a, Pt b) { return (a.x != b.x) ? a.x <=> b.x : a.y <=> b.y; }
+bool operator==(Pt a, Pt b) { return a.x == b.x and a.y == b.y; }
 int sgn(double x) { return (x > -eps) - (x < eps); }
 double abs(Pt a) { return sqrt(a * a); }
 double abs2(Pt a) { return a * a; }
 double ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }
 double arg(Pt x) { return atan2(x.y, x.x); }
-bool argcmp(const Pt &a, const Pt &b) {
-    bool f = Pt{a.y, a.x} < Pt{};
-    bool g = Pt{b.y, b.x} < Pt{};
+bool argcmp(const Pt &a, const Pt &b) { // arg(a) < arg(b)
+    int f = (Pt{a.y, -a.x} > Pt{} ? 1 : -1) * (a != Pt{});
+    int g = (Pt{b.y, -b.x} > Pt{} ? 1 : -1) * (b != Pt{});
     return f == g ? (a ^ b) > 0 : f < g;
 }
 Pt unit(Pt x) { return x / abs(x); }

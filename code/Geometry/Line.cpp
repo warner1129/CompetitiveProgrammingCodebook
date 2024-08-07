@@ -1,4 +1,6 @@
-struct Line { Pt a, b; };
+struct Line { 
+    Pt a, b;
+};
 int PtSide(Pt p, Line L) {
     return sgn(ori(L.a, L.b, p));
 }
