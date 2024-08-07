@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  2 AUG 2024 23:38
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.11)  8 AUG 2024 01:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -833,17 +833,27 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
 [15]) (../code/Math/LagrangeInterpolation.cpp) (../code/Geometry/Point.cpp)
-(../code/Geometry/Utils.cpp) (../code/Geometry/IntersectionOfCircleLine.cpp
+(../code/Geometry/Line.cpp)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[16]) (../code/Geometry/IntersectionOfCircles.cpp)
+[16] (../code/Geometry/Circle.cpp) (../code/Geometry/PointToSegmentDistance.cpp
+) (../code/Geometry/PointInPolygon.cpp)
 (../code/Geometry/IntersectionOfLines.cpp)
+(../code/Geometry/IntersectionOfCircleLine.cpp)
+(../code/Geometry/IntersectionOfCircles.cpp)
 (../code/Geometry/AreaOfCirclePolygon.cpp) (../code/Geometry/AreaOfSector.cpp
 Missing character: There is no ∠ (U+2220) in font Monaco/AAT!
-) (../code/Geometry/TangentLinesOfCirclePoint.cpp)
+) (../code/Geometry/UnionOfPolygons.cpp
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 3.60004pt, for example:
+(fancyhdr)                \setlength{\footskip}{3.60004pt}.
+
+[17]) (../code/Geometry/UnionOfCircles.cpp)
+(../code/Geometry/TangentLinesOfCirclePoint.cpp)
 (../code/Geometry/TangentLinesOfCircles.cpp) (../code/Geometry/ConvexHull.cpp)
 (../code/Geometry/ConvexHulltrick.cpp
 
@@ -851,61 +861,48 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[17]) (../code/Geometry/DynamicConvexHull.cpp)
+[18]) (../code/Geometry/DynamicConvexHull.cpp)
 (../code/Geometry/HalfPlaneIntersection.cpp) (../code/Geometry/Minkowski.cpp)
-(../code/Geometry/MinimalEnclosingCircle.cpp
+(../code/Geometry/MinimalEnclosingCircle.cpp)
+(../code/Geometry/TriangleCenter.cpp)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[18]) (../code/Geometry/TriangleCenter.cpp) (../code/String/KMP.cpp)
-(../code/String/Zalgorithm.cpp) (../code/String/Manacher.cpp)
-(../code/String/SuffixArray-Simple.cpp) (../code/String/SuffixArray-SAIS.cpp
+[19] (../code/String/KMP.cpp) (../code/String/Zalgorithm.cpp)
+(../code/String/Manacher.cpp) (../code/String/SuffixArray-Simple.cpp)
+(../code/String/SuffixArray-SAIS.cpp)
+(../code/String/SuffixArray-SAIS-C++20.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[19]) (../code/String/SuffixArray-SAIS-C++20.cpp)
-(../code/String/PalindromicTree.cpp) (../code/String/SmallestRotation.cpp)
+[20]) (../code/String/PalindromicTree.cpp) (../code/String/SmallestRotation.cpp
+) (../code/String/Aho-Corasick.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[20] (../code/String/Aho-Corasick.cpp) (../code/String/SAM.cpp)
-(../code/Misc/FractionSearch.cpp) (../code/Misc/deBruijn.cpp
+[21]) (../code/String/SAM.cpp) (../code/Misc/FractionSearch.cpp)
+(../code/Misc/deBruijn.cpp) (../code/Misc/HilbertCurve.cpp)
+(../code/Misc/DLX.cpp
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[21]) (../code/Misc/HilbertCurve.cpp) (../code/Misc/DLX.cpp)
-(../code/Misc/NextPerm.cpp) (../code/Misc/Fastio.cpp)
+[22]) (../code/Misc/NextPerm.cpp) (../code/Misc/Fastio.cpp)
 (../code/Misc/PythonFastIO.py) (../code/Misc/HeapSize.cpp)
-(../code/Misc/PyTrick.py
+(../code/Misc/PyTrick.py)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
 (fancyhdr)                \setlength{\footskip}{3.60004pt}.
 
-[22])
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 3.60004pt, for example:
-(fancyhdr)                \setlength{\footskip}{3.60004pt}.
-
-[23
-
-]
-File: grid.jpg Graphic file (type bmp)
-<grid.jpg>
-
-Overfull \hbox (269.46515pt too wide) in paragraph at lines 240--241
-[][] 
- []
-
+[23]
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 3.60004pt, for example:
@@ -913,12 +910,11 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [24
 
-
 ]
-File: Spherical-coordinates.png Graphic file (type bmp)
-<Spherical-coordinates.png>
+File: grid.jpg Graphic file (type bmp)
+<grid.jpg>
 
-Overfull \hbox (174.30925pt too wide) in paragraph at lines 243--244
+Overfull \hbox (269.46515pt too wide) in paragraph at lines 245--246
 [][] 
  []
 
@@ -930,20 +926,36 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 [25
 
 
+]
+File: Spherical-coordinates.png Graphic file (type bmp)
+<Spherical-coordinates.png>
+
+Overfull \hbox (174.30925pt too wide) in paragraph at lines 248--249
+[][] 
+ []
+
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 3.60004pt, for example:
+(fancyhdr)                \setlength{\footskip}{3.60004pt}.
+
+[26
+
+
 ] (./codebook.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `codebook.out' has not changed.
-(rerunfilecheck)             Checksum: 6469F541A43B0B8B21A889CD037C7095;12545.
+(rerunfilecheck)             Checksum: 4B9C6238D05680A70A6ABC2D2F9E8F42;13275.
  ) 
 Here is how much of TeX's memory you used:
- 18108 strings out of 476683
- 359125 string characters out of 5804047
- 3285018 words of memory out of 5000000
- 37838 multiletter control sequences out of 15000+600000
+ 18161 strings out of 476683
+ 360241 string characters out of 5804047
+ 3350018 words of memory out of 5000000
+ 37876 multiletter control sequences out of 15000+600000
  514656 words of font info for 61 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,12n,77p,384b,1739s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on codebook.pdf (25 pages).
+Output written on codebook.pdf (26 pages).

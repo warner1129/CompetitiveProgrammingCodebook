@@ -64,39 +64,44 @@
 \contentsline {subsection}{\numberline {5.23}Lagrange Interpolation}{16}{subsection.5.23}%
 \contentsline {section}{\numberline {6}Geometry}{16}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Point}{16}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Utils}{16}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Intersection Of Circle and Line}{16}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Intersection Of Circles}{17}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Intersection Of Lines}{17}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Area Of Circle and Polygon}{17}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Area Of Sector}{17}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}TangentLines Of Circle and Point}{17}{subsection.6.8}%
-\contentsline {subsection}{\numberline {6.9}TangentLines Of Circles}{17}{subsection.6.9}%
-\contentsline {subsection}{\numberline {6.10}Convex Hull}{17}{subsection.6.10}%
-\contentsline {subsection}{\numberline {6.11}Convex Hull trick}{17}{subsection.6.11}%
-\contentsline {subsection}{\numberline {6.12}Dynamic Convex Hull}{18}{subsection.6.12}%
-\contentsline {subsection}{\numberline {6.13}Half Plane Intersection}{18}{subsection.6.13}%
-\contentsline {subsection}{\numberline {6.14}Minkowski}{18}{subsection.6.14}%
-\contentsline {subsection}{\numberline {6.15}Minimal Enclosing Circle}{18}{subsection.6.15}%
-\contentsline {subsection}{\numberline {6.16}TriangleCenter}{19}{subsection.6.16}%
-\contentsline {section}{\numberline {7}Stringology}{19}{section.7}%
-\contentsline {subsection}{\numberline {7.1}KMP}{19}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Z-algorithm}{19}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Manacher}{19}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}SuffixArray Simple}{19}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}SuffixArray SAIS}{19}{subsection.7.5}%
+\contentsline {subsection}{\numberline {6.2}Line}{16}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Circle}{17}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Point to Segment Distance}{17}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Point in Polygon}{17}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Intersection of Lines}{17}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Intersection of Circle and Line}{17}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Intersection of Circles}{17}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}Area of Circle and Polygon}{17}{subsection.6.9}%
+\contentsline {subsection}{\numberline {6.10}Area of Sector}{17}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.11}Union of Polygons}{17}{subsection.6.11}%
+\contentsline {subsection}{\numberline {6.12}Union of Circles}{18}{subsection.6.12}%
+\contentsline {subsection}{\numberline {6.13}TangentLines of Circle and Point}{18}{subsection.6.13}%
+\contentsline {subsection}{\numberline {6.14}TangentLines of Circles}{18}{subsection.6.14}%
+\contentsline {subsection}{\numberline {6.15}Convex Hull}{18}{subsection.6.15}%
+\contentsline {subsection}{\numberline {6.16}Convex Hull trick}{18}{subsection.6.16}%
+\contentsline {subsection}{\numberline {6.17}Dynamic Convex Hull}{19}{subsection.6.17}%
+\contentsline {subsection}{\numberline {6.18}Half Plane Intersection}{19}{subsection.6.18}%
+\contentsline {subsection}{\numberline {6.19}Minkowski}{19}{subsection.6.19}%
+\contentsline {subsection}{\numberline {6.20}Minimal Enclosing Circle}{19}{subsection.6.20}%
+\contentsline {subsection}{\numberline {6.21}Triangle Center}{19}{subsection.6.21}%
+\contentsline {section}{\numberline {7}Stringology}{20}{section.7}%
+\contentsline {subsection}{\numberline {7.1}KMP}{20}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Z-algorithm}{20}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Manacher}{20}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}SuffixArray Simple}{20}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}SuffixArray SAIS}{20}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}SuffixArray SAIS C++20}{20}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}Palindromic Tree}{20}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}SmallestRotation}{20}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.7}Palindromic Tree}{21}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}SmallestRotation}{21}{subsection.7.8}%
 \contentsline {subsection}{\numberline {7.9}Aho-Corasick}{21}{subsection.7.9}%
-\contentsline {subsection}{\numberline {7.10}Suffix Automaton}{21}{subsection.7.10}%
-\contentsline {section}{\numberline {8}Misc}{21}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Fraction Binary Search}{21}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}de Bruijn sequence}{21}{subsection.8.2}%
+\contentsline {subsection}{\numberline {7.10}Suffix Automaton}{22}{subsection.7.10}%
+\contentsline {section}{\numberline {8}Misc}{22}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Fraction Binary Search}{22}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}de Bruijn sequence}{22}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}HilbertCurve}{22}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}DLX}{22}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}NextPerm}{22}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}FastIO}{22}{subsection.8.6}%
-\contentsline {subsection}{\numberline {8.7}Python FastIO}{22}{subsection.8.7}%
-\contentsline {subsection}{\numberline {8.8}HeapSize}{22}{subsection.8.8}%
-\contentsline {subsection}{\numberline {8.9}PyTrick}{22}{subsection.8.9}%
+\contentsline {subsection}{\numberline {8.4}DLX}{23}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}NextPerm}{23}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}FastIO}{23}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Python FastIO}{23}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.8}HeapSize}{23}{subsection.8.8}%
+\contentsline {subsection}{\numberline {8.9}PyTrick}{23}{subsection.8.9}%

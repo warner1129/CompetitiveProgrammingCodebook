@@ -1,16 +1,15 @@
 using numbers::pi;
+constexpr double eps = 1E-9L;
 struct Pt {
     double x{}, y{};
-    Pt operator+(const Pt &o) const { return {x + o.x, y + o.y}; }
-    Pt operator-(const Pt &o) const { return {x - o.x, y - o.y}; }
-    Pt operator*(double k) const { return {x * k, y * k}; }
-    Pt operator/(double k) const { return {x / k, y / k}; }
-    double operator*(const Pt &o) const { return x * o.x + y * o.y; }
-    double operator^(const Pt &o) const { return x * o.y - y * o.x; }
-    auto operator<=>(const Pt &o) const { return (x != o.x) ? x <=> o.x : y <=> o.y; }
-    bool operator==(const Pt &o) const { return x == o.x and y == o.y; }
 };
-constexpr double eps = 1E-9L;
+Pt operator+(Pt a, Pt b) { return {a.x + b.x, a.y + b.y}; }
+Pt operator-(Pt a, Pt b) { return {a.x - b.x, a.y - b.y}; }
+Pt operator*(Pt a, double k) { return {a.x * k, a.y * k}; }
+Pt operator/(Pt a, double k) { return {a.x / k, a.y / k}; }
+double operator*(Pt a, Pt b) { return a.x * b.x + a.y * b.y; }
+double operator^(Pt a, Pt b) { return a.x * b.y - a.y * b.x; }
+auto operator<=>(Pt a, Pt b) { return (a.x != b.x) ? a.x <=> b.x : a.y <=> b.y; }
 int sgn(double x) { return (x > -eps) - (x < eps); }
 double abs(Pt a) { return sqrt(a * a); }
 double abs2(Pt a) { return a * a; }
