@@ -1,7 +1,4 @@
-struct Cir {
-    Pt o;
-    double r;
-};
+struct Cir { Pt o; double r; };
 bool disjunct(const Cir &a, const Cir &b) {
     return sgn(abs(a.o - b.o) - a.r - b.r) >= 0; 
 }

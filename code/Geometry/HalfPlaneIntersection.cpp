@@ -1,32 +1,24 @@
 // 交集不能為空或無限
 vector<Pt> HPI(vector<Line> P) {
-    const int n = P.size();
-    sort(all(P), [&](Line L, Line R) -> bool {
-        Pt u = L.b - L.a, v = R.b - R.a;
-        bool f = Pt{sgn(u.x), sgn(u.y)} < Pt{};
-        bool g = Pt{sgn(v.x), sgn(v.y)} < Pt{};
-        if (f != g) return f < g;
-        return (sgn(u ^ v) ? sgn(u ^ v) : PtSide(L.a, R)) > 0;
+    sort(all(P), [&](Line &l, Line &r) {
+        return argcmp(l.b - l.a, r.b - r.a);
     });
-    auto same = [&](Line L, Line R) {
-        Pt u = L.b - L.a, v = R.b - R.a;
-        return sgn(u ^ v) == 0 and sgn(u * v) == 1;
-    };
-    deque<Pt> inter;
-    deque<Line> seg;
-    for (int i = 0; i < n; i++) if (i == 0 or !same(P[i - 1], P[i])) {
-        while (seg.size() >= 2 and PtSide(inter.back(), P[i]) == -1) {
-            seg.pop_back(), inter.pop_back();
+    int n = P.size(), l = 0, r = 0;
+    vector<Pt> it(n);
+    vector<Line> se(n);
+    se[0] = P[0];
+    for (int i = 1; i < n; i++) {
+        while (l < r and PtSide(it[r - 1], P[i]) != 1) r--;
+        while (l < r and PtSide(it[l], P[i]) != 1) l++;
+        se[++r] = P[i];
+        if (sgn((se[r].b - se[r].a) ^ (se[r - 1].b - se[r - 1].a)) == 0) {
+            r--;
+            if (PtSide(P[i].a, se[r]) == 1) se[r] = P[i];
         }
-        while (seg.size() >= 2 and PtSide(inter[0], P[i]) == -1) {
-            seg.pop_front(), inter.pop_front();
-        }
-        if (!seg.empty()) inter.push_back(LineInter(seg.back(), P[i]));
-        seg.push_back(P[i]);
+        if (l < r) it[r - 1] = LineInter(se[r - 1], se[r]);
     }
-    while (seg.size() >= 2 and PtSide(inter.back(), seg[0]) == -1) {
-        seg.pop_back(), inter.pop_back();
-    }
-    inter.push_back(LineInter(seg[0], seg.back()));
-    return vector<Pt>(all(inter));
+    while (l < r and PtSide(it[r - 1], se[l]) != 1) r--;
+    if (r - l <= 1) return {};
+    it[r] = LineInter(se[r], se[l]);
+    return vector<Pt>(it.begin() + l, it.begin() + r + 1);
 }

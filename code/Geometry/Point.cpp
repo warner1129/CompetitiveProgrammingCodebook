@@ -15,3 +15,17 @@ int sgn(double x) { return (x > -eps) - (x < eps); }
 double abs(Pt a) { return sqrt(a * a); }
 double abs2(Pt a) { return a * a; }
 double ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }
+double arg(Pt x) { return atan2(x.y, x.x); }
+bool argcmp(const Pt &a, const Pt &b) {
+    bool f = Pt{a.y, a.x} < Pt{};
+    bool g = Pt{b.y, b.x} < Pt{};
+    return f == g ? (a ^ b) > 0 : f < g;
+}
+Pt unit(Pt x) { return x / abs(x); }
+Pt rotate(Pt u) { // pi / 2
+    return {-u.y, u.x};
+}
+Pt rotate(Pt u, double a) {
+    Pt v{sin(a), cos(a)};
+    return {u ^ v, u * v};
+}

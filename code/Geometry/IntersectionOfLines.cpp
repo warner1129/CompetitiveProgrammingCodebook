@@ -1,9 +1,3 @@
-int PtSide(Pt p, Line L) {
-    return sgn(ori(L.a, L.b, p));
-}
-bool PtOnSeg(Pt p, Line L) {
-    return sgn(ori(L.a, L.b, p)) == 0 and sgn((p - L.a) * (p - L.b)) <= 0;
-}
 bool isInter(Line l, Line m) {
     if (PtOnSeg(m.a, l) or PtOnSeg(m.b, l) or
         PtOnSeg(l.a, m) or PtOnSeg(l.b, m))
