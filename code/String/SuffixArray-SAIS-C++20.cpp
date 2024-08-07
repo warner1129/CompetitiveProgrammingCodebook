@@ -8,12 +8,13 @@ auto sais(const auto &s) {
     for (int i = n - 2; i >= 0; i--) 
         t[i] = (s[i] == s[i + 1] ? t[i + 1] : s[i] < s[i + 1]);
     auto is_lms = views::filter([&t](int x) {
-            return x && t[x] & !t[x - 1]; });
+        return x && t[x] & !t[x - 1];
+    });
     auto induce = [&] {
         for (auto x = c; int y : sa)
-            if (y--) if (!t[y]) sa[x[s[y] - 1]++] = y;
-        for(auto x = c; int y : sa | views::reverse)
-            if (y--) if (t[y]) sa[--x[s[y]]] = y;
+            if (y-- and !t[y]) sa[x[s[y] - 1]++] = y;
+        for (auto x = c; int y : sa | views::reverse)
+            if (y-- and t[y]) sa[--x[s[y]]] = y;
     };
     vector<int> lms, q(n); lms.reserve(n);
     for (auto x = c; int i : I | is_lms) {
@@ -25,8 +26,9 @@ auto sais(const auto &s) {
         if (j >= 0) {
             int len = min({n - i, n - j, lms[q[i] + 1] - i});
             ns[q[i]] = nz += lexicographical_compare(
-                    begin(s) + j, begin(s) + j + len,
-                    begin(s) + i, begin(s) + i + len);
+                s.begin() + j, s.begin() + j + len,
+                s.begin() + i, s.begin() + i + len
+            );
         }
         j = i;
     }
@@ -35,22 +37,24 @@ auto sais(const auto &s) {
         y = lms[y], sa[--x[s[y]]] = y;
     return induce(), sa;
 }
-// SPLIT_HASH_HERE sa[i]: sa[i]-th suffix is the
+// sa[i]: sa[i]-th suffix is the
 // i-th lexicographically smallest suffix.
-// hi[i]: LCP of suffix sa[i] and suffix sa[i - 1].
+// lcp[i]: LCP of suffix sa[i] and suffix sa[i + 1].
 struct Suffix {
-    int n; vector<int> sa, hi, rev;
-    Suffix(const auto &s) : n(int(s.size())),
-        hi(n), rev(n) {
-        vector<int> _s(n + 1); // _s[n] = 0
-        copy(all(s), begin(_s)); // s shouldn't contain 0
-        sa = sais(_s); sa.erase(sa.begin());
-        for (int i = 0; i < n; i++) rev[sa[i]] = i;
+    int n;
+    vector<int> sa, rk, lcp;
+    Suffix(const auto &s) : n(s.size()),
+        lcp(n - 1), rk(n) {
+        vector<int> t(n + 1); // t[n] = 0
+        copy(all(s), t.begin()); // s shouldn't contain 0
+        sa = sais(t); sa.erase(sa.begin());
+        for (int i = 0; i < n; i++) rk[sa[i]] = i;
         for (int i = 0, h = 0; i < n; i++) {
-            if (!rev[i]) { h = 0; continue; }
-            for (int j = sa[rev[i] - 1]; i + h < n && j + h < n
-                    && s[i + h] == s[j + h];) ++h;
-            hi[rev[i]] = h ? h-- : 0;
+            if (!rk[i]) { h = 0; continue; }
+            for (int j = sa[rk[i] - 1]; 
+                    i + h < n and j + h < n
+                    and s[i + h] == s[j + h];) ++h;
+            lcp[rk[i] - 1] = h ? h-- : 0;
         }
     }
 };
