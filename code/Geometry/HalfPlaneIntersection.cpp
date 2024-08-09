@@ -10,7 +10,7 @@ vector<Line> HPI(vector<Line> P) {
     sort(all(P), [&](Line l, Line m) {
         if (argcmp(l.dir(), m.dir())) return true;
         if (argcmp(m.dir(), l.dir())) return false;
-        return PtSide(l.a, m) > 0;
+        return ori(m.a, m.b, l.a) > 0;
     });
     int n = P.size(), l = 0, r = -1;
     for (int i = 0; i < n; i++) {
