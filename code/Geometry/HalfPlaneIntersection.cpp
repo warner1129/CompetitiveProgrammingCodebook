@@ -1,24 +1,29 @@
-// 交集不能為空或無限
-vector<Pt> HPI(vector<Line> P) {
-    sort(all(P), [&](Line &l, Line &r) {
-        return argcmp(l.b - l.a, r.b - r.a);
+bool cover(Line L, Line P, Line Q) {
+    // return PtSide(LineInter(P, Q), L) <= 0;
+    i128 u = (Q.a - P.a) ^ Q.dir();
+    i128 v = P.dir() ^ Q.dir();
+    i128 x = P.dir().x * u + (P.a - L.a).x * v;
+    i128 y = P.dir().y * u + (P.a - L.a).y * v;
+    return sgn(x * L.dir().y - y * L.dir().x) * sgn(v) >= 0;
+}
+vector<Line> HPI(vector<Line> P) {
+    sort(all(P), [&](Line l, Line m) {
+        if (argcmp(l.dir(), m.dir())) return true;
+        if (argcmp(m.dir(), l.dir())) return false;
+        return PtSide(l.a, m) > 0;
     });
-    int n = P.size(), l = 0, r = 0;
-    vector<Pt> it(n);
-    vector<Line> se(n);
-    se[0] = P[0];
-    for (int i = 1; i < n; i++) {
-        while (l < r and PtSide(it[r - 1], P[i]) != 1) r--;
-        while (l < r and PtSide(it[l], P[i]) != 1) l++;
-        se[++r] = P[i];
-        if (sgn((se[r].b - se[r].a) ^ (se[r - 1].b - se[r - 1].a)) == 0) {
-            r--;
-            if (PtSide(P[i].a, se[r]) == 1) se[r] = P[i];
-        }
-        if (l < r) it[r - 1] = LineInter(se[r - 1], se[r]);
+    int n = P.size(), l = 0, r = -1;
+    for (int i = 0; i < n; i++) {
+        if (i and !argcmp(P[i - 1].dir(), P[i].dir())) continue;
+        while (l < r and cover(P[i], P[r - 1], P[r])) r--;
+        while (l < r and cover(P[i], P[l], P[l + 1])) l++;
+        P[++r] = P[i];
     }
-    while (l < r and PtSide(it[r - 1], se[l]) != 1) r--;
-    if (r - l <= 1) return {};
-    it[r] = LineInter(se[r], se[l]);
-    return vector<Pt>(it.begin() + l, it.begin() + r + 1);
+    while (l < r and cover(P[l], P[r - 1], P[r])) r--;
+    while (l < r and cover(P[r], P[l], P[l + 1])) l++;
+    if (r - l <= 1 or !argcmp(P[l].dir(), P[r].dir()))
+        return {}; // empty
+    if (cover(P[l + 1], P[l], P[r]))
+        return {}; // infinity
+    return vector(P.begin() + l, P.begin() + r + 1);
 }

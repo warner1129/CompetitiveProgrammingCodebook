@@ -1,5 +1,6 @@
 struct Line { 
     Pt a, b;
+    Pt dir() const { return b - a; }
 };
 int PtSide(Pt p, Line L) {
     return sgn(ori(L.a, L.b, p));
