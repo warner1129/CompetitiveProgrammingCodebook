@@ -72,6 +72,6 @@ struct Seg {
             return {l, d + cur};
         push();
         auto res = rs->findLast(x, y, pred, cur);
-        return res == -1 ? ls->findLast(x, y, pred, res.ss) : res;
+        return res.ff == -1 ? ls->findLast(x, y, pred, res.ss) : res;
     }
 };
