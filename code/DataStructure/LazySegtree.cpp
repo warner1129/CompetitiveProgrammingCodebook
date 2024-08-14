@@ -52,22 +52,26 @@ struct Seg {
         rs->set(p, e);
         pull();
     }
-    int findFirst(int x, int y, auto pred) {
-        if (y <= l or r <= x or !pred(d))
-            return -1;
-        if (r - l == 1)
-            return l;
+    pair<int, S> findFirst(int x, int y, auto &&pred, S cur = {}) {
+        if (y <= l or r <= x)
+            return {-1, {}};
+        if (x <= l and r <= y and !pred(cur + d))
+            return {-1, cur + d};
+        if (r - l == 1) 
+            return {l, cur + d};
         push();
-        int res = ls->findFirst(x, y, pred);
-        return res == -1 ? rs->findFirst(x, y, pred) : res;
+        auto res = ls->findFirst(x, y, pred, cur);
+        return res.ff == -1 ? rs->findFirst(x, y, pred, res.ss) : res;
     }
-    int findLast(int x, int y, auto pred) {
-        if (y <= l or r <= x or !pred(d))
-            return -1;
+    pair<int, S> findLast(int x, int y, auto &&pred, S cur = {}) {
+        if (y <= l or r <= x)
+            return {-1, {}};
+        if (x <= l and r <= y and !pred(d + cur))
+            return {-1, d + cur};
         if (r - l == 1)
-            return l;
+            return {l, d + cur};
         push();
-        int res = rs->findLast(x, y, pred);
-        return res == -1 ? ls->findLast(x, y, pred) : res;
+        auto res = rs->findLast(x, y, pred, cur);
+        return res == -1 ? ls->findLast(x, y, pred, res.ss) : res;
     }
 };
