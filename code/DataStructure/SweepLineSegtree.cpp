@@ -14,7 +14,16 @@ struct Seg {
         return cov ? r - l : nonz;
     }
     void pull() {
+        int t = min(ls->cov, rs->cov);
+        ls->cov -= t;
+        rs->cov -= t;
+        cov += t;
         nonz = ls->get() + rs->get();
+    }
+    void push() {
+        ls->cov += cov;
+        rs->cov += cov;
+        cov = 0;
     }
     void apply(int x, int y, int t) {
         if (y <= l or r <= x) {
@@ -22,8 +31,10 @@ struct Seg {
         }
         if (x <= l and r <= y) {
             cov += t;
+            assert(cov >= 0);
             return;
         }
+        push();
         ls->apply(x, y, t);
         rs->apply(x, y, t);
         pull();
