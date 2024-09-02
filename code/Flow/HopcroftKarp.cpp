@@ -1,9 +1,11 @@
 // Complexity: O(m sqrt(n))
 // edge (u \in A) -> (v \in B) : G[u].push_back(v);
 struct HK {
+    const int n, m;
     vector<int> l, r, a, p;
     int ans;
-    HK(int n, int m, const auto &G) : l(n, -1), r(m, -1), ans{} {
+    HK(int n, int m) : n(n), m(m), l(n, -1), r(m, -1), ans{} {}
+    void work(const auto &G) {
         for (bool match = true; match; ) {
             match = false;
             queue<int> q;
