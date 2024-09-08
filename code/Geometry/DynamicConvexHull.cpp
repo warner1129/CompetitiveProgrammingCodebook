@@ -3,7 +3,7 @@ struct DynamicHull {
     set<T, Comp> H;
     void insert(T p) {
         if (inside(p)) return;
-        auto it = H.insert(p).x;
+        auto it = H.insert(p).ff;
         while (it != H.begin() and prev(it) != H.begin() \
                 and ori(*prev(it, 2), *prev(it), *it) <= 0) {
             it = H.erase(--it);

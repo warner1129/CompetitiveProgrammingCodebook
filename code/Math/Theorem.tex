@@ -28,16 +28,16 @@
     $f(n)=\sum\limits_{i=0}^n{n \choose i}g(i) \Leftrightarrow
   \ g(n)=\sum\limits_{i=0}^n(-1)^{n-i}{n \choose i}f(i)$
   \item Subset Inversion\\
-     $f(S)=\sum_{T\subseteq S}g(T) \Leftrightarrow g(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}f(T)$
+      $f(S)=\sum_{T\subseteq S}g(T) \Leftrightarrow g(S)=\sum_{T\subseteq S}(-1)^{|S|-|T|}f(T)$
   \item Min-Max Inversion\\
     $\max_{i\in S}{x_i}=\sum_{T\subseteq S}{(-1)^{|T|-1}\min_{j\in T}{x_j}}$
   \item Ex Min-Max Inversion\\
-     $\underset{i\in S}{\operatorname{kthmax}{x_i}}=\sum_{T\subseteq S}{(-1)^{|T|-k}\dbinom {|T|-1}{k-1}\min_{j\in T}{x_j}}$
+      $\underset{i\in S}{\operatorname{kthmax}{x_i}}=\sum_{T\subseteq S}{(-1)^{|T|-k}\dbinom {|T|-1}{k-1}\min_{j\in T}{x_j}}$
   \item Lcm-Gcd Inversion\\
-     $\underset{i\in S}{\operatorname{lcm}}{x_i}=\prod_{T\subseteq S}{\left(\gcd_{j\in T}{x_j} \right)^{(-1)^{|T|-1}}}$
+      $\underset{i\in S}{\operatorname{lcm}}{x_i}=\prod_{T\subseteq S}{\left(\gcd_{j\in T}{x_j} \right)^{(-1)^{|T|-1}}}$
   \item Sum of powers\\
-     $\sum_{k=1}^{n} k^m=\frac{1}{m+1}\sum_{k=0}^{m}{{m+1}\choose{k}}~B^+_k~n^{m+1-k}$\\
-     $\sum_{j=0}^{m}{m+1\choose j}B^-_j=0$\\
+      $\sum_{k=1}^{n} k^m=\frac{1}{m+1}\sum_{k=0}^{m}{{m+1}\choose{k}}~B^+_k~n^{m+1-k}$\\
+      $\sum_{j=0}^{m}{m+1\choose j}B^-_j=0$\\
       note: $B^+_1=-B^-_1, B^+_i=B^-_i$
   \item Cayley's formula \\
     number of trees on $n$ labeled vertices: $n^{n-2}$ \\
@@ -87,7 +87,7 @@
     $A_{ij}=((i,j)\in E ? (i < j ? x_{ij} : -x_{ji}) : 0)$ and $x_{ij}$ are random numbers.
   \item Erdős–Gallai theorem\\
     There exists a simple graph with degree sequence $d_1\ge\cdots\ge d_n$ iff\\
-    $\sum\limits_{i=1}^{n} d_i$ is even and $\sum\limits_{i=1}^{k} d_i\le k(k-1)+\sum\limits_{i=k+1}^{n} min(d_i,k), \forall 1\le k\le n$
+    $\sum\limits_{i=1}^{n} d_i$ is even and $\sum\limits_{i=1}^{k} d_i\le k(k-1)+\sum\limits_{i=k+1}^{n} \min(d_i,k), \forall 1\le k\le n$
   \item Euler Characteristic\\
     planar graph: $V-E+F-C=1$ \\
     convex polyhedron: $V-E+F=2$ \\
@@ -119,13 +119,12 @@
     $B_n= \sum_{k=0}^{n} s(n,k)\quad (second-stirling)\\
     B_{n+1}= \sum_{k=0}^{n}{n \choose k} B_k$
   \item Wilson's theorem\\
-    $(p-1)! \equiv -1 (\mod p)$
+    $(p-1)! \equiv -1 (\mod p)$\\
+    $(p^q!)_p\equiv \begin{cases} 1, & (p=2) \land (q\geq 3),\\ -1, & \text{otherwise}. \end{cases} \pmod p^q$
   \item Fermat's little theorem\\
-    $a^p \equiv a (mod \ p)$
-  \item Euler's totient function\\
-    $ A^{B^C} \mod p=pow(A,pow(B,C,p-1)) \mod p$
-  \item 歐拉函數降冪公式\\
-    $A^B \mod C=A^{B \mod \phi(c) + \phi(c)}\mod C$
+    $a^p \equiv a \pmod p$
+  \item Euler's theorem\\
+    $a^b \equiv \begin{cases} a^{b \bmod \varphi(m)}, &\gcd(a,m) = 1, \\ a^b, &\gcd(a,m)\ne 1, b < \varphi(m), \\ a^{(b \bmod \varphi(m)) + \varphi(m)}, &\gcd(a,m)\ne 1, b \ge \varphi(m). \end{cases} \pmod m$
   \item 環狀著色（相鄰塗異色）\\
       $(k-1)(-1)^n+(k-1)^n$
   
