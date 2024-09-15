@@ -1,3 +1,6 @@
+// partition s = w[0] + w[1] + ... + w[k-1],
+// w[0] >= w[1] >= ... >= w[k-1]
+// each w[i] strictly smaller than all its suffix
 // min rotate: last < n of duval_min(s + s)
 // max rotate: last < n of duval_max(s + s)
 // min suffix: last of duval_min(s)

@@ -47,6 +47,49 @@ vector<i64> operator*(vector<i64> f, vector<i64> g) {
     f.resize(n);
     return f;
 }
+// 2D convolution
+vector<vector<i64>> operator*(vector<vector<i64>> f, vector<vector<i64>> g) {
+    const int n = f.size() + g.size() - 1;
+    const int m = f[0].size() + g[0].size() - 1;
+    int len = bit_ceil(1ull * max(n, m));
+    f.resize(len);
+    g.resize(len);
+    for (auto &v : f) {
+        v.resize(len);
+        ntt(v, 0);
+    }
+    for (auto &v : g) {
+        v.resize(len);
+        ntt(v, 0);
+    }
+    for (int i = 0; i < len; i++)
+        for (int j = 0; j < i; j++) {
+            swap(f[i][j], f[j][i]);
+            swap(g[i][j], g[j][i]);
+        }
+    for (int i = 0; i < len; i++) {
+        ntt(f[i], 0);
+        ntt(g[i], 0);
+    }
+    for (int i = 0; i < len; i++)
+        for (int j = 0; j < len; j++) {
+            f[i][j] = mul(f[i][j], g[i][j]);
+        }
+    for (int i = 0; i < len; i++) {
+        ntt(f[i], 1);
+    }
+    for (int i = 0; i < len; i++)
+        for (int j = 0; j < i; j++) {
+            swap(f[i][j], f[j][i]);
+        }
+    for (auto &v : f) {
+        ntt(v, 1);
+        v.resize(m);
+    }
+    f.resize(n);
+    return f;
+}
+// CRT
 vector<i64> convolution_ll(const vector<i64> &f, const vector<i64> &g) {
     constexpr i64 M1 = 998244353, G1 = 3;
     constexpr i64 M2 = 985661441, G2 = 3;
