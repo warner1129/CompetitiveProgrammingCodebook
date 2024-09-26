@@ -5,5 +5,5 @@ vector<Pt> CircleInter(Cir a, Cir b) {
     double A = sqrt((a.r + b.r + d) * (a.r - b.r + d) * (a.r + b.r - d) * (-a.r + b.r + d));
     Pt v = rotate(b.o - a.o) * A / (2 * d2);
     if (sgn(v.x) == 0 and sgn(v.y) == 0) return {u};
-    return {u + v, u - v};
+    return {u - v, u + v}; // counter clockwise of a
 }
