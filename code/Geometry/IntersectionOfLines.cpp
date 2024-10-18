@@ -9,3 +9,11 @@ Pt LineInter(Line l, Line m) {
     double s = ori(m.a, m.b, l.a), t = ori(m.a, m.b, l.b);
     return (l.b * s - l.a * t) / (s - t);
 }
+bool strictInter(Line l, Line m) {
+    int la = PtSide(m.a, l);
+    int lb = PtSide(m.b, l);
+    int ma = PtSide(l.a, m);
+    int mb = PtSide(l.b, m);
+    if (la == 0 and lb == 0) return false;
+    return la * lb < 0 and ma * mb < 0;
+}
