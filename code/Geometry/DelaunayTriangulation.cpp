@@ -12,52 +12,54 @@ vector<list<Edge>> Delaunay(const vector<Pt> &P) {
     assert(is_sorted(all(P))); // need sorted before!
     const int n = P.size();
     vector<list<Edge>> E(n);
-    auto addEdge = [&](int u, int v) {
-        E[u].push_front({v});
-        E[v].push_front({u});
-        E[u].begin()->rit = E[v].begin();
-        E[v].begin()->rit = E[u].begin();
+    auto addEdge = [&](int u, int v, auto a, auto b) {
+        a = E[u].insert(a, {v});
+        b = E[v].insert(b, {u});
+        return array{b->rit = a, a->rit = b};
     };
-    auto divide = [&](auto &&self, int l, int r) -> void {
-        if (r - l <= 1) return;
-        if (r - l == 2) return addEdge(l, l + 1);
+    auto divide = [&](auto &&self, int l, int r) -> int {
+        if (r - l <= 1) return l;
         int m = (l + r) / 2;
-        self(self, l, m);
-        self(self, m, r);
-        array<int, 2> i{l, m};
-        auto go = [&](int t) {
-            for (auto e : E[i[t]]) {
-                if (ori(P[i[1]], P[i[0]], P[e.id]) > 0 or 
-                    PtOnSeg(P[e.id], {P[i[0]], P[i[1]]})) {
-                    i[t] = e.id;
+        array<int, 2> t{self(self, l, m), self(self, m, r)};
+        int w = t[P[t[1]].y < P[t[0]].y];
+        auto low = [&](int s) {
+            for (Edge e : E[t[s]]) {
+                if (ori(P[t[1]], P[t[0]], P[e.id]) > 0 or 
+                    PtOnSeg(P[e.id], {P[t[0]], P[t[1]]})) {
+                    t[s] = e.id;
                     return true;
                 }
             }
             return false;
         };
-        while (go(0) or go(1));
-        addEdge(i[0], i[1]);
+        while (low(0) or low(1));
+        array its = addEdge(t[0], t[1], E[t[0]].begin(), E[t[1]].end());
         while (true) {
-            array<Pt, 2> x{P[i[0]], P[i[1]]};
-            int ch = -1, sd = 0;
-            for (int t : {0, 1})
-                for (auto e : E[i[t]]) {
-                    if (ori(x[0], x[1], P[e.id]) > 0 and 
-                        (ch == -1 or inCC({x[0], x[1], P[ch]}, P[e.id]))) {
-                        ch = e.id;
-                        sd = t;
-                    }
+            Line L{P[t[0]], P[t[1]]};
+            auto cand = [&](int s) -> optional<list<Edge>::iterator> {
+                auto nxt = [&](auto it) {
+                    if (s == 0) return (++it == E[t[0]].end() ? E[t[0]].begin() : it);
+                    return --(it == E[t[1]].begin() ? E[t[1]].end() : it);
+                };
+                if (E[t[s]].empty()) return {};
+                auto lst = nxt(its[s]), it = nxt(lst);
+                while (PtSide(P[it->id], L) > 0 and inCC({L.a, L.b, P[lst->id]}, P[it->id])) {
+                    E[t[s ^ 1]].erase(lst->rit);
+                    E[t[s]].erase(lst);
+                    it = nxt(lst = it);
                 }
-            if (ch == -1) break;
-            for (auto it = E[i[sd]].begin(); it != E[i[sd]].end(); ) {
-                if (strictInter({x[sd], P[it->id]}, {x[sd ^ 1], P[ch]}))
-                    E[it->id].erase(it->rit), E[i[sd]].erase(it++);
-                else ++it;
-            }
-            i[sd] = ch;
-            addEdge(i[0], i[1]);
+                return PtSide(P[lst->id], L) > 0 ? optional{lst} : nullopt;
+            };
+            auto lc = cand(0), rc = cand(1);
+            if (!lc and !rc) break;
+            int sd = !lc or (rc and inCC({L.a, L.b, P[(*lc)->id]}, P[(*rc)->id]));
+            auto lst = *(sd ? rc : lc);
+            t[sd] = lst->id;
+            its[sd] = lst->rit;
+            its = addEdge(t[0], t[1], ++its[0], its[1]);
         }
+        return w;
     };
     divide(divide, 0, n);
     return E;
-}
+};
