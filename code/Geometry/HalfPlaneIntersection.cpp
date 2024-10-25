@@ -1,5 +1,5 @@
 bool cover(Line L, Line P, Line Q) {
-    // PtSide(LineInter(P, Q), L) <= 0 or P, Q parallel
+    // return PtSide(LineInter(P, Q), L) <= 0; for double
     i128 u = (Q.a - P.a) ^ Q.dir();
     i128 v = P.dir() ^ Q.dir();
     i128 x = P.dir().x * u + (P.a - L.a).x * v;

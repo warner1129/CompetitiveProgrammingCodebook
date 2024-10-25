@@ -9,8 +9,8 @@ Pt operator*(Pt a, double k) { return {a.x * k, a.y * k}; }
 Pt operator/(Pt a, double k) { return {a.x / k, a.y / k}; }
 double operator*(Pt a, Pt b) { return a.x * b.x + a.y * b.y; }
 double operator^(Pt a, Pt b) { return a.x * b.y - a.y * b.x; }
-auto operator<=>(Pt a, Pt b) { return (a.x != b.x) ? a.x <=> b.x : a.y <=> b.y; }
-bool operator==(Pt a, Pt b) { return a.x == b.x and a.y == b.y; }
+auto operator<=>(Pt a, Pt b) { return pair{a.x, a.y} <=> pair{b.x, b.y}; }
+bool operator==(Pt a, Pt b) { return pair{a.x, a.y} == pair{b.x, b.y}; }
 int sgn(double x) { return (x > -eps) - (x < eps); }
 double abs(Pt a) { return sqrt(a * a); }
 double abs2(Pt a) { return a * a; }
