@@ -1,8 +1,6 @@
 // Returns all runs of s as vector of {p, l, r}, which means that period of s[l, r - 1] is p
 vector<array<int, 3>> RunEnumerate(string s) {
     const int n = s.size();
-    auto [mi, ma] = ranges::minmax(s);
-    mi--; ma++;
     vector<array<int, 3>> runs;
     RollingHash rh(s);
     for (int inv : {0, 1}) {
