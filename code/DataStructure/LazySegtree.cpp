@@ -1,50 +1,59 @@
 template<class S, class T>
 struct Seg {
-    Seg<S, T> *ls{}, *rs{};
+    Seg *ls{}, *rs{};
+    S sum{};
+    T tag{};
     int l, r;
-    S d{};
-    T f{};
-    Seg(int _l, int _r) : l{_l}, r{_r} {
+    Seg(int _l, int _r) : l(_l), r(_r) {
         if (r - l == 1) {
             return;
         }
-        int mid = (l + r) / 2;
-        ls = new Seg(l, mid);
-        rs = new Seg(mid, r);
+        int m = (l + r) / 2;
+        ls = new Seg(l, m);
+        rs = new Seg(m, r);
         pull();
     }
-    void upd(const T &g) { g(d), g(f); }
-    void pull() { d = ls->d + rs->d; }
+    void pull() {
+        sum = ls->sum + rs->sum;
+    }
     void push() {
-        ls->upd(f);
-        rs->upd(f);
-        f = T{};
+        ls->apply(tag);
+        rs->apply(tag);
+        tag = T{};
+    }
+    void apply(const T &f) {
+        f(tag);
+        f(sum);
     }
     S query(int x, int y) {
-        if (y <= l or r <= x)
-            return S{};
-        if (x <= l and r <= y)
-            return d;
+        if (y <= l or r <= x) {
+            return {};
+        }
+        if (x <= l and r <= y) {
+            return sum;
+        }
         push();
         return ls->query(x, y) + rs->query(x, y);
     }
-    void apply(int x, int y, const T &g) {
-        if (y <= l or r <= x)
+    void apply(int x, int y, const T &f) {
+        if (y <= l or r <= x) {
             return;
+        }
         if (x <= l and r <= y) {
-            upd(g);
+            apply(f);
             return;
         }
         push();
-        ls->apply(x, y, g);
-        rs->apply(x, y, g);
+        ls->apply(x, y, f);
+        rs->apply(x, y, f);
         pull();
     }
     void set(int p, const S &e) {
-        if (p + 1 <= l or r <= p)
+        if (p < l or p >= r) {
             return;
+        }
         if (r - l == 1) {
-            d = e;
+            sum = e;
             return;
         }
         push();
@@ -53,25 +62,37 @@ struct Seg {
         pull();
     }
     pair<int, S> findFirst(int x, int y, auto &&pred, S cur = {}) {
-        if (y <= l or r <= x)
-            return {-1, {}};
-        if (x <= l and r <= y and !pred(cur + d))
-            return {-1, cur + d};
-        if (r - l == 1) 
-            return {l, cur + d};
+        if (y <= l or r <= x) {
+            return {-1, cur};
+        }
+        if (x <= l and r <= y and !pred(cur + sum)) {
+            return {-1, cur + sum};
+        }
+        if (r - l == 1) {
+            return {l, cur + sum};
+        }
         push();
-        auto res = ls->findFirst(x, y, pred, cur);
-        return res.ff == -1 ? rs->findFirst(x, y, pred, res.ss) : res;
+        auto L = ls->findFirst(x, y, pred, cur);
+        if (L.ff != -1) {
+            return L;
+        }
+        return rs->findFirst(x, y, pred, L.ss);
     }
     pair<int, S> findLast(int x, int y, auto &&pred, S cur = {}) {
-        if (y <= l or r <= x)
-            return {-1, {}};
-        if (x <= l and r <= y and !pred(d + cur))
-            return {-1, d + cur};
-        if (r - l == 1)
-            return {l, d + cur};
+        if (y <= l or r <= x) {
+            return {-1, cur};
+        }
+        if (x <= l and r <= y and !pred(sum + cur)) {
+            return {-1, sum + cur};
+        }
+        if (r - l == 1) {
+            return {l, sum + cur};
+        }
         push();
-        auto res = rs->findLast(x, y, pred, cur);
-        return res.ff == -1 ? ls->findLast(x, y, pred, res.ss) : res;
+        auto R = rs->findLast(x, y, pred, cur);
+        if (R.ff != -1) {
+            return R;
+        }
+        return ls->findLast(x, y, pred, R.ss);
     }
 };
