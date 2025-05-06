@@ -1,31 +1,31 @@
 using numbers::pi;
-constexpr double eps = 1E-9L;
+template<class T> inline constexpr T eps = numeric_limits<T>::epsilon() * 1E6;
+using Real = long double;
 struct Pt {
-    double x{}, y{};
+    Real x{}, y{};
+    Pt operator+(Pt a) const { return {x + a.x, y + a.y}; }
+    Pt operator-(Pt a) const { return {x - a.x, y - a.y}; }
+    Pt operator*(Real k) const { return {x * k, y * k}; }
+    Pt operator/(Real k) const { return {x / k, y / k}; }
+    Real operator*(Pt a) const { return x * a.x + y * a.y; }
+    Real operator^(Pt a) const { return x * a.y - y * a.x; }
+    auto operator<=>(const Pt &a) const = default;
+    bool operator==(const Pt &a) const = default;
 };
-Pt operator+(Pt a, Pt b) { return {a.x + b.x, a.y + b.y}; }
-Pt operator-(Pt a, Pt b) { return {a.x - b.x, a.y - b.y}; }
-Pt operator*(Pt a, double k) { return {a.x * k, a.y * k}; }
-Pt operator/(Pt a, double k) { return {a.x / k, a.y / k}; }
-double operator*(Pt a, Pt b) { return a.x * b.x + a.y * b.y; }
-double operator^(Pt a, Pt b) { return a.x * b.y - a.y * b.x; }
-auto operator<=>(Pt a, Pt b) { return pair{a.x, a.y} <=> pair{b.x, b.y}; }
-bool operator==(Pt a, Pt b) { return pair{a.x, a.y} == pair{b.x, b.y}; }
-int sgn(double x) { return (x > -eps) - (x < eps); }
-double abs(Pt a) { return sqrt(a * a); }
-double abs2(Pt a) { return a * a; }
-double ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }
-double arg(Pt x) { return atan2(x.y, x.x); }
+int sgn(double x) { return (x > -eps<Real>) - (x < eps<Real>); }
+Real ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }
 bool argcmp(const Pt &a, const Pt &b) { // arg(a) < arg(b)
     int f = (Pt{a.y, -a.x} > Pt{} ? 1 : -1) * (a != Pt{});
     int g = (Pt{b.y, -b.x} > Pt{} ? 1 : -1) * (b != Pt{});
     return f == g ? (a ^ b) > 0 : f < g;
 }
-Pt unit(Pt x) { return x / abs(x); }
-Pt rotate(Pt u) { // pi / 2
-    return {-u.y, u.x};
-}
+Pt rotate(Pt u) { return {-u.y, u.x}; }
+// floating point only
 Pt rotate(Pt u, double a) {
-    Pt v{sin(a), cos(a)};
+    Pt v{sinl(a), cosl(a)};
     return {u ^ v, u * v};
 }
+Real abs(Pt a) { return sqrtl(a * a); }
+Real abs2(Pt a) { return a * a; }
+Real arg(Pt x) { return atan2l(x.y, x.x); }
+Pt unit(Pt x) { return x / abs(x); }
