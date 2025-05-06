@@ -9,8 +9,8 @@ struct Pt {
     Pt operator/(Real k) const { return {x / k, y / k}; }
     Real operator*(Pt a) const { return x * a.x + y * a.y; }
     Real operator^(Pt a) const { return x * a.y - y * a.x; }
-    auto operator<=>(const Pt &a) const = default;
-    bool operator==(const Pt &a) const = default;
+    auto operator<=>(const Pt&) const = default;
+    bool operator==(const Pt&) const = default;
 };
 int sgn(double x) { return (x > -eps<Real>) - (x < eps<Real>); }
 Real ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }
