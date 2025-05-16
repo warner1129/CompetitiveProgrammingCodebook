@@ -1,6 +1,7 @@
 vector<Pt> Hull(vector<Pt> P) {
     sort(all(P));
     P.erase(unique(all(P)), P.end());
+    if (P.size() <= 1) return P;
     P.insert(P.end(), P.rbegin() + 1, P.rend());
     vector<Pt> stk;
     for (auto p : P) {

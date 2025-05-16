@@ -22,7 +22,7 @@ bool argcmp(const Pt &a, const Pt &b) { // arg(a) < arg(b)
 Pt rotate(Pt u) { return {-u.y, u.x}; }
 Real abs2(Pt a) { return a * a; }
 // floating point only
-Pt rotate(Pt u, double a) {
+Pt rotate(Pt u, Real a) {
     Pt v{sinl(a), cosl(a)};
     return {u ^ v, u * v};
 }

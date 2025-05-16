@@ -1,5 +1,6 @@
 // P, Q, R(return) are counterclockwise order convex polygon
 vector<Pt> Minkowski(vector<Pt> P, vector<Pt> Q) {
+    assert(P.size() >= 2 and Q.size() >= 2);
     auto cmp = [&](Pt a, Pt b) {
         return Pt{a.y, a.x} < Pt{b.y, b.x};
     };
