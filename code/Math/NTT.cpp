@@ -50,6 +50,27 @@ vector<i64> convolution(vector<i64> f, vector<i64> g) {
     f.resize(n);
     return f;
 }
+vector<i64> inv(vector<i64> f) {
+    const int n = f.size();
+    int k = 1;
+    vector<i64> g{inv(f[0])}, t;
+    for (i64 &x : f) {
+        x = (mod - x) % mod;
+    }
+    t.reserve(n);
+    while (k < n) {
+        k = min(k * 2, n);
+        g.resize(k);
+        t.assign(f.begin(), f.begin() + k);
+        auto h = g * t;
+        h.resize(k);
+        (h[0] += 2) %= mod;
+        g = g * h;
+        g.resize(k);
+    }
+    g.resize(n);
+    return g;
+}
 // CRT
 vector<i64> convolution_ll(const vector<i64> &f, const vector<i64> &g) {
     constexpr i64 M1 = 998244353, G1 = 3;
