@@ -1,7 +1,9 @@
-template<size_t N>
 struct Comb {
-    array<i64, N + 1> fac, ifac, inv;
-    Comb() : fac{1, 1}, ifac{1, 1}, inv{0, 1} {
+    vector<i64> fac, ifac, inv;
+    Comb(int N) : fac{1, 1}, ifac{1, 1}, inv{0, 1} {
+        fac.resize(N + 1);
+        ifac.resize(N + 1);
+        inv.resize(N + 1);
         for (int i = 2; i <= N; i++) {
             inv[i] = inv[mod % i] * (mod - mod / i) % mod;
             fac[i] = fac[i - 1] * i % mod;
