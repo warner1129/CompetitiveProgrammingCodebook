@@ -1,4 +1,4 @@
-template<class Vertex, class Edge>
+template<class Vertex, class Path>
 struct StaticTopTree {
     enum Type { Rake, Compress, Combine, Convert };
     int stt_root;
@@ -6,7 +6,7 @@ struct StaticTopTree {
     vector<int> P, L, R, S;
     vector<Type> T;
     vector<Vertex> f;
-    vector<Edge> g;
+    vector<Path> g;
     int buf;
     int dfs(int u) {
         int s = 1, big = 0;
@@ -62,7 +62,7 @@ struct StaticTopTree {
         if (T[x] == Rake) f[x] = f[L[x]] * f[R[x]];
         else if (T[x] == Compress) g[x] = g[L[x]] + g[R[x]];
         else if (T[x] == Combine) g[x] = f[L[x]] + f[R[x]];
-        else if (T[L[x]] == Rake) g[x] = Edge(f[L[x]]);
+        else if (T[L[x]] == Rake) g[x] = Path(f[L[x]]);
         else f[x] = Vertex(g[L[x]]);
     }
     void set(int x, const Vertex &v) {
@@ -72,33 +72,33 @@ struct StaticTopTree {
     }
     Vertex get() { return g[stt_root]; }
 };
-struct Edge;
+struct Path;
 struct Vertex {
     Vertex() {}
-    Vertex(const Edge&);
+    Vertex(const Path&);
 };
-struct Edge {
-    Edge() {};
-    Edge(const Vertex&);
+struct Path {
+    Path() {};
+    Path(const Vertex&);
 };
 Vertex operator*(const Vertex &a, const Vertex &b) {
     return {};
 }
-Edge operator+(const Vertex &a, const Vertex &b) {
+Path operator+(const Vertex &a, const Vertex &b) {
     return {};
 }
-Edge operator+(const Edge &a, const Edge &b) {
+Path operator+(const Path &a, const Path &b) {
     return {};
 }
-Vertex::Vertex(const Edge &x) {}
-Edge::Edge(const Vertex &x) {}
+Vertex::Vertex(const Path &x) {}
+Path::Path(const Vertex &x) {}
 /*
  * (root) 1 - 2 (heavy)
  *       / \   \
  *      3  4   5
  * type V: subtree DP info (commutative monoid)
- * type E: edge (parent, child) DP info (monoid)
- * V(2) + V(5) -> E(2)
- * V(1) + (V(3) * V(4)) -> E(1)
- * ans: V(E(1) + E(2))
+ * type P: path DP info (monoid)
+ * V(2) + V(5) -> P(2)
+ * V(1) + (V(3) * V(4)) -> P(1)
+ * ans: V(P(1) + P(2))
 */
