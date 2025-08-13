@@ -92,3 +92,13 @@ Edge operator+(const Edge &a, const Edge &b) {
 }
 Vertex::Vertex(const Edge &x) {}
 Edge::Edge(const Vertex &x) {}
+/*
+ * (root) 1 - 2 (heavy)
+ *       / \  \
+ *      3  4  5
+ * type V: subtree DP info (commutative monoid)
+ * type E: edge (parent, child) DP info (monoid)
+ * V(2) + V(5) -> E(2)
+ * V(1) + (V(2) * V(3)) -> E(1)
+ * ans: V(E(1) + E(2))
+*/
