@@ -1,8 +1,14 @@
+/* Vertex:   {u, -1}
+ * Edge:     {u, v};             u < v
+ * Series:   (e1, v1, e2) => e3; e1 < e2
+ * Parallel: (e1, e2)     => e3; e1 = e2
+ * Dangling: (v1, e1, v2) => v3; e1 = {v1, v2}
+*/   
 struct GSPGraph {
     int N;
-    vector<bool> isrt;
-    vector<vector<int>> tree;
     vector<pair<int, int>> S;
+    vector<vector<int>> tree;
+    vector<bool> isrt;
     int getv(int e, int u) { return S[e].ff ^ S[e].ss ^ u; }
     int newNode(pair<int, int> s, vector<int> sub) {
         S[N] = s, tree[N] = sub;
@@ -48,10 +54,13 @@ struct GSPGraph {
             int u = que.front(); que.pop();
             if (deg[u] == 1) {
                 int e = pop(u), v = getv(e, u);
-                vid[v] = newNode({v, -1}, {vid[u], e, vid[v]});
+                vid[v] = newNode(
+                    {v, -1}, {vid[S[e].ff], e, vid[S[e].ss]}
+                );
                 if (--deg[v] == 2) que.push(v);
             } else if (deg[u] == 2) {
                 int e1 = pop(u), e2 = pop(u);
+                if (S[e1] > S[e2]) swap(e1, e2);
                 add(newNode(
                     minmax(getv(e1, u), getv(e2, u)), 
                     {e1, vid[u], e2}
