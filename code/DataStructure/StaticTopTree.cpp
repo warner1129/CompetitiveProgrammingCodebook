@@ -96,8 +96,8 @@ Path::Path(const Vertex &x) {}
  * (root) 1 - 2 (heavy)
  *       / \   \
  *      3  4   5
- * type V: subtree DP info (commutative monoid)
- * type P: path DP info (monoid)
+ * type V: subtree DP info (Commutative Semigroup)
+ * type P: path DP info (Semigroup)
  * V(2) + V(5) -> P(2)
  * V(1) + (V(3) * V(4)) -> P(1)
  * ans: V(P(1) + P(2))
