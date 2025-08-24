@@ -1,4 +1,4 @@
-// // p[0], p[1], p[2] should be counterclockwise order
+// p[0], p[1], p[2] should be counterclockwise order
 int inCC(const array<Pt, 3> &p, Pt a) {
     i128 det = 0;
     for (int i = 0; i < 3; i++)

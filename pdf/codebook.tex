@@ -45,9 +45,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setmainfont[Path=./fonts/Quicksand/]{Quicksand-Medium}
+\setmainfont{Quicksand-Medium}[Path=./fonts/Quicksand/]
 % \setmonofont[Path=./fonts/RobotoMono/]{RobotoMono-Medium}
-\setmonofont{Monaco}
+\setmonofont{Monaco}[Path=./fonts/]
 \setCJKmainfont[Path=./fonts/open-huninn-font/]{jf-openhuninn-1.1}           %中文字型
 \XeTeXlinebreaklocale "zh"						%中文自動換行
 \XeTeXlinebreakskip = 0pt plus 0pt				%設定段落之間的距離
@@ -142,36 +142,40 @@ literate={\ \ }{{\ }}1
 \includecode{GeneralMatching}{../code/Flow/GeneralMatching.cpp}
 
 \sectiontitle{Graph}
-\includecode{Strongly Connected Component}{../code/Graph/StronglyConnectedComponent.cpp}
+% \includecode{Strongly Connected Component}{../code/Graph/StronglyConnectedComponent.cpp}
 \includecode{2-SAT}{../code/Graph/TwoSAT.cpp}
 \includecode{Tree}{../code/Graph/Tree.cpp}
 \includecode{Functional Graph}{../code/Graph/FunctionalGraph.cpp}
 \includecode{Manhattan MST}{../code/Graph/ManhattanMST.cpp}
-\includecode{TreeHash}{../code/Graph/TreeHash.cpp}
+% \includecode{TreeHash}{../code/Graph/TreeHash.cpp}
 \includecode{Count Cycles}{../code/Graph/CountCycles.cpp}
 \includecode{Maximum Clique}{../code/Graph/MaximumClique.cpp}
 \includecode{Min Mean Weight Cycle}{../code/Graph/MinMeanWeightCycle.cpp}
 \includecode{Block Cut Tree}{../code/Graph/BlockCutTree.cpp}
-\includecode{Heavy Light Decomposition}{../code/Graph/HeavyLightDecomposition.cpp}
+% \includecode{Heavy Light Decomposition}{../code/Graph/HeavyLightDecomposition.cpp}
 \includecode{Dominator Tree}{../code/Graph/DominatorTree.cpp}
+\includecode{Matroid Intersection}{../code/Graph/MatroidIntersection.cpp}
+\includecode{Generalized Series-Parallel Graph}{../code/Graph/GeneralizedSeriesParallelGraph.cpp}
 
 \sectiontitle{Data Structure}
 \includecode{Lazy Segtree}{../code/DataStructure/LazySegtree.cpp}
 % \includecode{Sparse Table}{../code/DataStructure/SparseTable.cpp}
-\includecode{Binary Index Tree}{../code/DataStructure/BinaryIndexTree.cpp}
-\includecode{Sweep Line Segtree}{../code/DataStructure/SweepLineSegtree.cpp}
+\includecode{Fenwick Tree}{../code/DataStructure/FenwickTree.cpp}
+% \includecode{Sweep Line Segtree}{../code/DataStructure/SweepLineSegtree.cpp}
 \includecode{Interval Segtree}{../code/DataStructure/IntervalSegtree.cpp}
 \includecode{PrefixMax Sum Segtree}{../code/DataStructure/PrefixMaxSumSegtree.cpp}
 \includecode{Disjoint Set Union-undo}{../code/DataStructure/DisjointSetUnion-undo.cpp}
 % \includecode{Treap}{../code/DataStructure/Treap.cpp}
-\includecode{LiChao Segtree}{../code/DataStructure/LiChaoSegtree.cpp}
-\includecode{Persistent SegmentTree}{../code/DataStructure/PersistentSegmentTree.cpp}
-\includecode{Blackmagic}{../code/DataStructure/Blackmagic.cpp}
+% \includecode{LiChao Segtree}{../code/DataStructure/LiChaoSegtree.cpp}
+% \includecode{Persistent SegmentTree}{../code/DataStructure/PersistentSegmentTree.cpp}
+\includecode{PBDS}{../code/DataStructure/Blackmagic.cpp}
 \includecode{Centroid Decomposition}{../code/DataStructure/CentroidDecomposition.cpp}
 \includecode{2D BIT}{../code/DataStructure/BIT2D.cpp}
 \includecode{Big Binary}{../code/DataStructure/BigBinary.cpp}
 \includecode{Big Integer}{../code/DataStructure/BigInteger.cpp}
-\includecode{StaticTopTree}{../code/DataStructure/StaticTopTree.cpp}
+\includecode{Splay Tree}{../code/DataStructure/SplayTree.cpp}
+\includecode{Link Cut Tree}{../code/DataStructure/LinkCutTree.cpp}
+\includecode{Static Top Tree}{../code/DataStructure/StaticTopTree.cpp}
 
 \sectiontitle{Math}
 \includetex{Theorem}{../code/Math/theorem.tex}
@@ -220,6 +224,7 @@ literate={\ \ }{{\ }}1
 \includecode{Half Plane Intersection}{../code/Geometry/HalfPlaneIntersection.cpp}
 \includecode{Minkowski}{../code/Geometry/Minkowski.cpp}
 \includecode{Minimal Enclosing Circle}{../code/Geometry/MinimalEnclosingCircle.cpp}
+\includecode{Point In Circumcircle}{../code/Geometry/PointInCircumcircle.cpp}
 \includecode{Delaunay Triangulation}{../code/Geometry/DelaunayTriangulation.cpp}
 \includecode{Triangle Center}{../code/Geometry/TriangleCenter.cpp}
 
@@ -247,7 +252,7 @@ literate={\ \ }{{\ }}1
 \includecode{Python FastIO}{../code/Misc/PythonFastIO.py}
 \includecode{HeapSize}{../code/Misc/HeapSize.cpp}
 % \includecode{Trick}{../code/Misc/Trick.cpp}
-\includecode{PyTrick}{../code/Misc/PyTrick.py}
+% \includecode{PyTrick}{../code/Misc/PyTrick.py}
 
 % \clearpage
 % \includegraphics[scale=0.7]{grid.jpg}
