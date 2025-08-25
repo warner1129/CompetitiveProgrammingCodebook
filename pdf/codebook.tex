@@ -148,6 +148,37 @@ literate={\ \ }{{\ }}1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\ExplSyntaxOn
+\NewDocumentCommand{\captureshell}{som}
+ {
+  \sdaau_captureshell:Ne \l__sdaau_captureshell_out_tl { #3 }
+  \IfBooleanT { #1 }
+   {% we may need to stringify the result
+    \tl_set:Nx \l__sdaau_captureshell_out_tl
+     { \tl_to_str:N \l__sdaau_captureshell_out_tl }
+   }
+  \IfNoValueTF { #2 }
+   {
+    \tl_use:N \l__sdaau_captureshell_out_tl
+   }
+   {
+    \tl_set_eq:NN #2 \l__sdaau_captureshell_out_tl
+   }
+ }
+
+\tl_new:N \l__sdaau_captureshell_out_tl
+
+\cs_new_protected:Nn \sdaau_captureshell:Nn
+ {
+  \sys_get_shell:nnN { #2 } { } #1
+  \tl_trim_spaces:N #1 % remove leading and trailing spaces
+ }
+\cs_generate_variant:Nn \sdaau_captureshell:Nn { Ne }
+\ExplSyntaxOff
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\HashFile}[1]{\captureshell{cpp #1 -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-6}}
 
 \newcommand{\includecode}[2]{
   \subsection{#1}
@@ -158,6 +189,13 @@ literate={\ \ }{{\ }}1
 
 \NewDocumentCommand{\includecodeX}{ O{C++} m m }{
   \subsection{#2}
+  \vspace{-0.8em}
+  \lstinputlisting[#1]{#3}
+  \vspace{-1.2em}
+}
+
+\NewDocumentCommand{\includecodehash}{ O{C++} m m }{
+  \subsection[#2]{#2{ \small[\HashFile{#3}] }}
   \vspace{-0.8em}
   \lstinputlisting[#1]{#3}
   \vspace{-1.2em}
@@ -186,124 +224,124 @@ literate={\ \ }{{\ }}1
 \includecodeX[language=bash]{Increase stack size}{../code/Basic/IncStack.txt}
 
 \sectiontitle{Matching and Flow}
-\includecode{Dinic}{../code/Flow/Dinic.cpp}
-\includecode{MCMF}{../code/Flow/MCMF.cpp}
-\includecode{HopcroftKarp}{../code/Flow/HopcroftKarp.cpp}
-\includecode{KM}{../code/Flow/KM.cpp}
-\includecode{SW}{../code/Flow/SW.cpp}
-\includecode{GeneralMatching}{../code/Flow/GeneralMatching.cpp}
+\includecodehash[]{Dinic}{../code/Flow/Dinic.cpp}
+\includecodehash[]{MCMF}{../code/Flow/MCMF.cpp}
+\includecodehash[]{HopcroftKarp}{../code/Flow/HopcroftKarp.cpp}
+\includecodehash[]{KM}{../code/Flow/KM.cpp}
+\includecodehash[]{SW}{../code/Flow/SW.cpp}
+\includecodehash[]{GeneralMatching}{../code/Flow/GeneralMatching.cpp}
 
 \sectiontitle{Graph}
-% \includecode{Strongly Connected Component}{../code/Graph/StronglyConnectedComponent.cpp}
-\includecode{2-SAT}{../code/Graph/TwoSAT.cpp}
-\includecode{Tree}{../code/Graph/Tree.cpp}
-\includecode{Functional Graph}{../code/Graph/FunctionalGraph.cpp}
-\includecode{Manhattan MST}{../code/Graph/ManhattanMST.cpp}
-% \includecode{TreeHash}{../code/Graph/TreeHash.cpp}
-\includecode{Count Cycles}{../code/Graph/CountCycles.cpp}
-\includecode{Maximum Clique}{../code/Graph/MaximumClique.cpp}
-\includecode{Min Mean Weight Cycle}{../code/Graph/MinMeanWeightCycle.cpp}
-\includecode{Block Cut Tree}{../code/Graph/BlockCutTree.cpp}
-% \includecode{Heavy Light Decomposition}{../code/Graph/HeavyLightDecomposition.cpp}
-\includecode{Dominator Tree}{../code/Graph/DominatorTree.cpp}
-\includecode{Matroid Intersection}{../code/Graph/MatroidIntersection.cpp}
-\includecode{Generalized Series-Parallel Graph}{../code/Graph/GeneralizedSeriesParallelGraph.cpp}
+% \includecodehash[]{Strongly Connected Component}{../code/Graph/StronglyConnectedComponent.cpp}
+\includecodehash[]{2-SAT}{../code/Graph/TwoSAT.cpp}
+\includecodehash[]{Tree}{../code/Graph/Tree.cpp}
+\includecodehash[]{Functional Graph}{../code/Graph/FunctionalGraph.cpp}
+\includecodehash[]{Manhattan MST}{../code/Graph/ManhattanMST.cpp}
+% \includecodehash[]{TreeHash}{../code/Graph/TreeHash.cpp}
+\includecodehash[]{Count Cycles}{../code/Graph/CountCycles.cpp}
+\includecodehash[]{Maximum Clique}{../code/Graph/MaximumClique.cpp}
+\includecodehash[]{Min Mean Weight Cycle}{../code/Graph/MinMeanWeightCycle.cpp}
+\includecodehash[]{Block Cut Tree}{../code/Graph/BlockCutTree.cpp}
+% \includecodehash[]{Heavy Light Decomposition}{../code/Graph/HeavyLightDecomposition.cpp}
+\includecodehash[]{Dominator Tree}{../code/Graph/DominatorTree.cpp}
+\includecodehash[]{Matroid Intersection}{../code/Graph/MatroidIntersection.cpp}
+\includecodehash[]{Generalized Series-Parallel Graph}{../code/Graph/GeneralizedSeriesParallelGraph.cpp}
 
 \sectiontitle{Data Structure}
-\includecode{Lazy Segtree}{../code/DataStructure/LazySegtree.cpp}
-% \includecode{Sparse Table}{../code/DataStructure/SparseTable.cpp}
-\includecode{Fenwick Tree}{../code/DataStructure/FenwickTree.cpp}
-% \includecode{Sweep Line Segtree}{../code/DataStructure/SweepLineSegtree.cpp}
-\includecode{Interval Segtree}{../code/DataStructure/IntervalSegtree.cpp}
-\includecode{PrefixMax Sum Segtree}{../code/DataStructure/PrefixMaxSumSegtree.cpp}
-\includecode{Disjoint Set Union-undo}{../code/DataStructure/DisjointSetUnion-undo.cpp}
-% \includecode{Treap}{../code/DataStructure/Treap.cpp}
-% \includecode{LiChao Segtree}{../code/DataStructure/LiChaoSegtree.cpp}
-% \includecode{Persistent SegmentTree}{../code/DataStructure/PersistentSegmentTree.cpp}
+\includecodehash[]{Lazy Segtree}{../code/DataStructure/LazySegtree.cpp}
+% \includecodehash[]{Sparse Table}{../code/DataStructure/SparseTable.cpp}
+\includecodehash[]{Fenwick Tree}{../code/DataStructure/FenwickTree.cpp}
+% \includecodehash[]{Sweep Line Segtree}{../code/DataStructure/SweepLineSegtree.cpp}
+\includecodehash[]{Interval Segtree}{../code/DataStructure/IntervalSegtree.cpp}
+\includecodehash[]{PrefixMax Sum Segtree}{../code/DataStructure/PrefixMaxSumSegtree.cpp}
+\includecodehash[]{Disjoint Set Union-undo}{../code/DataStructure/DisjointSetUnion-undo.cpp}
+% \includecodehash[]{Treap}{../code/DataStructure/Treap.cpp}
+% \includecodehash[]{LiChao Segtree}{../code/DataStructure/LiChaoSegtree.cpp}
+% \includecodehash[]{Persistent SegmentTree}{../code/DataStructure/PersistentSegmentTree.cpp}
 \includecode{PBDS}{../code/DataStructure/Blackmagic.cpp}
-\includecode{Centroid Decomposition}{../code/DataStructure/CentroidDecomposition.cpp}
-\includecode{2D BIT}{../code/DataStructure/BIT2D.cpp}
-\includecode{Big Binary}{../code/DataStructure/BigBinary.cpp}
-\includecode{Big Integer}{../code/DataStructure/BigInteger.cpp}
-\includecode{Splay Tree}{../code/DataStructure/SplayTree.cpp}
-\includecode{Link Cut Tree}{../code/DataStructure/LinkCutTree.cpp}
-\includecode{Static Top Tree}{../code/DataStructure/StaticTopTree.cpp}
+\includecodehash[]{Centroid Decomposition}{../code/DataStructure/CentroidDecomposition.cpp}
+\includecodehash[]{2D BIT}{../code/DataStructure/BIT2D.cpp}
+\includecodehash[]{Big Binary}{../code/DataStructure/BigBinary.cpp}
+\includecodehash[]{Big Integer}{../code/DataStructure/BigInteger.cpp}
+\includecodehash[]{Splay Tree}{../code/DataStructure/SplayTree.cpp}
+\includecodehash[]{Link Cut Tree}{../code/DataStructure/LinkCutTree.cpp}
+\includecodehash[]{Static Top Tree}{../code/DataStructure/StaticTopTree.cpp}
 
 \sectiontitle{Math}
 \includetex{Theorem}{../code/Math/theorem.tex}
-\includecode{Linear Sieve}{../code/Math/LinearSieve.cpp}
-\includecode{Exgcd}{../code/Math/Exgcd.cpp}
-\includecode{Chinese Remainder Theorem}{../code/Math/ChineseRemainderTheorem.cpp}
-\includecode{Factorize}{../code/Math/Factorize.cpp}
-\includecode{FloorBlock}{../code/Math/FloorBlock.cpp}
-\includecode{FloorCeil}{../code/Math/FloorCeil.cpp}
+\includecodehash[]{Linear Sieve}{../code/Math/LinearSieve.cpp}
+\includecodehash[]{Exgcd}{../code/Math/Exgcd.cpp}
+\includecodehash[]{Chinese Remainder Theorem}{../code/Math/ChineseRemainderTheorem.cpp}
+\includecodehash[]{Factorize}{../code/Math/Factorize.cpp}
+\includecodehash[]{FloorBlock}{../code/Math/FloorBlock.cpp}
+\includecodehash[]{FloorCeil}{../code/Math/FloorCeil.cpp}
 \includetex{NTT Prime List}{../code/Math/NTTPrimes.tex}
-\includecode{NTT}{../code/Math/NTT.cpp}
+\includecodehash[]{NTT}{../code/Math/NTT.cpp}
 \includetex{FWT}{../code/Math/FWT.tex}
-\includecode{FWT}{../code/Math/FWT.cpp}
-\includecode{Xor Basis}{../code/Math/XorBasis.cpp}
-\includecode{Lucas}{../code/Math/Lucas.cpp}
-\includecode{Min25 Sieve}{../code/Math/Min25Sieve.cpp}
-\includecode{Berlekamp Massey}{../code/Math/BerlekampMassey.cpp}
-\includecode{Gauss Elimination}{../code/Math/GaussElimination.cpp}
-% \includecode{Linear Equation}{../code/Math/LinearEquation.cpp}
-\includecode{LinearRec}{../code/Math/LinearRec.cpp}
-\includecode{SubsetConv}{../code/Math/SubsetConv.cpp}
-\includecode{SqrtMod}{../code/Math/SqrtMod.cpp}
-\includecode{DiscreteLog}{../code/Math/DiscreteLog.cpp}
-\includecode{FloorSum}{../code/Math/FloorSum.cpp}
-\includecode{Linear Programming Simplex}{../code/Math/LinearProgrammingSimplex.cpp}
-\includecode{Lagrange Interpolation}{../code/Math/LagrangeInterpolation.cpp}
+\includecodehash[]{FWT}{../code/Math/FWT.cpp}
+\includecodehash[]{Xor Basis}{../code/Math/XorBasis.cpp}
+\includecodehash[]{Lucas}{../code/Math/Lucas.cpp}
+\includecodehash[]{Min25 Sieve}{../code/Math/Min25Sieve.cpp}
+\includecodehash[]{Berlekamp Massey}{../code/Math/BerlekampMassey.cpp}
+\includecodehash[]{Gauss Elimination}{../code/Math/GaussElimination.cpp}
+% \includecodehash[]{Linear Equation}{../code/Math/LinearEquation.cpp}
+\includecodehash[]{LinearRec}{../code/Math/LinearRec.cpp}
+\includecodehash[]{SubsetConv}{../code/Math/SubsetConv.cpp}
+\includecodehash[]{SqrtMod}{../code/Math/SqrtMod.cpp}
+\includecodehash[]{DiscreteLog}{../code/Math/DiscreteLog.cpp}
+\includecodehash[]{FloorSum}{../code/Math/FloorSum.cpp}
+\includecodehash[]{Linear Programming Simplex}{../code/Math/LinearProgrammingSimplex.cpp}
+\includecodehash[]{Lagrange Interpolation}{../code/Math/LagrangeInterpolation.cpp}
 
 \sectiontitle{Geometry}
-\includecode{Point}{../code/Geometry/Point.cpp}
-\includecode{Line}{../code/Geometry/Line.cpp}
-\includecode{Circle}{../code/Geometry/Circle.cpp}
-\includecode{Point to Segment Distance}{../code/Geometry/PointToSegmentDistance.cpp}
-\includecode{Point in Polygon}{../code/Geometry/PointInPolygon.cpp}
-\includecode{Intersection of Lines}{../code/Geometry/IntersectionOfLines.cpp}
-\includecode{Intersection of Circle and Line}{../code/Geometry/IntersectionOfCircleLine.cpp}
-\includecode{Intersection of Circles}{../code/Geometry/IntersectionOfCircles.cpp}
-\includecode{Area of Circle and Polygon}{../code/Geometry/AreaOfCirclePolygon.cpp}
-\includecode{Area of Sector}{../code/Geometry/AreaOfSector.cpp}
-\includecode{Union of Polygons}{../code/Geometry/UnionOfPolygons.cpp}
-\includecode{Union of Circles}{../code/Geometry/UnionOfCircles.cpp}
-\includecode{TangentLines of Circle and Point}{../code/Geometry/TangentLinesOfCirclePoint.cpp}
-\includecode{TangentLines of Circles}{../code/Geometry/TangentLinesOfCircles.cpp}
-\includecode{Convex Hull}{../code/Geometry/ConvexHull.cpp}
-\includecode{Convex Hull trick}{../code/Geometry/ConvexHulltrick.cpp}
-\includecode{Dynamic Convex Hull}{../code/Geometry/DynamicConvexHull.cpp}
-\includecode{Half Plane Intersection}{../code/Geometry/HalfPlaneIntersection.cpp}
-\includecode{Minkowski}{../code/Geometry/Minkowski.cpp}
-\includecode{Minimal Enclosing Circle}{../code/Geometry/MinimalEnclosingCircle.cpp}
-\includecode{Point In Circumcircle}{../code/Geometry/PointInCircumcircle.cpp}
-\includecode{Delaunay Triangulation}{../code/Geometry/DelaunayTriangulation.cpp}
-\includecode{Triangle Center}{../code/Geometry/TriangleCenter.cpp}
+\includecodehash[]{Point}{../code/Geometry/Point.cpp}
+\includecodehash[]{Line}{../code/Geometry/Line.cpp}
+\includecodehash[]{Circle}{../code/Geometry/Circle.cpp}
+\includecodehash[]{Point to Segment Distance}{../code/Geometry/PointToSegmentDistance.cpp}
+\includecodehash[]{Point in Polygon}{../code/Geometry/PointInPolygon.cpp}
+\includecodehash[]{Intersection of Lines}{../code/Geometry/IntersectionOfLines.cpp}
+\includecodehash[]{Intersection of Circle and Line}{../code/Geometry/IntersectionOfCircleLine.cpp}
+\includecodehash[]{Intersection of Circles}{../code/Geometry/IntersectionOfCircles.cpp}
+\includecodehash[]{Area of Circle and Polygon}{../code/Geometry/AreaOfCirclePolygon.cpp}
+\includecodehash[]{Area of Sector}{../code/Geometry/AreaOfSector.cpp}
+\includecodehash[]{Union of Polygons}{../code/Geometry/UnionOfPolygons.cpp}
+\includecodehash[]{Union of Circles}{../code/Geometry/UnionOfCircles.cpp}
+\includecodehash[]{TangentLines of Circle and Point}{../code/Geometry/TangentLinesOfCirclePoint.cpp}
+\includecodehash[]{TangentLines of Circles}{../code/Geometry/TangentLinesOfCircles.cpp}
+\includecodehash[]{Convex Hull}{../code/Geometry/ConvexHull.cpp}
+\includecodehash[]{Convex Hull trick}{../code/Geometry/ConvexHulltrick.cpp}
+\includecodehash[]{Dynamic Convex Hull}{../code/Geometry/DynamicConvexHull.cpp}
+\includecodehash[]{Half Plane Intersection}{../code/Geometry/HalfPlaneIntersection.cpp}
+\includecodehash[]{Minkowski}{../code/Geometry/Minkowski.cpp}
+\includecodehash[]{Minimal Enclosing Circle}{../code/Geometry/MinimalEnclosingCircle.cpp}
+\includecodehash[]{Point In Circumcircle}{../code/Geometry/PointInCircumcircle.cpp}
+\includecodehash[]{Delaunay Triangulation}{../code/Geometry/DelaunayTriangulation.cpp}
+\includecodehash[]{Triangle Center}{../code/Geometry/TriangleCenter.cpp}
 
 \sectiontitle{Stringology}
-\includecode{KMP}{../code/String/KMP.cpp}
-\includecode{Z-algorithm}{../code/String/Zalgorithm.cpp}
-\includecode{Manacher}{../code/String/Manacher.cpp}
-\includecode{SuffixArray Simple}{../code/String/SuffixArray-Simple.cpp}
-% \includecode{SuffixArray SAIS}{../code/String/SuffixArray-SAIS.cpp}
-\includecode{SuffixArray SAIS C++20}{../code/String/SuffixArray-SAIS-C++20.cpp}
-\includecode{Aho-Corasick}{../code/String/Aho-Corasick.cpp}
-\includecode{Palindromic Tree}{../code/String/PalindromicTree.cpp}
-\includecode{Suffix Automaton}{../code/String/SAM.cpp}
-\includecode{Lyndon Factorization}{../code/String/LyndonFactorization.cpp}
-\includecode{SmallestRotation}{../code/String/SmallestRotation.cpp}
+\includecodehash[]{KMP}{../code/String/KMP.cpp}
+\includecodehash[]{Z-algorithm}{../code/String/Zalgorithm.cpp}
+\includecodehash[]{Manacher}{../code/String/Manacher.cpp}
+\includecodehash[]{SuffixArray Simple}{../code/String/SuffixArray-Simple.cpp}
+% \includecodehash[]{SuffixArray SAIS}{../code/String/SuffixArray-SAIS.cpp}
+\includecodehash[]{SuffixArray SAIS C++20}{../code/String/SuffixArray-SAIS-C++20.cpp}
+\includecodehash[]{Aho-Corasick}{../code/String/Aho-Corasick.cpp}
+\includecodehash[]{Palindromic Tree}{../code/String/PalindromicTree.cpp}
+\includecodehash[]{Suffix Automaton}{../code/String/SAM.cpp}
+\includecodehash[]{Lyndon Factorization}{../code/String/LyndonFactorization.cpp}
+\includecodehash[]{SmallestRotation}{../code/String/SmallestRotation.cpp}
 
 \sectiontitle{Misc}
-\includecode{Fraction Binary Search}{../code/Misc/FractionSearch.cpp}
-\includecode{de Bruijn sequence}{../code/Misc/deBruijn.cpp}
-\includecode{HilbertCurve}{../code/Misc/HilbertCurve.cpp}
-\includecode{Grid Intersection}{../code/Misc/GridIntersection.cpp}
-% \includecode{DLX}{../code/Misc/DLX.cpp}
-\includecode{NextPerm}{../code/Misc/NextPerm.cpp}
-% \includecode{FastIO}{../code/Misc/Fastio.cpp}
+\includecodehash[]{Fraction Binary Search}{../code/Misc/FractionSearch.cpp}
+\includecodehash[]{de Bruijn sequence}{../code/Misc/deBruijn.cpp}
+\includecodehash[]{HilbertCurve}{../code/Misc/HilbertCurve.cpp}
+\includecodehash[]{Grid Intersection}{../code/Misc/GridIntersection.cpp}
+% \includecodehash[]{DLX}{../code/Misc/DLX.cpp}
+\includecodehash[]{NextPerm}{../code/Misc/NextPerm.cpp}
+% \includecodehash[]{FastIO}{../code/Misc/Fastio.cpp}
 \includecodeX[language=python]{Python FastIO}{../code/Misc/PythonFastIO.py}
-\includecode{HeapSize}{../code/Misc/HeapSize.cpp}
-% \includecode{Trick}{../code/Misc/Trick.cpp}
+\includecodehash[]{HeapSize}{../code/Misc/HeapSize.cpp}
+% \includecodehash[]{Trick}{../code/Misc/Trick.cpp}
 % \includecodeX[language=python]{PyTrick}{../code/Misc/PyTrick.py}
 \includecodeX[language=python]{PyFrac}{../code/Misc/PyFrac.py}
 \includecodeX[language=kotlin]{Kotlin}{../code/Misc/example.kt}
