@@ -25,6 +25,20 @@
 }
 % \usepackage{CJKulem}
 
+\usepackage[toc]{multitoc}
+\renewcommand*{\multicolumntoc}{2}
+
+\usepackage[titles]{tocloft}
+\renewcommand\cftsubsecfont{\footnotesize}
+\renewcommand\cftsubsecpagefont{\footnotesize}
+\renewcommand\cftsecindent{0.1em}
+\renewcommand\cftsecnumwidth{1.2em}
+\renewcommand\cftsubsecindent{0.5em}
+\renewcommand\cftsubsecnumwidth{2.0em}
+\renewcommand\cftdotsep{2}
+\renewcommand\cftbeforesecskip{0.4em}
+\renewcommand\cftbeforesubsecskip{0.2em}
+
 %\usepackage[T1]{fontenc}
 \usepackage{courier}
 \topmargin=-1pt
@@ -82,6 +96,37 @@ stringstyle=\itshape\color{Green4},
 literate={\ \ }{{\ }}1
 }
 
+\lstdefinelanguage{vim}
+{
+  % list of keywords
+  morekeywords={
+    set, se,
+    colo, syn,
+    let,
+    map, imap, nmap, ino, no,
+    filetype,
+    indent,
+    on, off,
+    au,
+    Plugin,
+    call,
+    ca,
+  },
+  morecomment=[l]{"}, % l is for line comment
+  morestring=[b]' % defines that strings are enclosed in double quotes
+}
+
+\lstdefinelanguage{kotlin}{
+  comment=[l]{//},
+  emph={filter, first, firstOrNull, forEach, lazy, map, mapNotNull, println},
+  keywords={!in, !is, abstract, actual, annotation, as, as?, break, by, catch, class, companion, const, constructor, continue, crossinline, data, delegate, do, dynamic, else, enum, expect, external, false, field, file, final, finally, for, fun, get, if, import, in, infix, init, inline, inner, interface, internal, is, lateinit, noinline, null, object, open, operator, out, override, package, param, private, property, protected, public, receiveris, reified, return, return@, sealed, set, setparam, super, suspend, tailrec, this, throw, true, try, typealias, typeof, val, var, vararg, when, where, while},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[s]{"""*}{*"""},
+  morekeywords={[2]{@Deprecated, @JvmField, @JvmName, @JvmOverloads, @JvmStatic, @JvmSynthetic, Array, Byte, Double, Float, Int, Integer, Iterable, Long, Runnable, Short, String, Any, Unit, Nothing}},
+  sensitive=true,
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\footnotesize{\fontsize{8}{9.5}\selectfont}
@@ -111,6 +156,13 @@ literate={\ \ }{{\ }}1
   \vspace{-1.2em}
 }
 
+\NewDocumentCommand{\includecodeX}{ O{C++} m m }{
+  \subsection{#2}
+  \vspace{-0.8em}
+  \lstinputlisting[#1]{#3}
+  \vspace{-1.2em}
+}
+
 \newcommand{\includetex}[2]{
   \subsection{#1}
   \input{#2}
@@ -126,12 +178,12 @@ literate={\ \ }{{\ }}1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectiontitle{Basic}
-\includecode{vimrc}{../code/Basic/vimrc}
+\includecodeX[language=vim]{vimrc}{../code/Basic/vimrc}
 \includecode{default}{../code/Basic/default.cpp}
 \includecode{optimize}{../code/Basic/optimize.cpp}
-\includecode{judge}{../code/Basic/judge.sh}
+\includecodeX[language=bash]{judge}{../code/Basic/judge.sh}
 \includecode{Random}{../code/Basic/Random.cpp}
-\includecode{Increase stack size}{../code/Basic/IncStack.txt}
+\includecodeX[language=bash]{Increase stack size}{../code/Basic/IncStack.txt}
 
 \sectiontitle{Matching and Flow}
 \includecode{Dinic}{../code/Flow/Dinic.cpp}
@@ -194,7 +246,7 @@ literate={\ \ }{{\ }}1
 \includecode{Min25 Sieve}{../code/Math/Min25Sieve.cpp}
 \includecode{Berlekamp Massey}{../code/Math/BerlekampMassey.cpp}
 \includecode{Gauss Elimination}{../code/Math/GaussElimination.cpp}
-\includecode{Linear Equation}{../code/Math/LinearEquation.cpp}
+% \includecode{Linear Equation}{../code/Math/LinearEquation.cpp}
 \includecode{LinearRec}{../code/Math/LinearRec.cpp}
 \includecode{SubsetConv}{../code/Math/SubsetConv.cpp}
 \includecode{SqrtMod}{../code/Math/SqrtMod.cpp}
@@ -249,10 +301,12 @@ literate={\ \ }{{\ }}1
 % \includecode{DLX}{../code/Misc/DLX.cpp}
 \includecode{NextPerm}{../code/Misc/NextPerm.cpp}
 % \includecode{FastIO}{../code/Misc/Fastio.cpp}
-\includecode{Python FastIO}{../code/Misc/PythonFastIO.py}
+\includecodeX[language=python]{Python FastIO}{../code/Misc/PythonFastIO.py}
 \includecode{HeapSize}{../code/Misc/HeapSize.cpp}
 % \includecode{Trick}{../code/Misc/Trick.cpp}
-% \includecode{PyTrick}{../code/Misc/PyTrick.py}
+% \includecodeX[language=python]{PyTrick}{../code/Misc/PyTrick.py}
+\includecodeX[language=python]{PyFrac}{../code/Misc/PyFrac.py}
+\includecodeX[language=kotlin]{Kotlin}{../code/Misc/example.kt}
 
 % \clearpage
 % \includegraphics[scale=0.7]{grid.jpg}
