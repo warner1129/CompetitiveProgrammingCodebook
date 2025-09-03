@@ -34,7 +34,7 @@ vector<double> simplex(
                     val[i][j] += val[r][j] * val[i][s];
                 val[i][s] *= val[r][s];
             }
-        }
+        } /* SPLIT-HASH */
         r = s = -1;
         for (int j = 0; j < m; ++j)
             if (s < 0 || idx[s] > idx[j])

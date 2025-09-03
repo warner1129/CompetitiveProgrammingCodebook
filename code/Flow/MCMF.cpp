@@ -28,7 +28,7 @@ struct MCMF {
                     }
         }
         return dis[t] != inf<T>;
-    }
+    } /* SPLIT-HASH */
     T dfs(int u, T in, int t) {
         if (u == t) return in;
         vis[u] = 1;

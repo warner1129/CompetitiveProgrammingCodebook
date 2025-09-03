@@ -7,8 +7,7 @@ void Sieve(int n) {
     isp.assign(n + 1, 0);
     mu.resize(n + 1);
     phi.resize(n + 1);
-    mu[1] = 1;
-    phi[1] = 1;
+    mu[1] = phi[1] = 1;
     for (int i = 2; i <= n; i++) {
         if (minp[i] == 0) {
             minp[i] = i;
@@ -18,9 +17,8 @@ void Sieve(int n) {
             phi[i] = i - 1;
         }
         for (i64 p : primes) {
-            if (p * i > n) {
+            if (p * i > n)
                 break;
-            }
             minp[i * p] = p;
             if (p == minp[i]) {
                 phi[p * i] = phi[i] * p;

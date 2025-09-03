@@ -32,7 +32,7 @@ struct StaticTopTree {
         auto m = l;
         while (s > S[*m]) s -= 2 * S[*m++];
         return add(merge(l, m, t), merge(m, r, t), t);
-    }
+    } /* SPLIT-HASH */
     int pathCluster(int u) {
         vector<int> chs{pointCluster(u)};
         while (!G[u].empty()) chs.push_back(pointCluster(u = G[u][0]));
@@ -64,7 +64,7 @@ struct StaticTopTree {
         else if (T[x] == Combine) g[x] = f[L[x]] + f[R[x]];
         else if (T[L[x]] == Rake) g[x] = Path(f[L[x]]);
         else f[x] = Vertex(g[L[x]]);
-    }
+    } /* SPLIT-HASH */
     void set(int x, const Vertex &v) {
         f[x] = v;
         for (x = P[x]; x != -1; x = P[x])

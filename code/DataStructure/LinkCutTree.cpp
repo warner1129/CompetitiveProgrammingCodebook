@@ -23,7 +23,7 @@ Node *find_root(Node *x) {
     }
     splay(x);
     return x;
-}
+} /* SPLIT-HASH */
 bool link(Node *x, Node *y) {
     if (find_root(x) == find_root(y)) {
         return false;

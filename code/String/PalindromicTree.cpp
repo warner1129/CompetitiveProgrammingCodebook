@@ -37,7 +37,7 @@ struct PAM {
         for (char c : s) {
             walk.push_back(add(c));
         }
-    }
+    } /* SPLIT-HASH */
     int up(int p) {
         while (S.rbegin()[len[p] + 1] != S.back()) {
             p = fail[p];

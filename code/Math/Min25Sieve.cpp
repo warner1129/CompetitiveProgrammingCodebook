@@ -37,7 +37,7 @@ struct Min25 {
         for (int i = 0; i < Q.size(); i++) {
             Fp[i] += F[i] * coef;
         }
-    }
+    } /* SPLIT-HASH */
     i64 work(const auto &f) {
         S = Fp;
         for (i64 p : primes | views::reverse) {

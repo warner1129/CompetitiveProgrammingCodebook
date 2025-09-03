@@ -31,7 +31,7 @@ struct MaxClique {
             for (auto p = cs[k]._Find_first(); p < kN; p = cs[k]._Find_next(p))
                 v[tp] = p, c[tp] = k, ++tp;
         dfs(v, c, i + 1, mask);
-    }
+    } /* SPLIT-HASH */
     void dfs(vector<int> &v, vector<int> &c, int i, bits mask) {
         while (!v.empty()) {
             int p = v.back();

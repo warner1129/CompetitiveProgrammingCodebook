@@ -19,7 +19,7 @@ bool isPrime(u64 n) {
         if (p != n - 1 and i != s) return 0;
     }
     return 1;
-}
+} /* SPLIT-HASH */
 u64 pollard(u64 n) {
     u64 c = 1;
     auto f = [&](u64 x) { return mul(x, x, n) + c; };

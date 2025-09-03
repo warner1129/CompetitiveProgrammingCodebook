@@ -27,7 +27,7 @@ struct Convex {
         if (v < Pt{}) l = r, r = V.end();
         if (close) return (lower_bound(l, r, v, cmp) - V.begin()) % n;
         return (upper_bound(l, r, v, cmp) - V.begin()) % n;
-    } 
+    } /* SPLIT-HASH */
     // closer tangent point
     array<int, 2> tangent2(Pt p) {
         array<int, 2> t{-1, -1};

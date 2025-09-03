@@ -34,7 +34,7 @@ struct NTT {
             for (int i = 0; i < n; i++) v[i] = v[i] * in % M;
         }
     }
-};
+}; /* SPLIT-HASH */
 template<int M, int G>
 vector<i64> convolution(vector<i64> f, vector<i64> g) {
 	static NTT<M, G> ntt;
@@ -49,7 +49,7 @@ vector<i64> convolution(vector<i64> f, vector<i64> g) {
     ntt(f, 1);
     f.resize(n);
     return f;
-}
+} /* SPLIT-HASH */
 vector<i64> inv(vector<i64> f) {
     const int n = f.size();
     int k = 1;
@@ -70,7 +70,7 @@ vector<i64> inv(vector<i64> f) {
     }
     g.resize(n);
     return g;
-}
+} /* SPLIT-HASH */
 // CRT
 vector<i64> convolution_ll(const vector<i64> &f, const vector<i64> &g) {
     constexpr i64 M1 = 998244353, G1 = 3;

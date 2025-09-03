@@ -21,7 +21,7 @@ struct SAM {
         while (lst and nxt[lst][c] == 0) {
             nxt[lst][c] = cur;
             lst = fail[lst];
-        }
+        } /* SPLIT-HASH */
         int p = nxt[lst][c];
         if (p == 0) {
             fail[cur] = 0;

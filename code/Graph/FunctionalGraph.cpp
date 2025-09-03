@@ -19,9 +19,8 @@ struct FunctionalGraph {
     };
     void build(const auto &_f) {
         f = _f;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++)
             G[f[i]].push_back(i);
-        }
         vector<int> vis(n, -1);
         for (int i = 0; i < n; i++) if (vis[i] == -1) {
             int x = i;
@@ -40,22 +39,19 @@ struct FunctionalGraph {
             len.push_back(l);
         }
         for (int i = 0; i < n; i++)
-            if (root[i] == i) {
+            if (root[i] == i)
                 dfs(i);
-            }
     }
     int dist(int x, int y) { // x -> y
-        if (bel[x] != bel[y]) {
+        if (bel[x] != bel[y])
             return -1;
-        } else if (dep[x] < dep[y]) {
+        if (dep[x] < dep[y])
             return -1;
-        } else if (dep[y] != 0) {
-            if (in[y] <= in[x] and in[x] < out[y]) {
+        if (dep[y] != 0) {
+            if (in[y] <= in[x] and in[x] < out[y])
                 return dep[x] - dep[y];
-            }
             return -1;
-        } else {
-            return dep[x] + (ord[y] - ord[root[x]] + len[bel[x]]) % len[bel[x]];
         }
+        return dep[x] + (ord[y] - ord[root[x]] + len[bel[x]]) % len[bel[x]];
     }
 };

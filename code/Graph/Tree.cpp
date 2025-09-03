@@ -57,7 +57,7 @@ struct Tree {
     }
     int rootLca(int a, int b, int c) {
         return lca(a, b) ^ lca(b, c) ^ lca(c, a);
-    }
+    } /* SPLIT-HASH */
     vector<int> virTree(vector<int> ver) {
         sort(all(ver), [&](int a, int b) {
             return in[a] < in[b];
@@ -70,8 +70,8 @@ struct Tree {
         ver.erase(unique(all(ver)), ver.end());
         return ver;
     }
-    void inplace_virTree(vector<int> &ver) { // O(n), need sort before
-        vector<int> ex;
+    void inplace_virTree(vector<int> &ver) {
+        vector<int> ex; // O(n), need sort before
         for (int i = 0; i + 1 < ver.size(); i++)
             if (!inside(ver[i], ver[i + 1]))
                 ex.push_back(lca(ver[i], ver[i + 1]));

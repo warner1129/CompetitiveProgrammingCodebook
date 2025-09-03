@@ -24,11 +24,7 @@ struct BigBinary : map<int, int> {
         // assert(it != end());
         auto [l, r] = *it;
         erase(it);
-        if (l + 1 < r) {
-            (*this)[l + 1] = r;
-        }
-        if (x < l) {
-            (*this)[x] = l;
-        }
+        if (l + 1 < r)  (*this)[l + 1] = r;
+        if (x < l)      (*this)[x] = l;
     }
 };

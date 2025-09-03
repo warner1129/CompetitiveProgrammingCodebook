@@ -24,7 +24,7 @@ struct ACauto {
         }
         p->end = true;
         return p - pool;
-    }
+    } /* SPLIT-HASH */
     vector<Node*> ord;
     void build() {
         queue<Node*> que;

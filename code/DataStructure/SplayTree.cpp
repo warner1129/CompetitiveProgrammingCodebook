@@ -36,7 +36,7 @@ void push(Node *x) {
 void pull(Node *x) {
     x->size = size(x->ch[0]) + 1 + size(x->ch[1]);
     x->sum = get(x->ch[0]) + x->info + get(x->ch[1]);
-}
+} /* SPLIT-HASH */
 void rotate(Node *x) {
     Node *y = x->p, *z = y->p;
     push(y);
@@ -79,7 +79,7 @@ Node *nth(Node *x, int k) {
     }
     splay(x);
     return x;
-}
+} /* SPLIT-HASH */
 Node *split(Node *x) {
     assert(x);
     push(x);

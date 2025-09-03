@@ -31,7 +31,7 @@ vector<list<Edge>> Delaunay(const vector<Pt> &P) {
                 }
             }
             return false;
-        };
+        }; /* SPLIT-HASH */
         while (low(0) or low(1));
         array its = addEdge(t[0], t[1], E[t[0]].begin(), E[t[1]].end());
         while (true) {

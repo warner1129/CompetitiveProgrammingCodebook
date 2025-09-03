@@ -1,0 +1,155 @@
+\begin{itemize}
+    \item Maximum/Minimum flow with lower bound / Circulation problem
+      \begin{enumerate}
+        \item Construct super source $S$ and sink $T$.
+        \item For each edge $(x, y, l, u)$, connect $x \rightarrow y$ with capacity $u - l$.
+        \item For each vertex $v$, denote by $in(v)$ the difference between the sum of incoming lower bounds and the sum of outgoing lower bounds.
+        \item If $in(v) > 0$, connect $S \rightarrow v$ with capacity $in(v)$, otherwise, connect $v \rightarrow T$ with capacity $-in(v)$.
+          \begin{itemize}
+            \item To maximize, connect $t \rightarrow s$ with capacity $\infty$ (skip this in circulation problem), and let $f$ be the maximum flow from $S$ to $T$. If $f \neq \sum_{v \in V, in(v) > 0}{in(v)}$, there's no solution. Otherwise, the maximum flow from $s$ to $t$ is the answer. Also, $f$ is a mincost valid flow.
+            \item To minimize, let $f$ be the maximum flow from $S$ to $T$. Connect $t \rightarrow s$ with capacity $\infty$ and let the flow from $S$ to $T$ be $f^\prime$. If $f + f^\prime \neq \sum_{v \in V, in(v) > 0}{in(v)}$, there's no solution. Otherwise, $f^\prime$ is the answer.
+          \end{itemize}
+        \item The solution of each edge $e$ is $l_e + f_e$, where $f_e$ corresponds to the flow of edge $e$ on the graph.
+      \end{enumerate}
+    \item Construct minimum vertex cover from maximum matching $M$ on bipartite graph $(X, Y)$
+      \begin{enumerate}
+        \item Redirect every edge: $y \rightarrow x$ if $(x, y) \in M$, $x \rightarrow y$ otherwise.
+        \item DFS from unmatched vertices in $X$.
+        \item $x \in X$ is chosen iff $x$ is unvisited; $y \in Y$ is chosen iff $y$ is visited.
+      \end{enumerate}
+    \item Minimum cost cyclic flow
+      \begin{enumerate}
+        \item Consruct super source $S$ and sink $T$
+        \item For each edge $(x, y, c)$, connect $x \rightarrow y$ with $(cost, cap) = (c, 1)$ if $c > 0$, otherwise connect $y \rightarrow x$ with $(cost, cap) = (-c, 1)$
+        \item For each edge with $c < 0$, sum these cost as $K$, then increase $d(y)$ by 1, decrease $d(x)$ by 1
+        \item For each vertex $v$ with $d(v) > 0$, connect $S \rightarrow v$ with $(cost, cap) = (0, d(v))$
+        \item For each vertex $v$ with $d(v) < 0$, connect $v \rightarrow T$ with $(cost, cap) = (0, -d(v))$
+        \item Flow from $S$ to $T$, the answer is the cost of the flow $C + K$
+      \end{enumerate}
+    \item Maximum density induced subgraph
+      \begin{enumerate}
+        \item Binary search on answer, suppose we're checking answer $T$
+        \item Construct a max flow model, let $K$ be the sum of all weights
+        \item Connect source $s \rightarrow v$, $v \in G$ with capacity $K$
+        \item For each edge $(u, v, w)$ in $G$, connect $u \rightarrow v$ and $v \rightarrow u$ with capacity $w$
+        \item For $v \in G$, connect it with sink $v \rightarrow t$ with capacity $K + 2T - \left(\sum_{e \in E(v)}{w(e)}\right) - 2w(v)$
+        \item $T$ is a valid answer if the maximum flow $f < K \lvert V \rvert$
+      \end{enumerate}
+    \item Minimum weight edge cover
+      \begin{enumerate}
+        \item For each $v \in V$ create a copy $v^\prime$, and connect $u^\prime \to v^\prime$ with weight $w(u, v)$.
+        \item Connect $v \to v^\prime$ with weight $2\mu(v)$, where $\mu(v)$ is the cost of the cheapest edge incident to $v$.
+        \item Find the minimum weight perfect matching on $G^\prime$.
+      \end{enumerate}
+    \item Project selection cheat sheet:
+      $S, T$ 分別代表 $0, 1$ 側，最小化總花費。
+      %　燃やす埋める
+      % https://qiita.com/ningenMe/items/69ed7ce43c9cd0a2de38
+      % https://ei1333.github.io/luzhiled/snippets/memo/project-selection.html
+      \begin{tabular}{|l|l|}
+        $i$ 為 0 時花費 $c$ & $(i, T, c)$ \\
+        $i$ 為 1 時花費 $c$ & $(S, i, c)$ \\
+        $i \in I$ 有任何一個為 $0$ 時花費 $c$ & $(i, w, \infty), (w, T, c)$ \\
+        $i \in I$ 有任何一個為 $1$ 時花費 $c$ & $(S, w, c), (w, i, \infty)$ \\
+        $i$ 為 0 時得到 $c$ & 直接得到 $c$；$(S, i, c)$ \\
+        $i$ 為 1 時得到 $c$ & 直接得到 $c$；$(i, T, c)$ \\
+        $i$ 為 0，$j$ 為 $1$ 時花費 $c$ & $(i, j, c)$ \\
+        $i, j$ 不同時花費 $c$ & $(i, j, c), (j, i, c)$ \\
+        $i, j$ 同時是 $0$ 時得到 $c$ & 直接得到 $c$；$(S, w, c), (w, i, \infty), (w, j, \infty)$ \\
+        $i, j$ 同時是 $1$ 時得到 $c$ & 直接得到 $c$；$(i, w, \infty), (j, w, \infty), (w, T, c)$ \\
+      \end{tabular}
+    \item Submodular functions minimization
+      \begin{itemize}
+        \item For a function $f: 2^V \to \mathbb{R}$, $f$ is a submodular function iff
+          \begin{itemize}
+            \item $\forall S,T \subseteq V$, $f(S) + f(T) \geq f(S \cup T) + f(S \cap T)$, or
+            \item $\forall X \subseteq Y \subseteq V$, $x\notin Y$, $f(X\cup\{x\})-f(X)\geq f(Y\cup\{x\})-f(Y)$.
+          \end{itemize}
+        \item To minimize $\sum_i \theta_i (x_i) + \sum_{i< j} \phi_{ij} (x_i, x_j) + \sum_{i< j< k}  \psi_{ijk} (x_i, x_j, x_k)$
+        \item If $\theta_i(1)\geq\theta_i(0)$, add edge ($S$, $i$, $\theta_i(1)-\theta_i(0)$) and $\theta_i(0)$ to answer; otherwise, ($i$, $T$, $\theta_i(0)-\theta_i(1)$) and $\theta_i(1)$.
+        \item Add edges ($i$, $j$, $\phi_{ij}(0,1)+\phi_{ij}(1,0)-\phi_{ij}(0,0)-\phi_{ij}(1,1)$).
+        \item Denote $x_{ijk}$ as helper nodes. Let $P=\psi_{ijk}(0,0,0)+\psi_{ijk}(0,1,1)+\psi_{ijk}(1,0,1)+\psi_{ijk}(1,1,0)-\psi_{ijk}(0,0,1)-\psi_{ijk}(0,1,0)-\psi_{ijk}(1,0,0)-\psi_{ijk}(1,1,1)$. Add $-P$ to answer. If $P \geq 0$, add edges ($i$, $x_{ijk}$, $P$), ($j$,$x_{ijk}$,$P$), ($k$,$x_{ijk}$,$P$), ($x_{ijk}$, $T$, $P$); otherwise ($x_{ijk}$,$i$,$-P$), ($x_{ijk}$,$j$,$-P$), ($x_{ijk}$,$k$,$-P$), ($S$, $x_{ijk}$, $-P$).
+        \item The minimum cut of this graph will be the the minimum value of the function above.
+      \end{itemize}
+    \item Dual of minimum cost maximum flow
+      \begin{enumerate}
+        \item Capacity $c_{uv}$, Flow $f_{uv}$, Cost $w_{uv}$, Required Flow difference for vertex $b_u$.
+        \item If all $w_{uv}$ are integers, then optimal solution can happen when all $p_u$ are integers.
+      \end{enumerate}
+      $$
+      \begin{aligned}\min\sum_{uv} w_{uv}f_{uv} \\ -f_{uv} \geq -c_{uv} \\ \sum_{v} f_{vu} - \sum_{v} f_{uv} = -b_u\end{aligned}
+      \Leftrightarrow
+      \begin{aligned}\min\sum_{u} b_up_u + \sum_{uv}c_{uv}\max(0, p_v - p_u - w_{uv}) \\ p_u \geq 0 \end{aligned}
+      $$
+\end{itemize}
+
+% \normalsize
+\begin{itemize}
+    %\itemsep-0.3em
+    \item Maximum/Minimum flow with lower bound / Circulation problem
+    %\vspace{-1em}
+    \begin{enumerate}
+        %\itemsep-0.3em
+        \item Construct super source $S$ and sink $T$.
+        \item For each edge $(x, y, l, u)$, connect $x \rightarrow y$ with capacity $u - l$.
+        \item For each vertex $v$, denote by $in(v)$ the difference between the sum of incoming lower bounds and the sum of outgoing lower bounds.
+        \item If $in(v) > 0$, connect $S \rightarrow v$ with capacity $in(v)$, otherwise, connect $v \rightarrow T$ with capacity $-in(v)$.
+        \begin{itemize}
+            %\itemsep-0.2em
+            \item To maximize, connect $t \rightarrow s$ with capacity $\infty$ (skip this in circulation problem), and let $f$ be the maximum flow from $S$ to $T$. If $f \neq \sum_{v \in V, in(v) > 0}{in(v)}$, there's no solution. Otherwise, the maximum flow from $s$ to $t$ is the answer.
+            \item To minimize, let $f$ be the maximum flow from $S$ to $T$. Connect $t \rightarrow s$ with capacity $\infty$ and let the flow from $S$ to $T$ be $f^\prime$. If $f + f^\prime \neq \sum_{v \in V, in(v) > 0}{in(v)}$, there's no solution. Otherwise, $f^\prime$ is the answer.
+        \end{itemize}
+        \item The solution of each edge $e$ is $l_e + f_e$, where $f_e$ corresponds to the flow of edge $e$ on the graph.
+    \end{enumerate}
+    \item Construct minimum vertex cover from maximum matching $M$ on bipartite graph $(X, Y)$
+    %\vspace{-1em}
+    \begin{enumerate}
+        %\itemsep-0.3em
+        \item Redirect every edge: $y \rightarrow x$ if $(x, y) \in M$, $x \rightarrow y$ otherwise.
+        \item DFS from unmatched vertices in $X$.
+        \item $x \in X$ is chosen iff $x$ is unvisited.
+        \item $y \in Y$ is chosen iff $y$ is visited.
+    \end{enumerate}
+    \item Minimum cost cyclic flow
+    %\vspace{-0.5em}
+    \begin{enumerate}
+        %\itemsep-0.3em
+        \item Consruct super source $S$ and sink $T$
+        \item For each edge $(x, y, c)$, connect $x \rightarrow y$ with $(cost, cap) = (c, 1)$ if $c > 0$, otherwise connect $y \rightarrow x$ with $(cost, cap) = (-c, 1)$
+        \item For each edge with $c < 0$, sum these cost as $K$, then increase $d(y)$ by 1, decrease $d(x)$ by 1
+        \item For each vertex $v$ with $d(v) > 0$, connect $S \rightarrow v$ with $(cost, cap) = (0, d(v))$
+        \item For each vertex $v$ with $d(v) < 0$, connect $v \rightarrow T$ with $(cost, cap) = (0, -d(v))$
+        \item Flow from $S$ to $T$, the answer is the cost of the flow $C + K$
+    \end{enumerate}
+    \item Maximum density induced subgraph
+    %\vspace{-1em}
+    \begin{enumerate}
+        %\itemsep-0.3em
+        \item Binary search on answer, suppose we're checking answer $T$
+        \item Construct a max flow model, let $K$ be the sum of all weights
+        \item Connect source $s \rightarrow v$, $v \in G$ with capacity $K$
+        \item For each edge $(u, v, w)$ in $G$, connect $u \rightarrow v$ and $v \rightarrow u$ with capacity $w$
+        \item For $v \in G$, connect it with sink $v \rightarrow t$ with capacity $K + 2T - (\sum_{e \in E(v)}{w(e)}) - 2w(v)$
+        \item $T$ is a valid answer if the maximum flow $f < K \lvert V \rvert$
+    \end{enumerate}
+    \item Minimum weight edge cover
+    %\vspace{-1em}
+    \begin{enumerate}
+        %\itemsep-0.3em
+      \item For each $v \in V$ create a copy $v^\prime$, and connect $u^\prime \to v^\prime$ with weight $w(u, v)$.
+      \item Connect $v \to v^\prime$ with weight $2\mu(v)$, where $\mu(v)$ is the cost of the cheapest edge incident to $v$.
+      \item Find the minimum weight perfect matching on $G^\prime$.
+    \end{enumerate}
+    
+
+    \item 0/1 quadratic programming
+    %\vspace{-1em}
+    \[ \sum_x{c_xx} + \sum_y{c_y\bar{y}} + \sum_{xy}c_{xy}x\bar{y} + \sum_{xyx^\prime y^\prime}c_{xyx^\prime y^\prime}(x\bar{y} + x^\prime\bar{y^\prime}) \]
+    can be minimized by the mincut of the following graph:
+    \begin{enumerate}
+     %\itemsep-0.3em
+     \item Create edge $(x, t)$ with capacity $c_x$ and create edge $(s, y)$ with capacity $c_y$.
+     \item Create edge $(x, y)$ with capacity $c_{xy}$.
+     \item Create edge $(x, y)$ and edge $(x^\prime, y^\prime)$ with capacity $c_{xyx^\prime y^\prime}$.
+    \end{enumerate}
+\end{itemize}

@@ -13,21 +13,16 @@ vector<tuple<int, int, int>> ManhattanMST(vector<Pt> P) {
             while (it != sweep.end()) {
                 int j = it->ss;
                 Pt d = P[i] - P[j];
-                if (d.ss > d.ff) {
+                if (d.ss > d.ff)
                     break;
-                }
                 edg.emplace_back(d.ff + d.ss, i, j);
                 it = sweep.erase(it);
             }
             sweep[-P[i].ss] = i;
         }
-        for (Pt &p : P) {
-            if (k % 2) {
-                p.ff = -p.ff;
-            } else {
-                swap(p.ff, p.ss);
-            }
-        }
+        for (Pt &p : P)
+            if (k % 2) p.ff = -p.ff;
+            else swap(p.ff, p.ss);
     }
     return edg;
 }

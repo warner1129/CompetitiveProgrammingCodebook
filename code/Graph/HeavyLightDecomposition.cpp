@@ -36,7 +36,7 @@ struct HLD {
             }
         }
         out[u] = seq.size();
-    }
+    } /* SPLIT-HASH */
     int lca(int x, int y) {
         while (top[x] != top[y]) {
             if (dep[top[x]] < dep[top[y]]) swap(x, y);

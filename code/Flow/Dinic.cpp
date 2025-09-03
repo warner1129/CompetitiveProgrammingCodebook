@@ -16,14 +16,14 @@ struct Flow {
         que.push(s);
         while (!que.empty()) {
             int u = que.front(); que.pop();
-            for (auto [v, w, _] : G[u])
+            for (auto [v, w, rev] : G[u])
                 if (!dep[v] and w) {
                     dep[v] = dep[u] + 1;
                     que.push(v);
                 }
         }
         return dep[t] != 0;
-    }
+    } /* SPLIT-HASH */
     Cap dfs(int u, Cap in, int t) {
         if (u == t) return in;
         Cap out = 0;
@@ -42,9 +42,7 @@ struct Flow {
     }
     Cap maxFlow(int s, int t) {
         Cap ret = 0;
-        while (bfs(s, t)) {
-            ret += dfs(s, inf<Cap>, t);
-        }
+        while (bfs(s, t)) ret += dfs(s, inf<Cap>, t);
         return ret;
     }
 };

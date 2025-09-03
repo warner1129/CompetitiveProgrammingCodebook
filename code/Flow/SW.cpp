@@ -20,7 +20,7 @@ pair<int, int> Phase(int n) {
         }
     }
     return make_pair(s, t);
-}
+} /* SPLIT-HASH */
 int GlobalMinCut(int n) {
     int cut = kInf;
     fill(del, 0, sizeof(del));
@@ -33,4 +33,4 @@ int GlobalMinCut(int n) {
         }
     }   
     return cut;
-}
+} // O(V^3), can be O(VE + V^2 log V)?

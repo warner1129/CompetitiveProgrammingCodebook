@@ -23,8 +23,7 @@ int get_root(int n, int P = mod){ // ensure 0 <= n < p
     if (q & 1)
       r = M(r, e);
   return int(r.first);//sqrt(n) mod P where P is prime
-}
-
+} /* SPLIT-HASH */
 template <int MOD, int G, int MAXN>
 struct NTT {
   static_assert(MAXN == (MAXN & -MAXN));
@@ -61,8 +60,7 @@ struct NTT {
       F[i] = mul(F[i], invn);
     reverse(F + 1, F + n);
   }
-};
-
+}; /* SPLIT-HASH */
 NTT<mod, 3, 1 << 23> ntt;
 
 #define fi(l, r) for (size_t i = (l); i < (r); i++)
