@@ -5,9 +5,9 @@ double CircleTriangle(Pt a, Pt b, double r) {
     if (abs(a) > abs(b)) swap(a, b);
     auto I = CircleLineInter({{}, r}, {a, b});
     erase_if(I, [&](Pt x) { return !PtOnSeg(x, {a, b}); });
-    if (I.size() == 1) return abs(a ^ I[0]) / 2 + SectorArea(I[0], b, r);
+    if (I.size() == 1) return abs(a ^ I[0]) / 2 + Sector(I[0], b, r);
     if (I.size() == 2) {
-        return SectorArea(a, I[0], r) + SectorArea(I[1], b, r) + abs(I[0] ^ I[1]) / 2;
+        return Sector(a, I[0], r) + Sector(I[1], b, r) + abs(I[0] ^ I[1]) / 2;
     }
-    return SectorArea(a, b, r);
+    return Sector(a, b, r);
 }
