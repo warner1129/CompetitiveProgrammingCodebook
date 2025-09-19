@@ -26,14 +26,15 @@
 
 \usepackage[toc]{multitoc}
 \renewcommand*{\multicolumntoc}{2}
+\setlength{\columnsep}{0.4em} 
 
 \usepackage[titles]{tocloft}
-\renewcommand\cftsubsecfont{\footnotesize}
-\renewcommand\cftsubsecpagefont{\footnotesize}
+\renewcommand\cftsubsecfont{\scriptsize}
+\renewcommand\cftsubsecpagefont{\scriptsize}
 \renewcommand\cftsecindent{0.1em}
-\renewcommand\cftsecnumwidth{1.2em}
+\renewcommand\cftsecnumwidth{1.8em}
 \renewcommand\cftsubsecindent{0.5em}
-\renewcommand\cftsubsecnumwidth{2.0em}
+\renewcommand\cftsubsecnumwidth{3.0em}
 \renewcommand\cftdotsep{2}
 \renewcommand\cftbeforesecskip{0.4em}
 \renewcommand\cftbeforesubsecskip{0.2em}
@@ -151,7 +152,9 @@ literate={\ \ }{{\ }}1
 
 \scriptsize
 \vspace{-2em}
+{ \tiny
 \tableofcontents
+}
 \vspace{-1em}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
