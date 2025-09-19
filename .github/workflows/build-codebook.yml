@@ -1,0 +1,51 @@
+name: Build Codebook
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  build-codebook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get codebook source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # - name: Get fonts
+      #   run: make -C pdf fonts
+
+      - name: Build
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: pdf
+          root_file: codebook.tex
+          latexmk_use_xelatex: true
+          latexmk_shell_escape: true
+          work_in_root_file_dir: true
+          extra_system_packages: "ttf-inconsolata gcc g++"
+
+      - name: Public
+        run: cp pdf/codebook.pdf public
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'public'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
