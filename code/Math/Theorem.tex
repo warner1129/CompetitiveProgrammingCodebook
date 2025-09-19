@@ -127,5 +127,8 @@
     $a^b \equiv \begin{cases} a^{b \bmod \varphi(m)}, &\gcd(a,m) = 1, \\ a^b, &\gcd(a,m)\ne 1, b < \varphi(m), \\ a^{(b \bmod \varphi(m)) + \varphi(m)}, &\gcd(a,m)\ne 1, b \ge \varphi(m). \end{cases} \pmod m$
   \item 環狀著色（相鄰塗異色）\\
       $(k-1)(-1)^n+(k-1)^n$
+  \item 走格子 lattice path \\
+    $\sum_{k \in \mathbb{Z}} \left( \binom{c+d-a-b}{c-a-k(t-s+2)} - \binom{c+d-a-b}{c-b-k(t-s+2)+t+1} \right)$ \\
+    the number of grid paths from point $(a,b)$ to $(c,d)$ using only "up" and "right" steps, while constrained to stay on or between the two lines $y=x+s$ and $y=x+t$, for integers $s \le t$.
   
 \end{itemize}
