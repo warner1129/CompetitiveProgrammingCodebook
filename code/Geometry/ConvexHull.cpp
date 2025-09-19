@@ -7,8 +7,8 @@ vector<Pt> Hull(vector<Pt> P) {
     for (auto p : P) {
         auto it = stk.rbegin();
         while (stk.rend() - it >= 2 and \
-            ori(*next(it), *it, p) <= 0 and \
-            (*next(it) < *it) == (*it < p)) {
+            ori(it[1], *it, p) <= 0 and \
+            (it[1] < *it) == (*it < p)) {
             it++;
         }
         stk.resize(stk.rend() - it);

@@ -6,7 +6,7 @@ bool isInter(Line l, Line m) {
            PtSide(l.a, m) * PtSide(l.b, m) < 0;
 }
 Pt LineInter(Line l, Line m) {
-    double s = ori(m.a, m.b, l.a), t = ori(m.a, m.b, l.b);
+    Real s = ori(m.a, m.b, l.a), t = ori(m.a, m.b, l.b);
     return (l.b * s - l.a * t) / (s - t);
 }
 bool strictInter(Line l, Line m) {

@@ -45,7 +45,7 @@ Pt proj(Pt p, Line l) {
     return l.a + dir * (dir * (p - l.a));
 }
 struct Cir { 
-    Pt o; double r; 
+    Pt o; Real r; 
 };
 bool disjunct(const Cir &a, const Cir &b) {
     return sgn(abs(a.o - b.o) - a.r - b.r) >= 0; 
