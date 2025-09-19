@@ -11,6 +11,7 @@ struct Pt {
     Real operator^(Pt a) const { return x * a.y - y * a.x; }
     auto operator<=>(const Pt&) const = default;
     bool operator==(const Pt&) const = default;
+    Pt operator-() const { return {-x, -y}; }
 };
 int sgn(Real x) { return (x > -eps<Real>) - (x < eps<Real>); }
 Real ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }

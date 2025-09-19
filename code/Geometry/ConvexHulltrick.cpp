@@ -25,7 +25,7 @@ struct Convex {
         return s == 1 ? -1 : n;
     }
     int inside(const Pt &p) { 
-        // -1:out, 0<=id<n:on edge C[id - 1], C[id], n:in
+        // -1:out, 0<=id<n:on edge C[id-1], C[id], n:in
         return min(inside(p, C.begin(), up + 1, less{}), 
                    inside(p, up, C.end(), greater{}));
     }
