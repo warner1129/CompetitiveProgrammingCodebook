@@ -5,7 +5,8 @@ fn = sys.argv[1]
 SPLIT_HASH = '/* SPLIT-HASH */'
 
 def hash(code):
-    return subprocess.check_output("cpp-15 -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-6", shell=True, input=code.encode()).decode().strip()
+    suffix = '-15' if sys.platform == 'darwin' else ''
+    return subprocess.check_output(f"cpp{suffix} -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-6", shell=True, input=code.encode()).decode().strip()
 
 with open(fn, 'r') as f:
     code = f.read()
