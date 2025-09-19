@@ -37,15 +37,26 @@ jobs:
           work_in_root_file_dir: true
           extra_system_packages: "ttf-inconsolata gcc g++"
 
-      - name: Public
-        run: cp pdf/codebook.pdf public
-
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: codebook
           path: pdf/codebook.pdf
 
+  deploy:
+    needs: build-codebook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get codebook source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v5
+        with:
+          name: codebook
+          path: public
+          merge-multiple: true
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
