@@ -228,19 +228,19 @@ literate={\ \ }{{\ }}1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectiontitle{Basic}
-\includecodeX[language=bash]{judge}{../code/Basic/judge.sh}
+% \includecodeX[language=bash]{judge}{../code/Basic/judge.sh}
 \includecode{Random}{../code/Basic/Random.cpp}
 % \includecodeX[language=bash]{Increase stack size}{../code/Basic/IncStack.txt}
 \includecode{PBDS}{../code/DataStructure/Blackmagic.cpp}
 \newpage
 \includecodeX[language=vim]{vimrc}{../code/Basic/vimrc}
-\includecode{default}{../code/Basic/default.cpp}
+% \includecode{default}{../code/Basic/default.cpp}
 \includecode{optimize}{../code/Basic/optimize.cpp}
 
 \sectiontitle{Matching and Flow}
+\includecodehash[]{Dinic}{../code/Flow/Dinic.cpp}
 \newpage
 \includetex{Model}{../code/Flow/model.tex}
-\includecodehash[]{Dinic}{../code/Flow/Dinic.cpp}
 \includecodehash[]{KM}{../code/Flow/KM.cpp}
 \includecodehash[]{MCMF}{../code/Flow/MCMF.cpp}
 \includecodehash[]{HopcroftKarp}{../code/Flow/HopcroftKarp.cpp}
@@ -341,8 +341,8 @@ literate={\ \ }{{\ }}1
 \includecodehash[]{Z-algorithm}{../code/String/Zalgorithm.cpp}
 \includecodehash[]{Manacher}{../code/String/Manacher.cpp}
 % \includecodehash[]{SuffixArray Simple}{../code/String/SuffixArray-Simple.cpp}
-% \includecodehash[]{SuffixArray SAIS}{../code/String/SuffixArray-SAIS.cpp}
-\includecodehash[]{SAIS C++20}{../code/String/SuffixArray-SAIS-C++20.cpp}
+\includecodehash[]{SAIS}{../code/String/SuffixArray-SAIS.cpp}
+% \includecodehash[]{SAIS C++20}{../code/String/SuffixArray-SAIS-C++20.cpp}
 \includecodehash[]{Aho-Corasick}{../code/String/Aho-Corasick.cpp}
 \includecodehash[]{Palindromic Tree}{../code/String/PalindromicTree.cpp}
 \includecodehash[]{Suffix Automaton}{../code/String/SAM.cpp}

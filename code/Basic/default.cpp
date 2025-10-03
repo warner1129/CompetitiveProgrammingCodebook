@@ -14,15 +14,14 @@ ostream &operator<<(ostream &s, T &&v) {
     for (auto &&x : v) s << x << ' '; 
     return s; 
 }
-#ifdef LOCAL
 template<class... T> void dbg(T... x) {
+#ifdef LOCAL
     char e{};
     ((cerr << e << x, e = ' '), ...);
-}
-#define debug(x...) dbg(#x, '=', x, '\n')
-#else
-#define debug(...) ((void)0)
+    cerr << '\n';
 #endif
+}
+#define debug(x...) dbg(#x, '=', x)
 #define all(v) (v).begin(), (v).end()
 #define rall(v) (v).rbegin(), (v).rend()
 #define ff first
