@@ -1,5 +1,5 @@
 const int sigma = ;
-
+/* SPLIT-HASH */
 struct Node {
     Node *ch[sigma]{};
     Node *fail{}, *next{};

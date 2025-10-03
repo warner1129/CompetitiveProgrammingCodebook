@@ -1,9 +1,8 @@
 namespace sfx {
 #define fup(a, b) for (int i = a; i < b; i++) 
 #define fdn(a, b) for (int i = b - 1; i >= a; i--)
-    constexpr int N = 5e5 + 5;
-    bool _t[N * 2];
-    int H[N], RA[N], x[N], _p[N];
+    constexpr int N = 2e6 + 5;
+    bool _t[N * 2]; int x[N], _p[N];
     int SA[N * 2], _s[N * 2], _c[N * 2], _q[N * 2];
     void pre(int *sa, int *c, int n, int z) {
         fill_n(sa, n, 0), copy_n(c, z, x);
@@ -15,10 +14,10 @@ namespace sfx {
         copy_n(c, z, x);
         fdn(0, n) if (sa[i] and t[sa[i] - 1])
             sa[--x[s[sa[i] - 1]]] = sa[i] - 1;
-    }
+    } /* SPLIT-HASH */
     void sais(int *s, int *sa, int *p, int *q, bool *t, int *c, int n, int z) {
         bool uniq = t[n - 1] = true;
-        int nn = 0, nmxz = -1, *nsa = sa + n, *ns = s + n, last = -1;
+        int nn = 0, nz = -1, *nsa = sa + n, *ns = s + n, last = -1;
         fill_n(c, z, 0);
         fup(0, n) uniq &= ++c[s[i]] < 2;
         partial_sum(c, c + z, c);
@@ -31,13 +30,13 @@ namespace sfx {
         induce(sa, c, s, t, n, z);
         fup(0, n) if (sa[i] and t[sa[i]] and !t[sa[i] - 1]) {
             bool neq = last < 0 or !equal(s + sa[i], s + p[q[sa[i]] + 1], s + last);
-            ns[q[last = sa[i]]] = nmxz += neq;
+            ns[q[last = sa[i]]] = nz += neq;
         }
-        sais(ns, nsa, p + nn, q + n, t + n, c + z, nn, nmxz + 1);
+        sais(ns, nsa, p + nn, q + n, t + n, c + z, nn, nz + 1);
         pre(sa, c, n, z);
         fdn(0, nn) sa[--x[s[p[nsa[i]]]]] = p[nsa[i]];
         induce(sa, c, s, t, n, z);
-    }
+    } /* SPLIT-HASH */
     vector<int> build(vector<int> s, int n) {
         copy_n(begin(s), n, _s), _s[n] = 0;
         sais(_s, SA, _p, _q, _t, _c, n + 1, 256);
