@@ -1,8 +1,6 @@
 " setarch `uname -m` -R /bin/bash
 se sts=4 sw=4 so=5 ls=2 nu rnu et hls mouse=a is ic scs
-filetype indent on | imap jk <Esc>
-nmap <F9> :w<bar>!g++ '%' -o run -std=c++20 -DLOCAL -Wall -Wshadow -fsanitize=address,undefined -g && echo done. && time ./run<CR>
-nmap <F8> :!time ./run<CR>|map ; :|map <C-l> :nohl<CR>
+filetype indent on | imap jk <Esc> | map <C-l> :nohl<CR>
+nmap <F9> :!make R=$(basename % .cpp)<CR>|map ; :
 ca hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6
-" setxkbmap -option caps:ctrl_modifier
-" cb=unnamedplus
+" setxkbmap -option ctrl:nocaps / xmodmap
