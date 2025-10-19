@@ -1,3 +1,4 @@
+" ~/.profile alias cp='cp -i'
 " setarch `uname -m` -R /bin/bash
 se sts=4 sw=4 so=5 ls=2 nu rnu et hls mouse=a is ic scs
 filetype indent on | imap jk <Esc> | map <C-l> :nohl<CR>
