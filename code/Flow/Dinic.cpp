@@ -3,7 +3,7 @@ struct Flow {
     struct Edge { int v; Cap w; int rev; };
     vector<vector<Edge>> G;
     int n;
-    Flow(int n) : n(n), G(n) {}
+    Flow(int _n) : n(_n), G(_n) {}
     void addEdge(int u, int v, Cap w) {
         G[u].push_back({v, w, (int)G[v].size()});
         G[v].push_back({u, 0, (int)G[u].size() - 1});

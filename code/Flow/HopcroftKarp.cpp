@@ -4,7 +4,7 @@ struct HK {
     const int n, m;
     vector<int> l, r, a, p;
     int ans;
-    HK(int n, int m) : n(n), m(m), l(n, -1), r(m, -1), ans{} {}
+    HK(int _n, int _m) : n(_n), m(_m), l(_n, -1), r(_m, -1), ans{} {}
     void work(const auto &G) {
         for (bool match = true; match; ) {
             match = false;

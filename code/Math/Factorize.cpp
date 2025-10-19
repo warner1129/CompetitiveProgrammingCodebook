@@ -30,7 +30,7 @@ u64 pollard(u64 n) {
         x = f(x); y = f(f(y));
     }
     return gcd(p, n);
-}
+} /* SPLIT-HASH */
 u64 primeFactor(u64 n) {
     return isPrime(n) ? n : primeFactor(pollard(n));
 }

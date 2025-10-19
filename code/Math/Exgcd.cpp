@@ -11,4 +11,4 @@ i64 inverse(i64 a, i64 b, i64 m) {
     auto r = x * (b/g) % m;
     if (r < 0) r += m;
     return r % (m/g);
-} // ar=b % m
+} // ar ≡ b % m
