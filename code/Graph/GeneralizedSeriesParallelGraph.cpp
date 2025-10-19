@@ -9,7 +9,7 @@ struct GSPGraph {
     vector<pair<int, int>> S;
     vector<vector<int>> tree;
     vector<bool> isrt;
-    int getv(int e, int u) { return S[e].ff ^ S[e].ss ^ u; }
+    int getv(int e, int u) { return S[e].ft ^ S[e].sd ^ u; }
     int newNode(pair<int, int> s, vector<int> sub) {
         S[N] = s, tree[N] = sub;
         for (int x : sub) isrt[x] = false;
@@ -28,7 +28,7 @@ struct GSPGraph {
         auto add = [&](int e) {
             auto [u, v] = S[e];
             if (auto it = eid.find(S[e]); it != eid.end()) {
-                it->ss = e = newNode(S[e], {e, it->ss});
+                it->sd = e = newNode(S[e], {e, it->sd});
                 if (--deg[u] == 2) que.push(u);
                 if (--deg[v] == 2) que.push(v);
             } else eid[S[e]] = e;
@@ -36,7 +36,7 @@ struct GSPGraph {
             G[v].push_back(e);
         }; /* SPLIT-HASH */
         for (int i = N - 1; i >= 0; i--) {
-            S[i] = minmax({S[i].ff, S[i].ss});
+            S[i] = minmax({S[i].ft, S[i].sd});
             add(i);
         }
         for (int i = 0; i < n; i++) {
@@ -55,7 +55,7 @@ struct GSPGraph {
             if (deg[u] == 1) {
                 int e = pop(u), v = getv(e, u);
                 vid[v] = newNode(
-                    {v, -1}, {vid[S[e].ff], e, vid[S[e].ss]}
+                    {v, -1}, {vid[S[e].ft], e, vid[S[e].sd]}
                 );
                 if (--deg[v] == 2) que.push(v);
             } else if (deg[u] == 2) {

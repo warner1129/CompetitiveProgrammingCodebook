@@ -24,8 +24,8 @@ template<class... T> void dbg(T... x) {
 #define debug(x...) dbg(#x, '=', x)
 #define all(v) (v).begin(), (v).end()
 #define rall(v) (v).rbegin(), (v).rend()
-#define ff first
-#define ss second
+#define ft first
+#define sd second
 template<class T> inline constexpr T inf = numeric_limits<T>::max() / 2;
 bool chmin(auto &a, auto b) { return (b < a) and (a = b, true); }
 bool chmax(auto &a, auto b) { return (a < b) and (a = b, true); }

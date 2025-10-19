@@ -3,17 +3,17 @@ struct BigBinary : map<int, int> {
         auto it = lower_bound(x);
         if (it != begin()) {
             it--;
-            if (it->ss > x) {
-                (*this)[x] = it->ss;
-                it->ss = x;
+            if (it->sd > x) {
+                (*this)[x] = it->sd;
+                it->sd = x;
             }
         }
     }
     void add(int x) {
         split(x);
         auto it = find(x);
-        while (it != end() and it->ff == x) {
-            x = it->ss;
+        while (it != end() and it->ft == x) {
+            x = it->sd;
             it = erase(it);
         }
         (*this)[x] = x + 1;

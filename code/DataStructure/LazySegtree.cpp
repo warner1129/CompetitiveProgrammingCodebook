@@ -53,8 +53,8 @@ struct Seg {
             return { l, cur + sum };
         push();
         auto L = ls->findFirst(x, y, pred, cur);
-        if (L.ff != -1) return L;
-        return rs->findFirst(x, y, pred, L.ss);
+        if (L.ft != -1) return L;
+        return rs->findFirst(x, y, pred, L.sd);
     }
     pair<int, S> findLast(int x, int y, auto &&pred, S cur = {}) {
         if (y <= l or r <= x)
@@ -65,7 +65,7 @@ struct Seg {
             return { l, sum + cur };
         push();
         auto R = rs->findLast(x, y, pred, cur);
-        if (R.ff != -1) return R;
-        return ls->findLast(x, y, pred, R.ss);
+        if (R.ft != -1) return R;
+        return ls->findLast(x, y, pred, R.sd);
     }
 };

@@ -28,7 +28,7 @@ vector<double> PolyUnion(const vector<vector<Pt>> &P) {
             }
         }
         sort(all(event), [&](auto i, auto j) {
-            return (L.a - i.ff) * (L.a - L.b) < (L.a - j.ff) * (L.a - L.b);
+            return (L.a - i.ft) * (L.a - L.b) < (L.a - j.ft) * (L.a - L.b);
         });
         int cov = 0, tag = 0;
         Pt lst{0, 0};

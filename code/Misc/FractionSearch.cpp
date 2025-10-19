@@ -7,21 +7,21 @@
 //  x/y is smaller value in Q_n that not satisfy pred()
 // Complexity: O(log^2 n)
 using Pt = pair<i64, i64>;
-Pt operator+(Pt a, Pt b) { return {a.ff + b.ff, a.ss + b.ss}; }
-Pt operator*(i64 a, Pt b) { return {a * b.ff, a * b.ss}; }
+Pt operator+(Pt a, Pt b) { return {a.ft + b.ft, a.sd + b.sd}; }
+Pt operator*(i64 a, Pt b) { return {a * b.ft, a * b.sd}; }
 pair<pair<i64, i64>, pair<i64, i64>> FractionSearch(i64 n, const auto &pred) {
     pair<i64, i64> low{0, 1}, hei{1, 0};
-    while (low.ss + hei.ss <= n) {
+    while (low.sd + hei.sd <= n) {
         bool cur = pred(low + hei);
         auto &fr{cur ? low : hei}, &to{cur ? hei : low};
         u64 L = 1, R = 2;
-        while ((fr + R * to).ss <= n and pred(fr + R * to) == cur) {
+        while ((fr + R * to).sd <= n and pred(fr + R * to) == cur) {
             L *= 2;
             R *= 2;
         }
         while (L + 1 < R) {
             u64 M = (L + R) / 2;
-            ((fr + M * to).ss <= n and pred(fr + M * to) == cur ? L : R) = M;
+            ((fr + M * to).sd <= n and pred(fr + M * to) == cur ? L : R) = M;
         }
         fr = fr + L * to;
     }
