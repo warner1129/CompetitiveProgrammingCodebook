@@ -1,5 +1,4 @@
-vector<int> primes, minp;
-vector<int> mu, phi;
+vector<int> primes, minp, mu, phi;
 vector<bool> isp;
 void Sieve(int n) {
     minp.assign(n + 1, 0);
