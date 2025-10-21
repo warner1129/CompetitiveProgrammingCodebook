@@ -20,11 +20,11 @@ struct Wavelet {
             });
         }
     }
-    pair<int, Info> query(int x, int y, auto &&pred, Info cur = {}) {
+    pair<int, Info> findFirst(int x, int y, auto &&pred, Info cur = {}) {
         int ans = 0;
         for (int k = lgN; k >= 0; k--) {
             Info s = sum[k][y] - sum[k][x];
-            if (pred(cur + s)) {
+            if (!pred(cur + s)) {
                 ans += 1 << k;
                 cur = cur + s;
                 x += cnt[k][N] - cnt[k][x];
@@ -34,14 +34,13 @@ struct Wavelet {
                 y = cnt[k][y];
             }
         }
-        return {ans >= N ? -1 : ans, cur};
+        return {min(ans, N), cur};
     }
-    int count(int x, int y, int rk) {
-        int ans = 0;
+    Info query(int x, int y, int rk) {
+        Info ans{};
         for (int k = lgN; k >= 0; k--) {
-            int c = cnt[k][y] - cnt[k][x];
             if (rk >> k & 1) {
-                ans += c;
+                ans += sum[k][y] - sum[k][x];
                 x += cnt[k][N] - cnt[k][x];
                 y += cnt[k][N] - cnt[k][y];
             } else {
