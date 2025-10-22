@@ -1,69 +1,66 @@
-mt19937 rng(random_device{}());
-template<class S, class T>
-struct Treap {
-    struct Node {
-        Node *ls{}, *rs{};
-        int pos, siz;
-        u32 pri;
-        S d{}, e{};
-        T f{};
-        Node(int p, S x) : d{x}, e{x}, pos{p}, siz{1}, pri{rng()} {}
-        void upd(T &g) {
-            g(d), g(e), g(f);
-        }
-        void pull() {
-            siz = Siz(ls) + Siz(rs);
-            d = Get(ls) + e + Get(rs);
-        }
-        void push() {
-            if (ls) ls->upd(f);
-            if (rs) rs->upd(f);
-            f = T{};
-        }
-    } *root{};
-    static int Siz(Node *p) { return p ? p->siz : 0; }
-    static S Get(Node *p) { return p ? p->d : S{}; }
-    Treap() : root{} {}
-    Node* Merge(Node *a, Node *b) {
-        if (!a or !b) return a ? a : b;
-        if (a->pri < b->pri) {
-            a->push();
-            a->rs = Merge(a->rs, b);
-            a->pull();
-            return a;
-        } else {
-            b->push();
-            b->ls = Merge(a, b->ls);
-            b->pull();
-            return b;
-        }
+struct Node {
+    Node *ls{}, *rs{};
+    u32 w{};
+    Info info{}, sum{};
+    Tag tag{};
+    Node() {};
+    Node(Info x) : ls{}, rs{}, 
+        w(rng()), info(x), sum(x) {}
+    void apply(const Tag &t) {
+        t(info), t(sum), t(tag);
     }
-    void Split(Node *p, Node *&a, Node *&b, int k) {
-        if (!p) return void(a = b = nullptr);
-        p->push();
-        if (p->pos <= k) {
-            a = p;
-            Split(p->rs, a->rs, b, k);
-            a->pull();
-        } else {
-            b = p;
-            Split(p->ls, a, b->ls, k);
-            b->pull();
-        }
+    void push() {
+        if (ls) ls->apply(tag);
+        if (rs) rs->apply(tag);
+        tag = {};
     }
-    void insert(int p, S x) {
-        Node *L, *R;
-        Split(root, L, R, p);
-        root = Merge(Merge(L, new Node(p, x)), R);
-    }
-    void erase(int x) {
-        Node *L, *M, *R;
-        Split(root, M, R, x);
-        Split(M, L, M, x - 1);
-        if (M) M = Merge(M->ls, M->rs);
-        root = Merge(Merge(L, M), R);
-    }
-    S query() {
-        return Get(root);
+    void pull() {
+        sum = info;
+        if (ls) sum = ls->sum + sum;
+        if (rs) sum = sum + rs->sum;
     }
 };
+Info get(Node *p) { return p ? p->sum : Info{}; }
+pair<Node*, Node*> split(Node *t, auto &&pred, Info cur = {}) {
+    if (!t) return {{}, {}};
+    t->push();
+    Info ncur = cur + get(t->ls) + t->info;
+    if (pred(ncur)) {
+        auto [x, y] = split(t->rs, pred, ncur);
+        t->rs = x;
+        t->pull();
+        return {t, y};
+    } else {
+        auto [x, y] = split(t->ls, pred, cur);
+        t->ls = y;
+        t->pull();
+        return {x, t};
+    }
+}
+Node* merge(Node *a, Node *b) {
+    if (!a or !b) return a ? a : b;
+    if (a->w < b->w) {
+        a->push();
+        a->rs = merge(a->rs, b);
+        a->pull();
+        return a;
+    } else {
+        b->push();
+        b->ls = merge(a, b->ls);
+        b->pull();
+        return b;
+    }
+}
+Node* join(Node *a, Node *b) {
+    if (!a or !b) return a ? a : b;
+    if (a->w > b->w) swap(a, b);
+    Info m = a->info;
+    auto [x, y] = split(b, [=](const Info &p) {
+        return p < m ? true : m < p ? false : rng() % 2;
+    });
+    a->push();
+    a->ls = join(a->ls, x);
+    a->rs = join(a->rs, y);
+    a->pull();
+    return a;
+}
