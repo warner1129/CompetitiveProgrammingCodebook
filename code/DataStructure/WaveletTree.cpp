@@ -1,9 +1,10 @@
+// Info must be Abelian group
 template<class Info> 
 struct Wavelet {
     int N, lgN;
     vector<vector<int>> cnt;
     vector<vector<Info>> sum;
-    Wavelet(vector<pair<int, Info>> d) {
+    Wavelet(vector<pair<int, Info>> d) { // {rank, info}
         N = d.size(); lgN = __lg(N);
         cnt.assign(lgN + 1, vector<int>(N + 1));
         sum.assign(lgN + 1, vector<Info>(N + 1));
@@ -20,6 +21,7 @@ struct Wavelet {
             });
         }
     }
+    // {k, sum{i | rk(i) < k}}: smallest rank k that pred(sum{i | rk(i) <= k}) satisfies
     pair<int, Info> findFirst(int x, int y, auto &&pred, Info cur = {}) {
         int ans = 0;
         for (int k = lgN; k >= 0; k--) {
@@ -34,13 +36,14 @@ struct Wavelet {
                 y = cnt[k][y];
             }
         }
-        return {min(ans, N), cur};
+        return {ans >= N ? -1 : ans, cur};
     }
+    // sum in [x, y) whose rank < rk; rk in [0, n]
     Info query(int x, int y, int rk) {
         Info ans{};
         for (int k = lgN; k >= 0; k--) {
             if (rk >> k & 1) {
-                ans += sum[k][y] - sum[k][x];
+                ans = ans + sum[k][y] - sum[k][x];
                 x += cnt[k][N] - cnt[k][x];
                 y += cnt[k][N] - cnt[k][y];
             } else {
