@@ -8,6 +8,9 @@ struct Seg {
         rs = new Seg(m, r);
         pull();
     }
+#ifdef LOCAL
+    ~Seg() { delete ls; delete rs; }
+#endif
     void pull() { sum = ls->sum + rs->sum; }
     void push() {
         ls->update(tag);
