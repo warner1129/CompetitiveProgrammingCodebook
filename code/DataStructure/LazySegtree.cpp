@@ -15,10 +15,8 @@ struct Seg {
         tag = T{};
     }
     S query(int x, int y) {
-        if (y <= l or r <= x)
-            return {};
-        if (x <= l and r <= y)
-            return sum;
+        if (y <= l or r <= x) return {};
+        if (x <= l and r <= y) return sum;
         push();
         return ls->query(x, y) + rs->query(x, y);
     }
@@ -32,10 +30,8 @@ struct Seg {
         pull();
     }
     void set(int p, const S &e) {
-        if (p < l or p >= r)
-            return;
-        if (r - l == 1)
-            return sum = e, void();
+        if (p < l or p >= r) return;
+        if (r - l == 1) return sum = e, void();
         push();
         ls->set(p, e);
         rs->set(p, e);
