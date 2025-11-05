@@ -2,8 +2,7 @@ template<class S, class T>
 struct Seg {
     Seg *ls{}, *rs{}; S sum{}; T tag{}; int l, r;
     Seg(int _l, int _r) : l(_l), r(_r) {
-        if (r - l == 1)
-            return;
+        if (r - l == 1) return;
         int m = (l + r) / 2;
         ls = new Seg(l, m);
         rs = new Seg(m, r);
@@ -15,7 +14,6 @@ struct Seg {
         rs->apply(tag);
         tag = T{};
     }
-    void apply(const T &f) { f(tag); f(sum); }
     S query(int x, int y) {
         if (y <= l or r <= x)
             return {};
@@ -24,16 +22,15 @@ struct Seg {
         push();
         return ls->query(x, y) + rs->query(x, y);
     }
+    void update(const T &f) { f(tag); f(sum); }
     void apply(int x, int y, const T &f) {
-        if (y <= l or r <= x)
-            return;
-        if (x <= l and r <= y)
-            return apply(f);
+        if (y <= l or r <= x) return;
+        if (x <= l and r <= y) return update(f);
         push();
         ls->apply(x, y, f);
         rs->apply(x, y, f);
         pull();
-    } /* SPLIT-HASH */
+    }
     void set(int p, const S &e) {
         if (p < l or p >= r)
             return;
@@ -43,7 +40,7 @@ struct Seg {
         ls->set(p, e);
         rs->set(p, e);
         pull();
-    }
+    } /* SPLIT-HASH */
     pair<int, S> findFirst(int x, int y, auto &&pred, S cur = {}) {
         if (y <= l or r <= x)
             return { -1, cur };
