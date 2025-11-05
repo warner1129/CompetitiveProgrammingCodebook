@@ -10,17 +10,17 @@ struct Seg {
     }
     void pull() { sum = ls->sum + rs->sum; }
     void push() {
-        ls->apply(tag);
-        rs->apply(tag);
+        ls->update(tag);
+        rs->update(tag);
         tag = T{};
     }
+    void update(const T &f) { f(tag); f(sum); }
     S query(int x, int y) {
         if (y <= l or r <= x) return {};
         if (x <= l and r <= y) return sum;
         push();
         return ls->query(x, y) + rs->query(x, y);
     }
-    void update(const T &f) { f(tag); f(sum); }
     void apply(int x, int y, const T &f) {
         if (y <= l or r <= x) return;
         if (x <= l and r <= y) return update(f);
