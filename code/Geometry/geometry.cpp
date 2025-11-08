@@ -1,19 +1,21 @@
 using numbers::pi;
 template<class T> inline constexpr T eps = numeric_limits<T>::epsilon() * 1E6;
-using Real = long double;
-struct Pt {
-    Real x{}, y{};
-    Pt operator+(Pt a) const { return {x + a.x, y + a.y}; }
-    Pt operator-(Pt a) const { return {x - a.x, y - a.y}; }
-    Pt operator*(Real k) const { return {x * k, y * k}; }
-    Pt operator/(Real k) const { return {x / k, y / k}; }
-    Real operator*(Pt a) const { return x * a.x + y * a.y; }
-    Real operator^(Pt a) const { return x * a.y - y * a.x; }
+template<class T>
+struct Point { using Pt = Point;
+    T x{}, y{};
+    Pt operator+(Pt a) { return {x + a.x, y + a.y}; }
+    Pt operator-(Pt a) { return {x - a.x, y - a.y}; }
+    Pt operator*(T k) { return {x * k, y * k}; }
+    Pt operator/(T k) { return {x / k, y / k}; }
+    T operator*(Pt a) { return x * a.x + y * a.y; }
+    T operator^(Pt a) { return x * a.y - y * a.x; }
     auto operator<=>(const Pt&) const = default;
     bool operator==(const Pt&) const = default;
     Pt operator-() const { return {-x, -y}; }
 };
-int sgn(Real x) { return (x > -eps<Real>) - (x < eps<Real>); }
+using Real = long double;
+using Pt = Point<Real>;
+int sgn(Real x) { return (x > -eps<Real>)- (x < eps<Real>); }
 Real ori(Pt a, Pt b, Pt c) { return (b - a) ^ (c - a); }
 Pt norm(Pt u) { return {-u.y, u.x}; }
 bool argcmp(const Pt &a, const Pt &b) { // arg(a) < arg(b)
@@ -45,9 +47,19 @@ Pt proj(Pt p, Line l) {
     Pt dir = unit(l.b - l.a);
     return l.a + dir * (dir * (p - l.a));
 }
-struct Cir { 
-    Pt o; Real r; 
-};
+Pt proj(Pt p, Line l) {
+    auto d = l.b - l.a, w = p - l.a;
+    return l.a + d * (w * d / abs2(d));
+}
+Pt reflect(Pt p, Line l) {
+    auto d = l.b - l.a, w = p - l.a;
+    return p + norm(d) * (w ^ d / abs2(d) * 2);
+}
+Pt linearTransformation(Line p, Line q, Pt r) {
+    Pt dp = p.b - p.a, dq = q.b - q.a, n{ dp ^ dq, dp * dq };
+    Pt w = r - p.a; return q.a + Pt{ w ^ n, w * n } / abs2(dp);
+} // p, r ~ q, ans
+struct Cir { Pt o; Real r;  };
 bool disjunct(const Cir &a, const Cir &b) {
     return sgn(abs(a.o - b.o) - a.r - b.r) >= 0; 
 }
