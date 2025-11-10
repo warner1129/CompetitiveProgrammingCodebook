@@ -160,38 +160,6 @@ literate={\ \ }{{\ }}1
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ExplSyntaxOn
-\NewDocumentCommand{\captureshell}{som}
- {
-  \sdaau_captureshell:Ne \l__sdaau_captureshell_out_tl { #3 }
-  \IfBooleanT { #1 }
-   {% we may need to stringify the result
-    \tl_set:Nx \l__sdaau_captureshell_out_tl
-     { \tl_to_str:N \l__sdaau_captureshell_out_tl }
-   }
-  \IfNoValueTF { #2 }
-   {
-    \tl_use:N \l__sdaau_captureshell_out_tl
-   }
-   {
-    \tl_set_eq:NN #2 \l__sdaau_captureshell_out_tl
-   }
- }
-
-\tl_new:N \l__sdaau_captureshell_out_tl
-
-\cs_new_protected:Nn \sdaau_captureshell:Nn
- {
-  \sys_get_shell:nnN { #2 } { } #1
-  \tl_trim_spaces:N #1 % remove leading and trailing spaces
- }
-\cs_generate_variant:Nn \sdaau_captureshell:Nn { Ne }
-\ExplSyntaxOff
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\HashFile}[1]{\captureshell{./hash.py #1}}
-
 \newcommand{\includecode}[2]{
   \subsection{#1}
   \vspace{-1.2em}
@@ -207,7 +175,7 @@ literate={\ \ }{{\ }}1
 }
 
 \NewDocumentCommand{\includecodehash}{ O{C++} m m }{
-  \subsection[#2]{#2{ \small\HashFile{#3} }}
+    \subsection[#2]{#2{ \lstinputlisting{#3.hash} }}
   \vspace{-1.2em}
   \lstinputlisting[#1]{#3}
   \vspace{-1.2em}

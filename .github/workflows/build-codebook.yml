@@ -27,6 +27,9 @@ jobs:
       # - name: Get fonts
       #   run: make -C pdf fonts
 
+      - name: Generate Hashes
+        run: ./pdf/hash.py
+
       - name: Build
         uses: xu-cheng/latex-action@v3
         with:
