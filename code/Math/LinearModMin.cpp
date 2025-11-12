@@ -1,6 +1,6 @@
 /*
- * Returns min_{x=0}^{n - 1} (kx + b) mod m
- * Require: n, m > 0, 0 <= b, k < m
+ * Returns min_{x=0}^{n - 1} (ax + b) mod m
+ * Require: n, m > 0, 0 <= a, b < m
  */
 int LinearModMin(int n, int m, int a, int b, 
                  int cnt = 1, int p = 1, int q = 1) {
