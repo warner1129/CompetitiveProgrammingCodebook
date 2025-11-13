@@ -27,20 +27,20 @@ struct Tree {
         for (int i = 0; i < lgN; i++)
             for (int j = 0; j + (2 << i) <= n; j++)
                 st[i + 1][j] = cmp(st[i][j], st[i][j + (1 << i)]);
-    }
+    }  /* SPLIT-HASH */
     int inside(int x, int y) {
         return in[x] <= in[y] and in[y] < out[x];
-    }
+    }  /* SPLIT-HASH */
     int lca(int x, int y) {
         if (x == y) return x;
         if ((x = in[x] + 1) > (y = in[y] + 1))
             swap(x, y);
         int h = __lg(y - x);
         return pa[cmp(st[h][x], st[h][y - (1 << h)])];
-    }
+    }  /* SPLIT-HASH */
     int dist(int x, int y) {
         return dep[x] + dep[y] - 2 * dep[lca(x, y)];
-    }
+    }  /* SPLIT-HASH */
     int rootPar(int r, int x) {
         if (r == x) return -1;
         if (!inside(x, r)) return pa[x];
@@ -48,13 +48,13 @@ struct Tree {
             [&](int a, int b) -> bool {
                 return in[a] < in[b];
             });
-    }
+    }  /* SPLIT-HASH */
     int size(int x) { return out[x] - in[x]; }
     int rootSiz(int r, int x) {
         if (r == x) return n;
         if (!inside(x, r)) return size(x);
         return n - size(rootPar(r, x));
-    }
+    }  /* SPLIT-HASH */
     int rootLca(int a, int b, int c) {
         return lca(a, b) ^ lca(b, c) ^ lca(c, a);
     } /* SPLIT-HASH */
@@ -69,36 +69,5 @@ struct Tree {
         });
         ver.erase(unique(all(ver)), ver.end());
         return ver;
-    }
-    void inplace_virTree(vector<int> &ver) {
-        vector<int> ex; // O(n), need sort before
-        for (int i = 0; i + 1 < ver.size(); i++)
-            if (!inside(ver[i], ver[i + 1]))
-                ex.push_back(lca(ver[i], ver[i + 1]));
-        vector<int> stk, pa(ex.size(), -1);
-        for (int i = 0; i < ex.size(); i++) {
-            int lst = -1;
-            while (stk.size() and in[ex[stk.back()]] >= in[ex[i]]) {
-                lst = stk.back();
-                stk.pop_back();
-            }
-            if (lst != -1) pa[lst] = i;
-            if (stk.size()) pa[i] = stk.back();
-            stk.push_back(i);
-        }
-        vector<bool> vis(ex.size());
-        auto dfs = [&](auto self, int u) -> void {
-            vis[u] = 1;
-            if (pa[u] != -1 and !vis[pa[u]]) 
-                self(self, pa[u]);
-            if (ex[u] != ver.back())
-                ver.push_back(ex[u]);
-        };
-        const int s = ver.size();
-        for (int i = 0; i < ex.size(); i++)
-            if (!vis[i]) dfs(dfs, i);
-        inplace_merge(ver.begin(), ver.begin() + s, ver.end(),
-                [&](int a, int b) { return in[a] < in[b]; });
-        ver.erase(unique(all(ver)), ver.end());
     }
 };
