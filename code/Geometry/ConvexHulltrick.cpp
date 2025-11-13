@@ -6,7 +6,7 @@ int cycMin(int n, auto &&comp) {
         ((comp(0, m) ? f : comp(m, (m + 1) % n)) ? r : l) = m;
     }
     return comp(l, r % n) ? l : r % n;
-}
+}  /* SPLIT-HASH */
 struct Convex {
     int n;
     vector<Pt> C;
@@ -23,17 +23,17 @@ struct Convex {
         int s = sgn(ori(it[-1], p, *it));
         if (s == 0) return id;
         return s == 1 ? -1 : n;
-    }
+    }  /* SPLIT-HASH */
     int inside(const Pt &p) { 
         // -1:out, 0<=id<n:on edge C[id-1], C[id], n:in
         return min(inside(p, C.begin(), up + 1, less{}), 
                    inside(p, up, C.end(), greater{}));
-    }
+    }  /* SPLIT-HASH */
     int tangentDir(const Pt &dir) {
         return cycMin(n, [&](int a, int b) {
             return (dir ^ C[a]) < (dir ^ C[b]);
         });
-    }
+    }  /* SPLIT-HASH */
     array<int, 2> tangentPt(const Pt &p) {
         int i = inside(p);
         assert(i != n);
@@ -46,7 +46,7 @@ struct Convex {
             });
         };
         return {get(1), get(-1)};
-    }
+    }  /* SPLIT-HASH */
     vector<int> intersect(const Line &L) {
     // Line A_x A_x+1 interset with L
         auto find = [&](int l, int r) -> int {
