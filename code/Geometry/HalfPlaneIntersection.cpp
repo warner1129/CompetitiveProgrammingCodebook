@@ -5,7 +5,7 @@ bool cover(Line L, Line P, Line Q) {
     i128 x = P.dir().x * u + (P.a - L.a).x * v;
     i128 y = P.dir().y * u + (P.a - L.a).y * v;
     return sgn(x * L.dir().y - y * L.dir().x) * sgn(v) >= 0;
-}
+} /* SPLIT-HASH */
 vector<Line> HPI(vector<Line> P) {
     sort(all(P), [&](Line l, Line m) {
         if (argcmp(l.dir(), m.dir())) return true;
