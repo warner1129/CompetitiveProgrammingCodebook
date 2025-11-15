@@ -3,7 +3,7 @@ i64 exgcd(i64 a, i64 b, i64 &x, i64 &y) {
     i64 g = exgcd(b, a % b, y, x);
     y -= a / b * x;
     return g;
-} // ax + by = gcd(a, b)
+} // ax + by = gcd(a, b) /* SPLIT-HASH */
 i64 inverse(i64 a, i64 b, i64 m) {
     auto g = gcd(m, a);
     if (b % g) return -1;

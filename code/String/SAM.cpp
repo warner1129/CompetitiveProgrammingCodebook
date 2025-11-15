@@ -9,9 +9,7 @@ struct SAM {
         return fail.size() - 1;
     }
     SAM() : lst(newNode()) {}
-    void reset() {
-        lst = 0;
-    }
+    void reset() { lst = 0; } /* SPLIT-HASH */
     int add(int c) {
         if (nxt[lst][c] and len[nxt[lst][c]] == len[lst] + 1) { // 廣義
             return lst = nxt[lst][c];
@@ -40,7 +38,7 @@ struct SAM {
             fail[p] = fail[cur] = t;
         }
         return lst = cur;
-    }
+    } /* SPLIT-HASH */
     vector<int> order() { // 長度遞減
         vector<int> cnt(len.size());
         for (int i = 0; i < len.size(); i++)

@@ -19,7 +19,7 @@ void linear_equation(vector<vector<double>> &d, vector<double> &aug, vector<doub
             for (int k = 0; k < m; ++k) d[r[j]][c[k]] -= z * d[r[i]][c[k]];
             aug[r[j]] -= z * aug[r[i]];
         }
-    }
+    } /* SPLIT-HASH */
     vector<vector<double>> fd(n, vector<double>(m));
     vector<double> faug(n), x(n);
     for (int i = 0; i < n; ++i) {

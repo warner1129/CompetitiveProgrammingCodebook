@@ -11,7 +11,7 @@ vector<double> PolyUnion(const vector<vector<Pt>> &P) {
         if (argcmp(u, v)) return true;
         if (argcmp(v, u)) return false;
         return PtSide(l.a, r) < 0;
-    };
+    }; /* SPLIT-HASH */
     sort(all(Ls), cmp);
     for (int l = 0, r = 0; l < Ls.size(); l = r) {
         while (r < Ls.size() and !cmp(Ls[l], Ls[r])) r++;
@@ -29,7 +29,7 @@ vector<double> PolyUnion(const vector<vector<Pt>> &P) {
         }
         sort(all(event), [&](auto i, auto j) {
             return (L.a - i.ft) * (L.a - L.b) < (L.a - j.ft) * (L.a - L.b);
-        });
+        }); /* SPLIT-HASH */
         int cov = 0, tag = 0;
         Pt lst{0, 0};
         for (auto [p, s] : event) {

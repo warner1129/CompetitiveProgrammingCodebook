@@ -13,7 +13,7 @@ int LinearRec(const vector<int> &s, const vector<int> &coeff, int k) {
         }
         res.resize(n + 1);
         return res;
-    };
+    }; /* SPLIT-HASH */
     vector<int> p(n + 1), e(n + 1);
     p[0] = e[1] = 1;
     for (; k > 0; k >>= 1) {

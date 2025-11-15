@@ -10,7 +10,7 @@ struct NTT {
             e[i] = e[i + 1] * e[i + 1] % M;
             ie[i] = ie[i + 1] * ie[i + 1] % M;
         }
-    }
+    } /* SPLIT-HASH */
     void operator()(vector<i64> &v, bool inv) {
         int n = v.size();
         for (int i = 0, j = 0; i < n; i++) {

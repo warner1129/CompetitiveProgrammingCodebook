@@ -8,11 +8,11 @@ struct TwoSat {
     void addClause(int u, bool f, int v, bool g) { // (u = f) or (v = g)
         G[2 * u + !f].push_back(2 * v + g);
         G[2 * v + !g].push_back(2 * u + f);
-    }
+    } /* SPLIT-HASH */
     void addImply(int u, bool f, int v, bool g) { // (u = f) -> (v = g)
         G[2 * u + f].push_back(2 * v + g);
         G[2 * v + !g].push_back(2 * u + !f);
-    }
+    } /* SPLIT-HASH */
     int cur = 0, scc = 0;
     void dfs(int u) {
         stk.push_back(u);
@@ -34,7 +34,7 @@ struct TwoSat {
             } while (x != u);
             scc++;
         }
-    }
+    } /* SPLIT-HASH */
     bool satisfiable() {
         for (int i = 0; i < n * 2; i++)
             if (dfn[i] == -1) {

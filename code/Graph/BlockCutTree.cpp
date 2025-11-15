@@ -5,7 +5,7 @@ struct BlockCutTree {
     void addEdge(int u, int v) {
         adj[u].push_back(v);
         adj[v].push_back(u);
-    }
+    } /* SPLIT-HASH */
     pair<int, vector<pair<int, int>>> work() {
         vector<int> dfn(n, -1), low(n), stk;
         vector<pair<int, int>> edg;
@@ -31,7 +31,7 @@ struct BlockCutTree {
                     low[x] = min(low[x], dfn[y]);
                 }
             }
-        };
+        }; /* SPLIT-HASH */
         for (int i = 0; i < n; i++) {
             if (dfn[i] == -1) {
                 stk.clear();

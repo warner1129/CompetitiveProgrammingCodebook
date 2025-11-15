@@ -11,7 +11,7 @@ struct Lagrange {
             }
             C[i] = P[i] * q % mod;
         }
-    }
+    } /* SPLIT-HASH */
     i64 operator()(i64 x) { // 0 <= x < mod
         if (0 <= x and x <= deg) {
             i64 ans = comb(x) * comb(deg - x) % mod;
@@ -26,7 +26,7 @@ struct Lagrange {
             if (i) {
                 pre[i] = pre[i] * pre[i - 1] % mod;
             }
-        }
+        } /* SPLIT-HASH */
         for (int i = deg; i >= 0; i--) {
             suf[i] = (x - i);
             if (i < deg) {

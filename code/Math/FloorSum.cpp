@@ -10,7 +10,7 @@ i64 floorSum(i64 n, i64 m, i64 a, i64 b) {
         u64 b2 = (b % m + m) % m;
         ans -= 1ULL * n * ((b2 - b) / m);
         b = b2;
-    }
+    } /* SPLIT-HASH */
     while (true) {
         if (a >= m) {
             ans += n * (n - 1) / 2 * (a / m);

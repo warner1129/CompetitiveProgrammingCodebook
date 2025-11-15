@@ -10,21 +10,21 @@ struct RollingHash {
             suf[i] = (mul(suf[i + 1], base) + hash<int>{}(s[i])) % mod;
             pw[n - i] = mul(pw[n - i - 1], base);
         }
-    }
+    } /* SPLIT-HASH */
     u64 seg_hash(int l, int r) {
         return (suf[l] + mod - mul(suf[r], pw[r - l])) % mod;
-    }
+    } /* SPLIT-HASH */
     int lcp(int a, int b) {
         int len = n - max(a, b);
         return *ranges::partition_point(views::iota(0, len + 1), [&](int l) {
             return seg_hash(a, a + l) == seg_hash(b, b + l);
         }) - 1;
-    }
+    } /* SPLIT-HASH */
     int lcs(int a, int b) {
         a++, b++;
         int len = min(a, b);
         return *ranges::partition_point(views::iota(0, len + 1), [&](int l) {
             return seg_hash(a - l, a) == seg_hash(b - l, b);
         }) - 1;
-    }
+    } /* SPLIT-HASH */
 };

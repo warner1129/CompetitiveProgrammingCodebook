@@ -9,7 +9,7 @@ T KM(const vector<vector<T>> &w) {
             x = pa[y]; z = mx[x];
             my[y] = x; mx[x] = y;
         }
-    };
+    }; /* SPLIT-HASH */
     auto bfs = [&](int s) {
         vector<T> sy(n, inf<T>);
         vector<bool> vx(n), vy(n);
@@ -50,7 +50,7 @@ T KM(const vector<vector<T>> &w) {
                     q.push(my[y]);
                 }
         }
-    };
+    }; /* SPLIT-HASH */
     for (int x = 0; x < n; x++)
         lx[x] = ranges::max(w[x]);
     for (int x = 0; x < n; x++)

@@ -9,7 +9,7 @@ struct MaxClique {
     }
     void addEdge(int u, int v) {
         G[u][v] = G[v][u] = 1;
-    }
+    } /* SPLIT-HASH */
     void preDfs(vector<int> &v, int i, bits mask) {
         if (i < 4) {
             for (int x : v) d[x] = (G[x] & mask).count();
@@ -47,7 +47,7 @@ struct MaxClique {
             c.pop_back();
             --q;
         }
-    }
+    } /* SPLIT-HASH */
     int solve() {
         vector<int> v(n);
         iota(all(v), 0);

@@ -2,7 +2,7 @@ Pt Center(Pt a, Pt b, Pt c) {
     Pt x = (a + b) / 2;
     Pt y = (b + c) / 2;
     return LineInter({x, x + rotate(b - a)}, {y, y + rotate(c - b)});
-}
+} /* SPLIT-HASH */
 Cir MEC(vector<Pt> P) {
     mt19937 rng(time(0));
     shuffle(all(P), rng);

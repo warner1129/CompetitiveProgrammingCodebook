@@ -6,7 +6,7 @@ double Gauss(vector<vector<double>> &d) {
     for (int j = i; j < n; ++j) {
       if (fabs(d[j][i]) < kEps) continue;
       if (p == -1 || fabs(d[j][i]) > fabs(d[p][i])) p = j;
-    } 
+    }  /* SPLIT-HASH */
     if (p == -1) continue;
     if (p != i) det *= -1;
     for (int j = 0; j < m; ++j) swap(d[p][j], d[i][j]);

@@ -8,8 +8,8 @@ auto sais(const auto &s) {
     for (int i = n - 2; i >= 0; i--) 
         t[i] = (s[i] == s[i + 1] ? t[i + 1] : s[i] < s[i + 1]);
     auto is_lms = views::filter([&t](int x) {
-        return x && t[x] & !t[x - 1];
-    });
+        return x and t[x] & !t[x - 1];
+    }); /* SPLIT-HASH */
     auto induce = [&] {
         for (auto x = c; int y : sa)
             if (y-- and !t[y]) sa[x[s[y] - 1]++] = y;
@@ -18,9 +18,9 @@ auto sais(const auto &s) {
     };
     vector<int> lms, q(n); lms.reserve(n);
     for (auto x = c; int i : I | is_lms) {
-        q[i] = int(lms.size());
+        q[i] = (int)lms.size();
         lms.push_back(sa[--x[s[i]]] = i);
-    }
+    } /* SPLIT-HASH */
     induce(); vector<int> ns(lms.size());
     for (int j = -1, nz = 0; int i : sa | is_lms) {
         if (j >= 0) {

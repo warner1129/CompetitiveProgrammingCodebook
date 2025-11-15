@@ -11,7 +11,7 @@ int LinearModMin(int n, int m, int a, int b,
         int c = (t - z) * p + q * z;
         if (n <= c) return z ? b : a * ((n - 1) / p) + b;
         n -= c, b += a * t - m * z;
-    }
+    } /* SPLIT-HASH */
     b = (z ? a : m) - 1 - b;
     cnt++;
     int d = m / a;

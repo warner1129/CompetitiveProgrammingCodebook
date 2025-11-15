@@ -12,7 +12,7 @@ struct HK {
             a.assign(n, -1), p.assign(n, -1);
             for (int i = 0; i < n; i++)
                 if (l[i] == -1) q.push(a[i] = p[i] = i);
-            while (!q.empty()) {
+            while (!q.empty()) { /* SPLIT-HASH */
                 int z, x = q.front(); q.pop();
                 if (l[a[x]] != -1) continue;
                 for (int y : G[x]) {

@@ -6,7 +6,7 @@ struct Tree {
     Tree(int n) : n(n), G(n), in(n), out(n), dep(n), pa(n, -1) {}
     int cmp(int a, int b) {
         return dep[a] < dep[b] ? a : b;
-    }
+    } /* SPLIT-HASH */
     void dfs(int u) {
         erase(G[u], pa[u]);
         in[u] = seq.size();
@@ -17,7 +17,7 @@ struct Tree {
             dfs(v);
         }
         out[u] = seq.size();
-    }
+    } /* SPLIT-HASH */
     void build() {
         seq.reserve(n);
         dfs(0);

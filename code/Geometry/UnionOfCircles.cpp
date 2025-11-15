@@ -10,7 +10,7 @@ vector<double> CircleUnion(const vector<Cir> &C) {
     struct Teve {
         double ang; int add; Pt p;
         bool operator<(const Teve &b) { return ang < b.ang; }
-    };
+    }; /* SPLIT-HASH */
     auto ang = [&](Pt p) { return atan2(p.y, p.x); };
     for (int i = 0; i < n; i++) {
         int cov = 1;
@@ -25,7 +25,7 @@ vector<double> CircleUnion(const vector<Cir> &C) {
                 event.push_back({a2, -1, I[1]});
                 if (a1 > a2) cov++;
             }
-        }
+        } /* SPLIT-HASH */
         if (event.empty()) {
             Area[cov] += pi * C[i].r * C[i].r;
             continue;
@@ -39,6 +39,6 @@ vector<double> CircleUnion(const vector<Cir> &C) {
             if (theta < 0) theta += 2 * pi;
             Area[cov] += (theta - sin(theta)) * C[i].r * C[i].r / 2.;
         }
-    }
+    } /* SPLIT-HASH */
     return Area;
 }

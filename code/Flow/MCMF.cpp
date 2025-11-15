@@ -7,7 +7,7 @@ struct MCMF {
     void addEdge(int u, int v, T f, T c) {
         G[u].push_back({v, f, c, ssize(G[v])});
         G[v].push_back({u, 0, -c, ssize(G[u]) - 1});
-    }
+    } /* SPLIT-HASH */
     vector<T> dis;
     vector<bool> vis;
     bool spfa(int s, int t) {
@@ -45,7 +45,7 @@ struct MCMF {
         if (in) dis[u] = inf<T>; 
         vis[u] = 0;
         return out;
-    }
+    } /* SPLIT-HASH */
     pair<T, T> maxFlow(int s, int t) {
         T a = 0, b = 0;
         while (spfa(s, t)) {

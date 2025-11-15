@@ -11,7 +11,7 @@ struct Lucas {
     }
     i64 CntFact(i64 n) {
         i64 c = 0; while (n) c += (n /= p); return c;
-    }
+    } /* SPLIT-HASH */
     // (n! without factor p) % p^k
     i64 ModFact(i64 n) {
         i64 r = 1;
@@ -20,7 +20,7 @@ struct Lucas {
             n /= p; r %= M;
         }
         return r;
-    }
+    } /* SPLIT-HASH */
     i64 ModComb(i64 n, i64 m) {
         if (m < 0 or n < m) return 0;
         i64 c = CntFact(n) - CntFact(m) - CntFact(n - m);

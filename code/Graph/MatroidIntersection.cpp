@@ -25,7 +25,7 @@ vector<bool> MatroidIntersection(Matroid1 &m1, Matroid2 &m2) {
                     E[i].push_back(y);
                 }
             }
-        }
+        } /* SPLIT-HASH */
         vector<int> pre(N + 2, -1);
         queue<int> que;
         que.push(s);

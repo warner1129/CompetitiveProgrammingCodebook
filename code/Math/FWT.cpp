@@ -6,7 +6,7 @@ void ANDinv(i64 &x, i64 &y) { x = (x - y + mod) % mod; }
 
 void XORop(i64 &x, i64 &y) { tie(x, y) = pair{(x + y) % mod, (x - y + mod) % mod}; }
 void XORinv(i64 &x, i64 &y) { tie(x, y) = pair{(x + y) * inv2 % mod, (x - y + mod) * inv2 % mod}; }
-
+/* SPLIT-HASH */
 void FWT(vector<i64> &f, auto &op) {
     const int s = f.size();
     for (int i = 1; i < s; i *= 2)

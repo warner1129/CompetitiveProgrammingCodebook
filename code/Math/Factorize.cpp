@@ -7,7 +7,7 @@ u64 power(u64 a, u64 b, u64 M) {
     for (; b; b /= 2, a = mul(a, a, M))
         if (b & 1) r = mul(r, a, M);
     return r;
-}
+} /* SPLIT-HASH */
 bool isPrime(u64 n) {
     if (n < 2 or n % 6 % 4 != 1) return (n | 1) == 3;
     auto magic = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};

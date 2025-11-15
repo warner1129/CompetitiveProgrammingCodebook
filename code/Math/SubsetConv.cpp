@@ -10,7 +10,7 @@ vector<i64> SubsetConv(vector<i64> f, vector<i64> g) {
     for (int i = 0; i < U; i++) {
         FWT(F[i], ORop);
         FWT(G[i], ORop);
-    }
+    } /* SPLIT-HASH */
     for (int i = 0; i < U; i++)
         for (int j = 0; j <= i; j++)
             for (int k = 0; k < n; k++)

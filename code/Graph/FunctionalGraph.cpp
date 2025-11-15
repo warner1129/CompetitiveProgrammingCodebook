@@ -16,7 +16,7 @@ struct FunctionalGraph {
             dfs(v);
         }
         out[u] = _t;
-    };
+    }; /* SPLIT-HASH */
     void build(const auto &_f) {
         f = _f;
         for (int i = 0; i < n; i++)
@@ -41,7 +41,7 @@ struct FunctionalGraph {
         for (int i = 0; i < n; i++)
             if (root[i] == i)
                 dfs(i);
-    }
+    } /* SPLIT-HASH */
     int dist(int x, int y) { // x -> y
         if (bel[x] != bel[y])
             return -1;

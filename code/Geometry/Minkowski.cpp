@@ -7,7 +7,7 @@ vector<Pt> Minkowski(vector<Pt> P, vector<Pt> Q) {
     auto reorder = [&](auto &R) {
         rotate(R.begin(), min_element(all(R), cmp), R.end());
         R.push_back(R[0]), R.push_back(R[1]);
-    };
+    }; /* SPLIT-HASH */
     const int n = P.size(), m = Q.size();
     reorder(P), reorder(Q);
     vector<Pt> R;

@@ -14,7 +14,7 @@ struct SCC {
             } else if (id[v] == -1) {
                 chmin(low[u], dfn[v]);
             }
-        }
+        } /* SPLIT-HASH */
         if (dfn[u] == low[u]) {
             int t;
             do {

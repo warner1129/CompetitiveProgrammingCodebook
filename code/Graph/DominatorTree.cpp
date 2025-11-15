@@ -13,7 +13,7 @@ struct Dominator {
             if (dfn[u] == -1) dfs(u), rp[dfn[u]] = dfn[x];
             r[dfn[u]].push_back(dfn[x]);
         }
-    }
+    } /* SPLIT-HASH */
     void merge(int x, int y) { fa[x] = y; }
     int find(int x, int c = 0) {
         if (fa[x] == x) return c ? -1 : x;
@@ -24,7 +24,7 @@ struct Dominator {
             return c ? p : val[x];
         }
         return c ? fa[x] : val[x];
-    }
+    } /* SPLIT-HASH */
     vector<int> build(int s) {
         // return the father of each node in dominator tree
         // p[i] = -2 if i is unreachable from s
@@ -38,7 +38,7 @@ struct Dominator {
                 dom[u] = (sdom[p] == i ? i : p);
             }
             if (i) merge(i, rp[i]);
-        }
+        } /* SPLIT-HASH */
         vector<int> p(n, -2); p[s] = -1;
         for (int i = 1; i < tk; ++i)
             if (sdom[i] != dom[i]) dom[i] = dom[dom[i]];

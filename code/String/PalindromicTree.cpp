@@ -24,7 +24,7 @@ struct PAM {
     }
     PAM() : odd(newNode(-1)), even(newNode(0)) {
         lst = fail[even] = odd;
-    }
+    } /* SPLIT-HASH */
     void reserve(int l) {
         fail.reserve(l + 2);
         len.reserve(l + 2);

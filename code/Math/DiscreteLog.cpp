@@ -6,7 +6,7 @@ T BSGS(T x, T y, T M) {
   for (g = gcd(g, M); t % g != 0; ++c) {
     if (t == y) return c;
     t = t * x % M;
-  }
+  } /* SPLIT-HASH */
   if (y % g != 0) return -1;
   t /= g, y /= g, M /= g;
   T h = 0, gs = 1;

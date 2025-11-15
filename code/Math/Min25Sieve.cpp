@@ -19,7 +19,7 @@ struct Min25 {
         }
         Fp.assign(Q.size(), 0);
         S.assign(Q.size(), 0);
-    }
+    } /* SPLIT-HASH */
     void apply(const auto &f, const auto &fsum, i64 coef) {
         vector<i64> F(Q.size());
         for (int i = 0; i < Q.size(); i++) {

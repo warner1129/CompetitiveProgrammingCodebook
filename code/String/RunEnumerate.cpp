@@ -15,7 +15,7 @@ vector<array<int, 3>> RunEnumerate(string s) {
                     break;
                 }
                 stk.pop_back();
-            }
+            } /* SPLIT-HASH */
             stk.push_back(i);
             int l = i - rh.lcs(i - 1, j - 1), r = j + rh.lcp(i, j);
             if (r - l >= 2 * (j - i)) {

@@ -14,7 +14,7 @@ struct GSPGraph {
         S[N] = s, tree[N] = sub;
         for (int x : sub) isrt[x] = false;
         return N++;
-    }
+    } /* SPLIT-HASH */
     GSPGraph(int n, const vector<pair<int, int>> &edge) {
         N = edge.size();
         S = edge;
@@ -49,7 +49,7 @@ struct GSPGraph {
             int e = G[x].back();
             isrt[e] = false;
             return e;
-        };
+        }; /* SPLIT-HASH */
         while (que.size()) {
             int u = que.front(); que.pop();
             if (deg[u] == 1) {

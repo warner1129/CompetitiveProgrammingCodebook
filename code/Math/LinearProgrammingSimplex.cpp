@@ -20,7 +20,7 @@ vector<double> simplex(
         val[i][m] = b[i];
         if (val[r][m] > val[i][m])
             r = i;
-    }
+    } /* SPLIT-HASH */
     copy(all(c), val[n].begin());
     val[n + 1][m - 1] = -1;
     for (double num; ; ) {
@@ -51,7 +51,7 @@ vector<double> simplex(
             //    Solution is unbounded.
             return vector<double>{};
         }
-    }
+    } /* SPLIT-HASH */
     if (val[n + 1][m] < -eps) {
         //    No solution.
         return vector<double>{};

@@ -10,7 +10,7 @@ struct HLD {
         pa[root] = -1;
         dfs1(root);
         dfs2(root);
-    }
+    } /* SPLIT-HASH */
     void dfs1(int u) {
         erase(G[u], pa[u]);
         siz[u] = 1;
@@ -23,7 +23,7 @@ struct HLD {
                 swap(v, G[u][0]);
             }
         }
-    }
+    } /* SPLIT-HASH */
     void dfs2(int u) {
         in[u] = seq.size();
         seq.push_back(u);
@@ -43,10 +43,10 @@ struct HLD {
             x = pa[top[x]];
         }
         return dep[x] < dep[y] ? x : y;
-    }
+    } /* SPLIT-HASH */
     int dist(int x, int y) {
         return dep[x] + dep[y] - 2 * dep[lca(x, y)];
-    }
+    } /* SPLIT-HASH */
     int jump(int x, int k) {
         if (dep[x] < k) return -1;
         int d = dep[x] - k;
@@ -54,10 +54,10 @@ struct HLD {
             x = pa[top[x]];
         }
         return seq[in[x] - dep[x] + d];
-    }
+    } /* SPLIT-HASH */
     bool isAnc(int x, int y) {
         return in[x] <= in[y] and in[y] < out[x];
-    }
+    } /* SPLIT-HASH */
     int rootPar(int r, int x) {
         if (r == x) return r;
         if (!isAnc(x, r)) return pa[x];
@@ -65,13 +65,13 @@ struct HLD {
             return in[a] < in[b];
         }) - 1;
         return *it;
-    }
+    } /* SPLIT-HASH */
     int rootSiz(int r, int x) {
         if (r == x) return n;
         if (!isAnc(x, r)) return siz[x];
         return n - siz[rootPar(r, x)];
-    }
+    } /* SPLIT-HASH */
     int rootLca(int a, int b, int c) {
         return lca(a, b) ^ lca(b, c) ^ lca(c, a);
-    }
+    } /* SPLIT-HASH */
 };

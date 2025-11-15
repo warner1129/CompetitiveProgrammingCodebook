@@ -7,7 +7,7 @@ struct Flow {
     void addEdge(int u, int v, Cap w) {
         G[u].push_back({v, w, (int)G[v].size()});
         G[v].push_back({u, 0, (int)G[u].size() - 1});
-    }
+    } /* SPLIT-HASH */
     vector<int> dep;
     bool bfs(int s, int t) {
         dep.assign(n, 0);
@@ -39,7 +39,7 @@ struct Flow {
         }
         if (in) dep[u] = 0;
         return out;
-    }
+    } /* SPLIT-HASH */
     Cap maxFlow(int s, int t) {
         Cap ret = 0;
         while (bfs(s, t)) ret += dfs(s, inf<Cap>, t);
