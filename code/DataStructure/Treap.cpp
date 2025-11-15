@@ -19,7 +19,7 @@ struct Node {
         if (ls) sum = ls->sum + sum;
         if (rs) sum = sum + rs->sum;
     }
-};
+}; /* SPLIT-HASH */
 Info get(Node *p) { return p ? p->sum : Info{}; }
 pair<Node*, Node*> split(Node *t, auto &&pred, Info cur = {}) {
     if (!t) return {{}, {}};
@@ -36,7 +36,7 @@ pair<Node*, Node*> split(Node *t, auto &&pred, Info cur = {}) {
         t->pull();
         return {x, t};
     }
-}
+} /* SPLIT-HASH */
 Node* merge(Node *a, Node *b) {
     if (!a or !b) return a ? a : b;
     if (a->w < b->w) {
@@ -50,7 +50,7 @@ Node* merge(Node *a, Node *b) {
         b->pull();
         return b;
     }
-}
+} /* SPLIT-HASH */
 Node* join(Node *a, Node *b) {
     if (!a or !b) return a ? a : b;
     if (a->w > b->w) swap(a, b);
