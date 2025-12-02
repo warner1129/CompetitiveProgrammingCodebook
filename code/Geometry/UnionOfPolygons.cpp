@@ -45,4 +45,4 @@ vector<double> PolyUnion(const vector<vector<Pt>> &P) {
     for (int i = n - 1; i >= 0; i--) Area[i] += Area[i + 1];
     for (int i = 1; i <= n; i++) Area[i] /= 2;
     return Area;
-};
+}
