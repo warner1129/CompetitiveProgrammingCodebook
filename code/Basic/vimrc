@@ -1,6 +1,6 @@
-set nu rnu ls=2 sw=4 sts=4 so=5 et hls scs is ic mouse=a
+set nu rnu ls=2 sw=4 sts=4 so=5 et hls scs is ic
 filetype indent on| sy on| imap jk <Esc>| map ; :
-map <F9> :!make $(basename % .cpp)<CR>
+map <F9> :!make R=$(basename % .cpp)<CR>
 ca hash w !cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6
 " setarch `uname -m` -R /bin/bash; set -g mode-keys vi
 " alias cp='cp -i'; setxkbmap -option ctrl:nocaps; xmodmap
