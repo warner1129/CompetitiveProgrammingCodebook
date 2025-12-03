@@ -2,4 +2,4 @@ CPPFLAGS = -std=c++20 -Wall -Wshadow -g -DLOCAL
 run: $(R); time ./$(R)
 %.in: $(R); time ./$(R) < $@
 %.asan: %.cpp; $(CXX) $(CPPFLAGS) $< -o $@ -fsanitize=address,undefined
-save: $(R); cp $(R).cpp s/$(R)-$(shell date +%s).cpp
+save: $(R); cp $(R).cpp s/$(R)-$(shell date +%T).cpp
