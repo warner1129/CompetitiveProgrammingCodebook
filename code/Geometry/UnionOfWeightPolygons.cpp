@@ -8,9 +8,8 @@ auto PolyWeightUnion(const vector<vector<Pt>> &P, const auto &W) {
             Ls.emplace_back(Line{P[i][j], P[i][(j + 1) % m]}, W[i]);
     auto cmp = [&](auto &l, auto &r) {
         Pt u = l.ft.dir(), v = r.ft.dir();
-        if (argcmp(u, v)) return true;
-        if (argcmp(v, u)) return false;
-        return PtSide(l.ft.a, r.ft) < 0;
+        return argcmp(u, v) or !argcmp(v, u)
+            and PtSide(l.ft.a, r.ft) < 0;
     }; /* SPLIT-HASH */
     sort(all(Ls), cmp);
     for (int l = 0, r = 0; l < Ls.size(); l = r) {
