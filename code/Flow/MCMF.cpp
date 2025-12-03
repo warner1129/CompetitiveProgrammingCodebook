@@ -1,8 +1,7 @@
 template<class T>
 struct MCMF {
     struct Edge { int v; T f, w; int rev; };
-    vector<vector<Edge>> G;
-    const int n;
+    const int n; vector<vector<Edge>> G;
     MCMF(int _n) : n(_n), G(_n) {}
     void addEdge(int u, int v, T f, T c) {
         G[u].push_back({v, f, c, ssize(G[v])});
