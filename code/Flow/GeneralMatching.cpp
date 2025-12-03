@@ -1,8 +1,7 @@
 struct GeneralMatching { // n <= 500
     const int BLOCK = 10;
-    int n;
-    vector<vector<int> > g;
-    vector<int> hit, mat;
+    int n; vector<vector<int>> g;
+    vector<int> mat, hit;
     std::priority_queue<pair<i64, int>, vector<pair<i64, int>>, greater<pair<i64, int>>> unmat;
     GeneralMatching(int _n) : n(_n), g(_n), mat(n, -1), hit(n) {}
     void add_edge(int a, int b) { // 0 <= a != b < n
