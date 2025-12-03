@@ -1,8 +1,7 @@
 template<class Cap>
 struct Flow {
     struct Edge { int v; Cap w; int rev; };
-    vector<vector<Edge>> G;
-    int n;
+    int n; vector<vector<Edge>> G;
     Flow(int _n) : n(_n), G(_n) {}
     void addEdge(int u, int v, Cap w) {
         G[u].push_back({v, w, (int)G[v].size()});
