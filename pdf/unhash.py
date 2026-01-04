@@ -13,7 +13,7 @@ def unhashfile(file: pathlib.PosixPath):
     file.write_text(code_wo_hash)
 
     hashfile = file.parent / (file.name + '.hash')
-    hashfile.remove()
+    hashfile.unlink()
 
 if __name__ == '__main__':
     with ThreadPoolExecutor() as executor:
