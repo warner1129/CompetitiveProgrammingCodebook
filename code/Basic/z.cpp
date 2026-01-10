@@ -19,7 +19,7 @@ ostream& operator<<(ostream& s, T&& v) {
     return s;
 }
 
-template<class... T> void dbg(T... x) {
+void dbg(auto&& ...x) {
 #ifdef LOCAL
     char e{};
     ((cerr << e << x, e = ' '), ...);
